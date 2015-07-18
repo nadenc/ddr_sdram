@@ -1,0 +1,127 @@
+TOP
+	set regs on negedge clks and read them at posedge clks to allow for setup time
+		commands are registered at every posedge of clk
+	
+	initialize - pass bit to set load mode reg - pg48
+		do setup_reg - load mode reg is same thing incomplete, do not use it
+	
+	nop - internal busy reg - if not busy go into nop
+	
+	do some logic on read/write to determine if active is required for new row or to open bank
+		Active if new row needs to be open - can only have 1 row per bank open at a time
+		
+		precharge if row needs to be closed in a bank - can also precharge all banks if A10 is high, keep A10 low to precharge individual banks
+
+	for write data masks (DM) can be used to not overwrite data
+	
+DQs are data strobe for read/write - output for read, input for write. (reverse on FPGA remember) - pg68-70
+	edge aligned with read see pg34, might also be clocked out on CK? maybe both edges - duh its output...
+	center aligned with write
+
+Read
+	- submit command on prev negedge - (command recieved on posedge)
+	- submit nop command on next negedge if no other command
+	- wait CL
+	- read first DATA on posedge
+	- read rest of burst of length BL on following edges of clk
+	- if new read is desired wait (BL/2 - CL) posedges of clk
+	
+Write
+	- submit command on prev negedge - (command recieved on posedge)
+	- submit nop command on next negedge if no other command
+	- set DQ low on negedge of clk
+	- submit first write data TDH after negedge
+	- submit following write data TDH after each edge
+	- DM when necessary
+	- if new write is desired wait (BL/2 - 1)
+	
+Read -> write can be done as soon as last data is read - can use BST to terminate read sooner
+Read -> precharge use precharge after (BL/2) full clock cycles
+Write -> read has to be done after 1 full clock after last data written (2nd posedge) pg77
+Write -> precharge has to wait 2 full clocks after last data written (3rd posedge) pg80
+	
+Precharge -> active TRP wait 2 full clocks (3rd posedge)
+	
+TRCD - active delay
+	
+DM is active high
+	
+assign DQ = W/R ? dq_wr : 16'bZ;
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+TOP
+	set regs on negedge clks and read them at posedge clks to allow for setup time
+		commands are registered at every posedge of clk
+	- data
+	- address
+	
+	initialize - pass bit to set load mode reg - pg48
+		do setup_reg - load mode reg is same thing incomplete, do not use it
+	
+	nop - internal busy reg - if not busy go into nop
+	
+	W/R - pass read/write bit - read L, write H
+	
+	do some logic on read/write to determine if active is required for new row or to open bank
+		Active if new row needs to be open - can only have 1 row per bank open at a time
+		
+		precharge if row needs to be closed in a bank - can also precharge all banks if A10 is high, keep A10 low to precharge individual banks
+		
+control register for read/write/data/address - see pg 42 for truth table of commands
+
+status register for (init done)/busy/(precharge required)/(open row B0)/(open row B1)/(open row B2)/(open row B3)
+
+	see pg66 for read to write - read must fully complete first
+	for write data masks (DM) can be used to not overwrite data
+	
+DQs are data strobe for read/write - output for read, input for write. (reverse on FPGA remember) - pg68-70
+	edge aligned with read see pg34, might also be clocked out on CK? maybe both edges - duh its output...
+	center aligned with write
+
+Read
+	- submit command on prev negedge - (command recieved on posedge)
+	- submit nop command on next negedge if no other command
+	- wait CL
+	- read first DATA on posedge
+	- read rest of burst of length BL on following edges of clk
+	- if new read is desired wait (BL/2 - CL) posedges of clk
+	
+Write
+	- submit command on prev negedge - (command recieved on posedge)
+	- submit nop command on next negedge if no other command
+	- set DQ low on negedge of clk
+	- submit first write data TDH after negedge
+	- submit following write data TDH after each edge
+	- DM when necessary
+	- if new write is desired wait (BL/2 - 1)
+	
+Read -> write can be done as soon as last data is read - can use BST to terminate read sooner
+Read -> precharge use precharge after (BL/2) full clock cycles
+Write -> read has to be done after 1 full clock after last data written (2nd posedge) pg77
+Write -> precharge has to wait 2 full clocks after last data written (3rd posedge) pg80
+	
+Precharge -> active TRP wait 2 full clocks (3rd posedge)
+	
+TRCD - active delay
+	
+DM is active high
+	
+assign DQ = W/R ? dq_wr : 16'bZ;

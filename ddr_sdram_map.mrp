@@ -1,0 +1,52 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'ddr_sdram'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o ddr_sdram_map.ncd ddr_sdram.ngd ddr_sdram.pcf 
+Target Device  : xc6slx9
+Target Package : csg324
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Mon Jul 13 21:08:34 2015
+
+Design Summary
+--------------
+Number of errors   :   2
+Number of warnings :   0
+
+Section 1 - Errors
+------------------
+ERROR:Pack:2908 - The I/O component "CLK_N" has an illegal IOSTANDARD value. 
+   The IOB component is configured to use single-ended signaling and can not use
+   differential IOSTANDARD value DIFF_MOBILE_DDR.  Two ways to rectify this
+   issue are: 1) Change the IOSTANDARD value to a single-ended standard. 2)
+   Correct the I/O connectivity by instantiating a differential I/O buffer.
+ERROR:Pack:2908 - The I/O component "CLK_P" has an illegal IOSTANDARD value. 
+   The IOB component is configured to use single-ended signaling and can not use
+   differential IOSTANDARD value DIFF_MOBILE_DDR.  Two ways to rectify this
+   issue are: 1) Change the IOSTANDARD value to a single-ended standard. 2)
+   Correct the I/O connectivity by instantiating a differential I/O buffer.
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network BA_IN<1> has no load.
+INFO:LIT:395 - The above info message is repeated 25 more times for the
+   following (max. 5 shown):
+   BA_IN<0>,
+   ADDR_IN<22>,
+   ADDR_IN<21>,
+   ADDR_IN<20>,
+   ADDR_IN<19>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal DDR_CLK are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
