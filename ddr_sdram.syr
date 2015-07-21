@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.56 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.58 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: ddr_sdram.prj
 
@@ -105,277 +105,55 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v" into library work
+Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" into library work
 Parsing module <ddr_sdram>.
-WARNING:HDLCompiler:568 - "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v" Line 79: Constant value is truncated to fit in <9> bits.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating module <ddr_sdram>.
-WARNING:HDLCompiler:413 - "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v" Line 63: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v" Line 64: Result of 2-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:634 - "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v" Line 67: Net <status[9]> does not have a driver.
-
-=========================================================================
-*                           HDL Synthesis                               *
-=========================================================================
-
-Synthesizing Unit <ddr_sdram>.
-    Related source file is "D:\Projects\FPGA\lib\ddr_sdram\ddr_sdram.v".
-WARNING:Xst:647 - Input <ADDR_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2935 - Signal 'status<9:7>', unconnected in block 'ddr_sdram', is tied to its initial value (001).
-WARNING:Xst:2935 - Signal 'status<5:0>', unconnected in block 'ddr_sdram', is tied to its initial value (000000).
-    Found 13-bit register for signal <ADDR>.
-    Found 4-bit register for signal <control>.
-    Found 1-bit tristate buffer for signal <DATA_OUT<15>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<14>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<13>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<12>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<11>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<10>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<9>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<8>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<7>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<6>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<5>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<4>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<3>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<2>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<1>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_OUT<0>> created at line 49
-    Found 1-bit tristate buffer for signal <DATA_IN<15>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<14>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<13>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<12>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<11>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<10>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<9>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<8>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<7>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<6>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<5>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<4>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<3>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<2>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<1>> created at line 51
-    Found 1-bit tristate buffer for signal <DATA_IN<0>> created at line 51
-    Found 1-bit tristate buffer for signal <DQ<1>> created at line 63
-    Found 1-bit tristate buffer for signal <DQ<0>> created at line 64
-    WARNING:Xst:2404 -  FFs/Latches <control<9:4>> (without init value) have a constant value of 0 in block <ddr_sdram>.
-    Summary:
-	inferred  17 D-type flip-flop(s).
-	inferred   3 Multiplexer(s).
-	inferred  34 Tristate(s).
-Unit <ddr_sdram> synthesized.
-
-=========================================================================
-HDL Synthesis Report
-
-Macro Statistics
-# Registers                                            : 2
- 13-bit register                                       : 1
- 4-bit register                                        : 1
-# Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 2
- 13-bit 2-to-1 multiplexer                             : 1
-# Tristates                                            : 34
- 1-bit tristate buffer                                 : 34
-
-=========================================================================
-
-=========================================================================
-*                       Advanced HDL Synthesis                          *
-=========================================================================
-
-WARNING:Xst:1710 - FF/Latch <ADDR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <control_0> of sequential type is unconnected in block <ddr_sdram>.
-WARNING:Xst:2677 - Node <control_1> of sequential type is unconnected in block <ddr_sdram>.
-WARNING:Xst:2677 - Node <control_0> of sequential type is unconnected in block <ddr_sdram>.
-WARNING:Xst:2677 - Node <control_1> of sequential type is unconnected in block <ddr_sdram>.
-
-=========================================================================
-Advanced HDL Synthesis Report
-
-Macro Statistics
-# Registers                                            : 15
- Flip-Flops                                            : 15
-# Multiplexers                                         : 3
- 1-bit 2-to-1 multiplexer                              : 2
- 13-bit 2-to-1 multiplexer                             : 1
-
-=========================================================================
-
-=========================================================================
-*                         Low Level Synthesis                           *
-=========================================================================
-WARNING:Xst:1710 - FF/Latch <ADDR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ADDR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <control_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <control_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-
-Optimizing unit <ddr_sdram> ...
-
-Mapping all equations...
-Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block ddr_sdram, actual ratio is 0.
-
-Final Macro Processing ...
-
-=========================================================================
-Final Register Report
-
-Found no macro
-=========================================================================
-
-=========================================================================
-*                           Partition Report                            *
-=========================================================================
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-=========================================================================
-*                            Design Summary                             *
-=========================================================================
-
-Top Level Output File Name         : ddr_sdram.ngc
-
-Primitive and Black Box Usage:
-------------------------------
-# BELS                             : 4
-#      GND                         : 1
-#      INV                         : 2
-#      VCC                         : 1
-# IO Buffers                       : 60
-#      IBUF                        : 2
-#      IOBUF                       : 32
-#      OBUF                        : 24
-#      OBUFT                       : 2
-
-Device utilization summary:
----------------------------
-
-Selected Device : 6slx9csg324-3 
-
-
-Slice Logic Utilization: 
- Number of Slice LUTs:                    2  out of   5720     0%  
-    Number used as Logic:                 2  out of   5720     0%  
-
-Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:      2
-   Number with an unused Flip Flop:       2  out of      2   100%  
-   Number with an unused LUT:             0  out of      2     0%  
-   Number of fully used LUT-FF pairs:     0  out of      2     0%  
-   Number of unique control sets:         0
-
-IO Utilization: 
- Number of IOs:                          86
- Number of bonded IOBs:                  60  out of    200    30%  
-
-Specific Feature Utilization:
-
----------------------------
-Partition Resource Summary:
----------------------------
-
-  No Partitions were found in this design.
-
----------------------------
-
-
-=========================================================================
-Timing Report
-
-NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
-      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
-      GENERATED AFTER PLACE-and-ROUTE.
-
-Clock Information:
-------------------
-No clock signals found in this design
-
-Asynchronous Control Signals Information:
-----------------------------------------
-No asynchronous control signals found in this design
-
-Timing Summary:
----------------
-Speed Grade: -3
-
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
-   Maximum combinational path delay: 6.075ns
-
-Timing Details:
----------------
-All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 68 / 36
--------------------------------------------------------------------------
-Delay:               6.075ns (Levels of Logic = 3)
-  Source:            COMMAND<1> (PAD)
-  Destination:       DQ<1> (PAD)
-
-  Data Path: COMMAND<1> to DQ<1>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            17   1.222   1.027  COMMAND_1_IBUF (COMMAND_1_IBUF)
-     INV:I->O             18   0.206   1.049  COMMAND<1>_inv1_INV_0 (COMMAND<1>_inv)
-     OBUFT:T->O                2.571          DQ_1_OBUFT (DQ<1>)
-    ----------------------------------------
-    Total                      6.075ns (3.999ns logic, 2.076ns route)
-                                       (65.8% logic, 34.2% route)
-
-=========================================================================
-
-Cross Clock Domains Report:
---------------------------
-
-=========================================================================
-
-
-Total REAL time to Xst completion: 22.00 secs
-Total CPU time to Xst completion: 21.79 secs
- 
+ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 190: Signal ACCEPTED in unit ddr_sdram is connected to following multiple drivers:
+Driver 0: output signal ACCEPTED of instance Flip-Flop (ACCEPTED).
+Driver 1: output signal ACCEPTED of instance Flip-Flop (_i000098).
+Driver 2: output signal ACCEPTED of instance Flip-Flop (_i000089).
+Driver 3: output signal ACCEPTED of instance Flip-Flop (_i000080).
+ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 134: Signal control[3] in unit ddr_sdram is connected to following multiple drivers:
+Driver 0: output signal control[3] of instance Flip-Flop (control[3]).
+Driver 1: output signal control[3] of instance Flip-Flop (_i000076).
+Driver 2: output signal control[3] of instance Flip-Flop (_i000063).
+Driver 0: output signal control[2] of instance Flip-Flop (control[2]).
+Driver 1: output signal control[2] of instance Flip-Flop (_i000077).
+Driver 2: output signal control[2] of instance Flip-Flop (_i000064).
+Driver 0: output signal control[1] of instance Flip-Flop (control[1]).
+Driver 1: output signal control[1] of instance Flip-Flop (_i000096).
+Driver 2: output signal control[1] of instance Flip-Flop (_i000087).
+Driver 3: output signal control[1] of instance Flip-Flop (_i000078).
+Driver 4: output signal control[1] of instance Flip-Flop (_i000065).
+Driver 0: output signal control[0] of instance Flip-Flop (control[0]).
+Driver 1: output signal control[0] of instance Flip-Flop (_i000097).
+Driver 2: output signal control[0] of instance Flip-Flop (_i000088).
+Driver 3: output signal control[0] of instance Flip-Flop (_i000079).
+Driver 4: output signal control[0] of instance Flip-Flop (_i000066).
+ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 95: Signal status[12] in unit ddr_sdram is connected to following multiple drivers:
+Driver 0: output signal status[12] of instance Flip-Flop (status[12]).
+Driver 1: output signal status[12] of instance Flip-Flop (_i000048).
+Driver 0: output signal status[11] of instance Flip-Flop (status[11]).
+Driver 1: output signal status[11] of instance Flip-Flop (_i000081).
+Driver 2: output signal status[11] of instance Flip-Flop (_i000067).
+Driver 0: output signal status[10] of instance Flip-Flop (status[10]).
+Driver 1: output signal status[10] of instance Flip-Flop (_i000099).
+Driver 2: output signal status[10] of instance Flip-Flop (_i000090).
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 83: Net <status[9]> does not have a driver.
+Driver 0: output signal status[5] of instance Flip-Flop (status[5]).
+Driver 1: output signal status[5] of instance Flip-Flop (_i000049).
+Module ddr_sdram remains a blackbox, due to errors in its contents
+WARNING:HDLCompiler:1499 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 25: Empty module <ddr_sdram> remains a black box.
 --> 
 
-Total memory usage is 262868 kilobytes
+Total memory usage is 182732 kilobytes
 
-Number of errors   :    0 (   0 filtered)
-Number of warnings :   40 (   0 filtered)
+Number of errors   :    3 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
