@@ -1,1 +1,2 @@
+verilog work "ipcore_dir/ddr_clk_mod.v"
 verilog work "ddr_sdram.v"

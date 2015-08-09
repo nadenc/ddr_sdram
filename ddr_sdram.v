@@ -7,233 +7,355 @@
 // PRECHARGE ADDR[10]
 
 /* External Interface
-Use COMMAND reg to send read/write request:
-	COMMAND[1] is the R/W bit (set 1 for read, set 0 for write)
-	COMMAND[0] is the action requested bit (set 1 when read/write is required)
+Set WRITE or READ inputs high to initialize a command
+
 
 BA is bank address [1:0]
 DATA_IN is the data bus [15:0]
-ADDR_IN is the address bus [22:0] ([22:13] column address, [12:0] row address)
+ADDR_ROW_IN is the row address for the first word in the burst
+ADDR_COL_IN is the column address
 Use WRITE_LENGTH to specify number of 16-bit words to be written in burst
-Use DATA_EDGE to clock in/out data in write/read commands
-
-***NOTE***
-Command inputs and buses must remain asserted until a rising edge on ACCEPTED is received
-Commands must be asserted in the falling edge of DDR_CLK
 */
 
 module ddr_sdram(
 // Clocks
-input DDR_CLK			, // 166MHz
-output CLK_P			,
-output CLK_N			,
+input SYS_CLK_100M, // 100MHz
+output CLK_P,
+output CLK_N,
 
 // Output Pins
-output CKE				,
-output WE				,
-output CAS				,
-output RAS				,
-output [1:0] BA			,
-output [1:0] DM			,
-inout [1:0] DQ			,
-inout [15:0] DATA_OUT	,
-output [12:0] ADDR_OUT	,
+output CKE,
+output WE,
+output CAS,
+output RAS,
+output reg [1:0] BA,
+output reg [1:0] DM,
+inout [1:0] DQS,
+inout [15:0] DATA_RAM,
+output [12:0] ADDR_RAM,
 
 //External Interface
-input [1:0] BA_IN		,
-inout [15:0] DATA_IN	,
-input [22:0] ADDR_IN	, // [22:13] col, [12:0] row
-input [1:0] BL			, // burst length
+input [1:0] BA_IN,
+inout [(16*BURST_LENGTH-1):0] DATA_IN,
+input [12:0] ADDR_ROW_IN, // start of burst row address
+input [9:0] ADDR_COL_IN, // column address
+input [1:0] BL, // burst length
 
-input [1:0] COMMAND	, // [1-read0write1,0-action requested], this command needs to remain asserted until a posedge of ACCEPTED is sent
-input WRITE_LENGTH	, // number of words to be written in burst
-output DATA_EDGE , // edge for data bus
-output reg ACCEPTED	  	  // output if successful of command - set high after negedge of command issue, set low every posedge
+input WRITE,
+input READ,
+
+input WRITE_LENGTH, // number of words to be written in burst
+output reg BUSY // busy status to broadcast 
 );
 
+// Clocking
+assign CLK_P = DDR_CLK_166M;
+assign CLK_N = !DDR_CLK_166M;
+
+reg CLK_RESET;
+wire CLK_LOCKED;
+
+// MEM Bank
 reg [12:0] openRowB3; // store open rows in each bank
 reg [12:0] openRowB2;
 reg [12:0] openRowB1;
 reg [12:0] openRowB0;
 
-assign CLK_P = DDR_CLK;
-assign CLK_N = ~DDR_CLK;
+reg [3:0] BANK_STATUS; // 3-b3open,2-b2open,1-b1open,0-b0open
 
-assign DATA_OUT = status[11] ? DATA_IN : 16'bZ; // out if write, Z otherwise
-assign ADDR_OUT = ADDR;
-assign DATA_IN = status[10] ? DATA_OUT : 16'bZ; // data if read, Z if Write
-
-assign CKE = COMMAND[0] ? control[9] : 1'b0; // 1 if enable, 0 if disable
-assign WE = control[8];
-assign CAS = control[7];
-assign RAS = control[6];
-assign BA[1] = control[5];
-assign BA[0] = control[4];
-assign DM[1] = control[3];
-assign DM[0] = control[2];
-
-assign DQ[1] = status[11] ? control[1] : 1'bZ; // output if writing, input otherwise
-assign DQ[0] = status[11] ? control[0] : 1'bZ; // output if writing, input otherwise
-assign DATA_EDGE = control[1]; // data edge 
-
-reg [3:0] counter; // counter for edge counting delays
+// Data/Address wire maps
+reg [31:0] DATA_BUF_WR[BURST_LENGTH-2:0];
+reg [31:0] DATA_BUF_RE[BURST_LENGTH-2:0];
+reg [15:0] DATA_WR;
+reg [15:0] DATA_RE;
+assign DATA_RAM = (STATUS == S_WRITE) ? DATA_WR : 16'bZ; // out if write, Z otherwise
+assign DATA_IN = (STATUS == S_READ) ? DATA_RE : 256'bZ; // data if read, Z otherwise
 
 reg [12:0] ADDR; // store intermediate address how to handle A10?
-reg [9:0] control; // [9-CKE,8-WE,7-CAS,6-RAS,5-BA1,4-BA0,3-DM1,2-DM0,1-DQ1,0-DQ0]
-reg [12:0] status; // [12-active required,11-writing,10-reading,9-pwr,8-init done,7-wr_ready,6-re_ready,5-precharge required,4-SPARE,3-openB3,2-openB2,1-openB1,0-openB0]
+assign ADDR_RAM = ADDR;
 
-localparam CAS_LAT = 4; // CAS latency clock delay (both edge delay)
-localparam BURST_LENGTH = 2; // data burst length
+// Data strobes
+reg WR_STROBE;
+
+assign DQS[1] = (STATUS == S_WRITE) ? WR_STROBE : 1'bZ; // output if writing, input otherwise
+assign DQS[0] = (STATUS == S_WRITE) ? WR_STROBE : 1'bZ; // output if writing, input otherwise
+
+// Status registers
+reg PWR_ON;
+reg INITIALIZED;
+
+reg [2:0] STATUS;
+
+// Status states
+localparam S_IDLE	= 3'h0;
+localparam S_WRITE	= 3'h1;
+localparam S_READ	= 3'h2;
+localparam S_PRE	= 3'h3;
+localparam S_ACTIVE	= 3'h4;
+
+// Command register
+reg [3:0] COMMAND;
+
+assign CKE = COMMAND[3];
+assign WE = COMMAND[2];
+assign CAS = COMMAND[1];
+assign RAS = COMMAND[0];
+
+// Commands
+localparam C_INIT	= 4'b1000;
+localparam C_PRE	= 4'b1010;
+localparam C_ACTIVE	= 4'b1110;
+localparam C_READ	= 4'b1101;
+localparam C_WRITE	= 4'b1001;
+localparam C_NOP	= 4'b0000;
+
+// System parameters
+localparam CAS_LAT = 3; // CAS latency clock delay (both edge delay)
+localparam BURST_LENGTH = 16; // data burst length, 2,4,8,16 available
+
+// Counters
+reg [4:0] wr_count;
+reg [3:0] re_count;
+reg [4:0] BUSY_COUNT;
+
+// module instances
+ddr_clk_mod ddr_clocks (
+	.SYS_CLK_100M(SYS_CLK_100M),
+	.DDR_CLK_166M(DDR_CLK_166M),
+	.WR_CLK_333M(WR_CLK_333M),	// double freq of DDR_CLK_166M to be used for both writes
+	.RESET(CLK_RESET),
+	.LOCKED(CLK_LOCKED)
+);
 
 initial begin
-	status <= 13'b0; // clear status reg
-	control <= 10'b0; // clear control reg
+	BUSY <= 1'b1;
+	BUSY_COUNT <= 3'b0;
+	STATUS <= S_IDLE;
+	CLK_RESET <= 1'b1; // hold clocks in reset
 	
-	#200 status[9] <= 1'b1; // wait 200ns after power up before issuing any commands, set power on
+	wr_count <= 5'b0;
+	re_count <= 4'b0;
+	
+	#200 PWR_ON <= 1'b1; // wait 200ns after power up before issuing any commands, set power on
+	CLK_RESET <= 1'b0; // release clocks from reset
 end
 
-always @ (posedge DDR_CLK) begin
-	if (COMMAND[0]) begin // if action required, check for precharge/active requirement
+/*
+always @ (posedge DDR_CLK_166M) begin // check request for active/precharge requirement
+	
+end
+
+always @ (negedge DDR_CLK_166M) begin // command pass
+
+end
+*/
+
+always @ (posedge WR_CLK_333M) begin
+
+	//////////////////////////////// PRECHARGE/ACTIVE CHECK ////////////////////////////////
+	if ((READ || WRITE) && PWR_ON && INITIALIZED && !BUSY && DDR_CLK_166M) begin // if action required and not currently acting, check for precharge/active requirement
 		case (BA) // check if bank/row is open
 			2'b00: begin
-				if (status[0] && (openRowB0 != ADDR_IN[12:0])) begin // if bank is open and wrong row is open call precharge
-					status[5] <= 1'b1; // precharge required
+				if (BANK_STATUS[0] && (openRowB0 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
+					STATUS <= S_PRE; // precharge required
 				end
-				else if (~status[0]) begin // if bank isnt open call active
-					status[12] <= 1'b1; // active required
+				else if (!BANK_STATUS[0]) begin // if bank isnt open call active
+					STATUS <= S_ACTIVE; // active required
 				end
 			end
 			2'b01: begin
-				if (status[1] && (openRowB1 != ADDR_IN[12:0])) begin // if bank is open and wrong row is open call precharge
-					status[5] <= 1'b1; // precharge required
+				if (BANK_STATUS[1] && (openRowB1 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
+					STATUS <= S_PRE; // precharge required
 				end
-				else if (~status[1]) begin // if bank isnt open call active
-					status[12] <= 1'b1; // active required
+				else if (!BANK_STATUS[1]) begin // if bank isnt open call active
+					STATUS <= S_ACTIVE; // active required
 				end
 			end
 			2'b10: begin
-				if (status[2] && (openRowB2 != ADDR_IN[12:0])) begin // if bank is open and wrong row is open call precharge
-					status[5] <= 1'b1; // precharge required
+				if (BANK_STATUS[2] && (openRowB2 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
+					STATUS <= S_PRE; // precharge required
 				end
-				else if (~status[2]) begin // if bank isnt open call active
-					status[12] <= 1'b1; // active required
+				else if (!BANK_STATUS[2]) begin // if bank isnt open call active
+					STATUS <= S_ACTIVE; // active required
 				end
 			end
 			2'b11: begin
-				if (status[3] && (openRowB3 != ADDR_IN[12:0])) begin // if bank is open and wrong row is open call precharge
-					status[5] <= 1'b1; // precharge required
+				if (BANK_STATUS[3] && (openRowB3 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
+					STATUS <= S_PRE; // precharge required
 				end
-				else if (~status[3]) begin // if bank isnt open call active
-					status[12] <= 1'b1; // active required
+				else if (!BANK_STATUS[3]) begin // if bank isnt open call active
+					STATUS <= S_ACTIVE; // active required
 				end
 			end
 		endcase
 	end
+	
+	//////////////////////////////// COMMAND PASS ////////////////////////////////
+	if (!DDR_CLK_166M) begin
+		if (PWR_ON && !INITIALIZED && CLK_LOCKED) begin // initialize once clk locked and power on
+			COMMAND <= C_INIT; // set op command 
+			ADDR[12:7] <= 6'b0;
+			ADDR[6:4] <= CAS_LAT;
+			ADDR[4] <= 1'b0;
+			case (BURST_LENGTH)
+				2: ADDR[2:0] <= 3'h1;
+				4: ADDR[2:0] <= 3'h2;
+				8: ADDR[2:0] <= 3'h3;
+				16: ADDR[2:0] <= 3'h4;
+			endcase
+			BUSY <= 1'b0;
+			INITIALIZED <= 1'b1;
+		end
+		else if (STATUS == S_PRE && !BUSY) begin // precharge
+			COMMAND <= C_PRE; // set op command
+			BA <= BA_IN; // set bank address
+			ADDR[10] <= 0; // clear only single bank
+			STATUS <= S_ACTIVE; // require precharge
+		end
+		else if (STATUS == S_ACTIVE && !BUSY) begin // active
+			COMMAND <= C_ACTIVE; // set op command
+			BA <= BA_IN; // set bank address
+			ADDR <= ADDR_ROW_IN[12:0]; // set row address
+			
+			case (BA_IN) // record new open row in bank
+				2'b00: openRowB0 <= ADDR_ROW_IN[12:0];
+				2'b01: openRowB1 <= ADDR_ROW_IN[12:0];
+				2'b10: openRowB2 <= ADDR_ROW_IN[12:0];
+				2'b11: openRowB3 <= ADDR_ROW_IN[12:0];
+			endcase
+			
+			if (READ) begin
+				STATUS <= S_READ;
+			end else if (WRITE) begin
+				STATUS <= S_WRITE;
+			end else begin
+				STATUS <= S_IDLE;
+			end
+			
+		end
+		else if (STATUS == S_READ && READ && !BUSY)begin // read required
+			COMMAND <= C_READ; // set op command
+			BA <= BA_IN[1:0]; // set bank address
+			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
+			ADDR[10] <= 1'b0; // set precharge bit low
+			
+			BUSY <= 1'b1; // busy
+			BUSY_COUNT <= (CAS_LAT + BURST_LENGTH); // set busy for length
+		end
+		else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
+			COMMAND <= C_WRITE; // set op command
+			BA <= BA_IN[1:0]; // set bank address
+			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
+			ADDR[10] <= 1'b0; // set precharge bit low
+			
+			BUSY <= 1'b1; // busy
+			BUSY_COUNT <= (CAS_LAT + BURST_LENGTH); // set busy for length
+			
+			DATA_BUF_WR[0] <= DATA_IN[31:0];
+			if (BURST_LENGTH > 2) DATA_BUF_WR[1] <= DATA_IN[63:32];
+			if (BURST_LENGTH > 4) DATA_BUF_WR[2] <= DATA_IN[95:64];
+			if (BURST_LENGTH > 4) DATA_BUF_WR[3] <= DATA_IN[127:96];
+			if (BURST_LENGTH > 8) DATA_BUF_WR[4] <= DATA_IN[159:128];
+			if (BURST_LENGTH > 8) DATA_BUF_WR[5] <= DATA_IN[191:160];
+			if (BURST_LENGTH > 8) DATA_BUF_WR[6] <= DATA_IN[223:192];
+			if (BURST_LENGTH > 8) DATA_BUF_WR[7] <= DATA_IN[255:224];
+		end
+		else begin // count after read/write command, send NOPs
+			COMMAND <= C_NOP; // set nop command
+			
+			// count down busy timer
+			if (BUSY_COUNT > 3'h0) begin // if busy in wr/re
+				if (BUSY_COUNT == 3'h2) begin
+					BUSY <= 1'b0;
+					STATUS <= S_IDLE; // clear status
+				end
+				BUSY_COUNT <= (BUSY_COUNT - 3'h2); // -2 since half clk
+			end
+		end
+	end
+	
+	//////////////////////////////// WRITE DATA ////////////////////////////////
+	if (STATUS == S_WRITE) begin
+		if (wr_count == CAS_LAT + BURST_LENGTH-1) begin
+			wr_count <= 5'b0;
+		end else begin
+			wr_count <= wr_count + 5'b1;
+		end
+		
+		if (wr_count > CAS_LAT) begin // write data when ready
+			WR_STROBE <= !WR_STROBE; // toggle DQS
+
+			case (wr_count)
+				CAS_LAT+5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
+				CAS_LAT+5'h1: DATA_WR <= DATA_BUF_WR[0][31:16];
+				CAS_LAT+5'h2: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][15:0];
+				CAS_LAT+5'h3: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][31:16];
+				CAS_LAT+5'h4: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][15:0];
+				CAS_LAT+5'h5: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][31:16];
+				CAS_LAT+5'h6: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][15:0];
+				CAS_LAT+5'h7: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][31:16];
+				CAS_LAT+5'h8: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][15:0];
+				CAS_LAT+5'h9: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][31:16];
+				CAS_LAT+5'hA: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][15:0];
+				CAS_LAT+5'hB: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][31:16];
+				CAS_LAT+5'hC: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][15:0];
+				CAS_LAT+5'hD: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][31:16];
+				CAS_LAT+5'hE: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][15:0];
+				CAS_LAT+5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
+			endcase
+			
+			if (wr_count >= CAS_LAT + WRITE_LENGTH - 1) begin // mask excess writes
+				DM <= 2'b11; // set data mask high
+			end	else begin
+				DM <= 2'b00; // clear any data mask
+			end
+		end
+	end
 end
 
-always @ (negedge DDR_CLK) begin
-	if (status == 13'bXXX10XXXXXXXX) begin // initialize (PWR on and and not yet initialized)
-		control[9:6] <= 4'b1000; // set op command 
-		ADDR <= 13'b0000000100001; // 2 CAS latency, sequential burst, 2 burst length
-		status[8] <= 1'b1; // init done
-	end
-	
-	else if (status == 13'b000X1XX1XXXXX) begin // precharge
-		control[9:6] <= 4'b1010; // set op command
-		control[5:4] <= BA_IN; // set bank address
-		ADDR[10] <= 0; // clear only single bank
-		status[5] <= 1'b0; // clear precharge
-		status[12] <= 1'b1; // active required
-	end
-	
-	else if (status == 13'b100X1XX0XXXXX) begin // active
-		control[9:6] <= 4'b1110; // set op command
-		control[5:4] <= BA_IN; // set bank address
-		ADDR <= ADDR_IN[12:0]; // set row address
-		status[12] <= 1'b0; // active complete
-		status[7:6] <= 2'b11; // ready for R/W
-		case (BA_IN) // record new open row in bank
-			2'b00: openRowB0 <= ADDR_IN[12:0];
-			2'b01: openRowB1 <= ADDR_IN[12:0];
-			2'b10: openRowB2 <= ADDR_IN[12:0];
-			2'b11: openRowB3 <= ADDR_IN[12:0];
+	//////////////////////////////// READ DATA ////////////////////////////////
+always @ (posedge DQS[1]) begin	
+	POS_DQS <= 1;
+	#1 POS_DQS <= 0;
+end
+
+always @ (negedge DQS[1]) begin	
+	NEG_DQS <= 1;
+	#1 NEG_DQS <= 0;
+end
+
+reg POS_DQS, NEG_DQS;
+wire re_strobe;
+
+assign re_strobe = POS_DQS | NEG_DQS;
+
+always @ (posedge re_strobe) begin // read data
+	if (STATUS == S_READ) begin
+		if (re_count == BURST_LENGTH-1) begin
+			re_count <= 4'b0;
+		end else begin
+			re_count <= re_count + 4'b1;
+		end
+		
+		case (re_count)
+			4'h0: DATA_BUF_RE[0][15:0] <= DATA_RAM;
+			4'h1: DATA_BUF_RE[0][31:16] <= DATA_RAM;
+			4'h2: DATA_BUF_RE[1][15:0] <= DATA_RAM;
+			4'h3: DATA_BUF_RE[1][31:16] <= DATA_RAM;
+			4'h4: DATA_BUF_RE[2][15:0] <= DATA_RAM;
+			4'h5: DATA_BUF_RE[2][31:16] <= DATA_RAM;
+			4'h6: DATA_BUF_RE[3][15:0] <= DATA_RAM;
+			4'h7: DATA_BUF_RE[3][31:16] <= DATA_RAM;
+			4'h8: DATA_BUF_RE[4][15:0] <= DATA_RAM;
+			4'h9: DATA_BUF_RE[4][31:16] <= DATA_RAM;
+			4'hA: DATA_BUF_RE[5][15:0] <= DATA_RAM;
+			4'hB: DATA_BUF_RE[5][31:16] <= DATA_RAM;
+			4'hC: DATA_BUF_RE[6][15:0] <= DATA_RAM;
+			4'hD: DATA_BUF_RE[6][31:16] <= DATA_RAM;
+			4'hE: DATA_BUF_RE[7][15:0] <= DATA_RAM;
+			4'hF: DATA_BUF_RE[7][31:16] <= DATA_RAM;
 		endcase
-	end
-	
-	else if ((COMMAND == 2'b01) && (status == 13'b00011X10XXXXX))begin // read required
-		control[9:6] <= 4'b1101; // set op command
-		control[5:4] <= BA_IN[1:0]; // set bank address
-		control[1:0] <= 2'b0; // set DQs low
-		counter <= 4'b0; // reset counter
-		status[10] <= 1'b1; // set reading bit
-		ADDR[9:0] <= ADDR_IN[22:13]; // set column address
-		ADDR[10] <= 1'b0; // set precharge bit low
-	end
-	
-	else if ((COMMAND == 2'b11) && (status == 13'b000111X0XXXXX))begin // write required
-		control[9:6] <= 4'b1001; // set op command
-		control[5:4] <= BA_IN[1:0]; // set bank address
-		control[1:0] <= 2'b0; // set DQs low
-		counter <= 4'b0; // reset counter
-		status[11] <= 1'b1; // set writing bit
-		ADDR[9:0] <= ADDR_IN[22:13]; // set column address
-		ADDR[10] <= 1'b0; // set precharge bit low
-		control[3:2] <= 2'b00; // clear data mask
-	end
-	
-	else begin // count after read/write command, send NOPs
-		control[9:6] <= 4'b0000; // set nop command
-		counter <= (counter + 4'b0); // increment counter
-	end
-end
-
-always @ (posedge DDR_CLK) begin // write data
-	if (status[11] && (counter > CAS_LAT) && (counter <= (CAS_LAT + BURST_LENGTH))) begin
-		control[1:0] <= ~control[1:0]; // toggle DQS and DATA_EDGE
-		ACCEPTED <= 1'b0; // set accepted bit low
-		if ((counter == (CAS_LAT + WRITE_LENGTH)) && (counter != (CAS_LAT + BURST_LENGTH))) begin // mask excess writes
-			control[3:2] <= 2'b11; // set data mask high
-		end
-		else if (counter == (CAS_LAT + BURST_LENGTH)) begin // finalizes write
-			ACCEPTED <= 1'b1; // set accepted bit low
-			status[11] <= 1'b0; // finish write
-		end
-	end
-end
-
-always @ (negedge DDR_CLK) begin // write data
-	if (status[11] && (counter > CAS_LAT) && (counter <= (CAS_LAT + BURST_LENGTH))) begin
-		control[1:0] <= ~control[1:0]; // toggle DQS and DATA_EDGE
-		ACCEPTED <= 1'b0; // set accepted bit low
-		if ((counter == (CAS_LAT + WRITE_LENGTH)) && (counter != (CAS_LAT + BURST_LENGTH))) begin // mask excess writes
-			control[3:2] <= 2'b11; // set data mask high
-		end
-		else if (counter == (CAS_LAT + BURST_LENGTH)) begin // finalizes write
-			ACCEPTED <= 1'b1; // set accepted bit low
-			status[11] <= 1'b0; // finish write
-		end
-	end
-end
-
-always @ (posedge DQ[1]) begin // read data
-	if (status[10] && ((counter > CAS_LAT) && (counter <= (CAS_LAT + BURST_LENGTH)))) begin
-		control[1:0] <= ~control[1:0]; // toggle DATA_EDGE
-		ACCEPTED <= 1'b0; // set accepted bit low
-		if (counter == (CAS_LAT + BURST_LENGTH)) begin // finalizes write
-			ACCEPTED <= 1'b1; // set accepted bit low
-			status[10] <= 1'b0; // finish write
-		end
-	end
-end
-
-always @ (negedge DQ[1]) begin // read data
-	if (status[10] && ((counter > CAS_LAT) && (counter <= (CAS_LAT + BURST_LENGTH)))) begin
-		control[1:0] <= ~control[1:0]; // toggle DATA_EDGE
-		ACCEPTED <= 1'b0; // set accepted bit low
-		if (counter == (CAS_LAT + BURST_LENGTH)) begin // finalizes write
-			ACCEPTED <= 1'b1; // set accepted bit low
-			status[10] <= 1'b0; // finish write
-		end
+		
 	end
 end
 

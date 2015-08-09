@@ -1,0 +1,2 @@
+verilog work ../../ddr_clk_mod.v
+verilog work ../example_design/ddr_clk_mod_exdes.v

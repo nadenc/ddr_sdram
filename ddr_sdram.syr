@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: ddr_sdram.prj
 
@@ -99,12 +99,17 @@ DSP48 Utilization Ratio            : 100
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
 =========================================================================
 
 
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" into library work
+Parsing module <ddr_clk_mod>.
 Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" into library work
 Parsing module <ddr_sdram>.
 
@@ -113,47 +118,1114 @@ Parsing module <ddr_sdram>.
 =========================================================================
 
 Elaborating module <ddr_sdram>.
-ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 190: Signal ACCEPTED in unit ddr_sdram is connected to following multiple drivers:
-Driver 0: output signal ACCEPTED of instance Flip-Flop (ACCEPTED).
-Driver 1: output signal ACCEPTED of instance Flip-Flop (_i000098).
-Driver 2: output signal ACCEPTED of instance Flip-Flop (_i000089).
-Driver 3: output signal ACCEPTED of instance Flip-Flop (_i000080).
-ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 134: Signal control[3] in unit ddr_sdram is connected to following multiple drivers:
-Driver 0: output signal control[3] of instance Flip-Flop (control[3]).
-Driver 1: output signal control[3] of instance Flip-Flop (_i000076).
-Driver 2: output signal control[3] of instance Flip-Flop (_i000063).
-Driver 0: output signal control[2] of instance Flip-Flop (control[2]).
-Driver 1: output signal control[2] of instance Flip-Flop (_i000077).
-Driver 2: output signal control[2] of instance Flip-Flop (_i000064).
-Driver 0: output signal control[1] of instance Flip-Flop (control[1]).
-Driver 1: output signal control[1] of instance Flip-Flop (_i000096).
-Driver 2: output signal control[1] of instance Flip-Flop (_i000087).
-Driver 3: output signal control[1] of instance Flip-Flop (_i000078).
-Driver 4: output signal control[1] of instance Flip-Flop (_i000065).
-Driver 0: output signal control[0] of instance Flip-Flop (control[0]).
-Driver 1: output signal control[0] of instance Flip-Flop (_i000097).
-Driver 2: output signal control[0] of instance Flip-Flop (_i000088).
-Driver 3: output signal control[0] of instance Flip-Flop (_i000079).
-Driver 4: output signal control[0] of instance Flip-Flop (_i000066).
-ERROR:HDLCompiler:1401 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 95: Signal status[12] in unit ddr_sdram is connected to following multiple drivers:
-Driver 0: output signal status[12] of instance Flip-Flop (status[12]).
-Driver 1: output signal status[12] of instance Flip-Flop (_i000048).
-Driver 0: output signal status[11] of instance Flip-Flop (status[11]).
-Driver 1: output signal status[11] of instance Flip-Flop (_i000081).
-Driver 2: output signal status[11] of instance Flip-Flop (_i000067).
-Driver 0: output signal status[10] of instance Flip-Flop (status[10]).
-Driver 1: output signal status[10] of instance Flip-Flop (_i000099).
-Driver 2: output signal status[10] of instance Flip-Flop (_i000090).
-WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 83: Net <status[9]> does not have a driver.
-Driver 0: output signal status[5] of instance Flip-Flop (status[5]).
-Driver 1: output signal status[5] of instance Flip-Flop (_i000049).
-Module ddr_sdram remains a blackbox, due to errors in its contents
-WARNING:HDLCompiler:1499 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 25: Empty module <ddr_sdram> remains a black box.
+WARNING:HDLCompiler:872 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 130: Using initial value of CLK_RESET since it is never assigned
+
+Elaborating module <ddr_clk_mod>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <PLL_BASE(BANDWIDTH="OPTIMIZED",CLK_FEEDBACK="CLKFBOUT",COMPENSATION="SYSTEM_SYNCHRONOUS",DIVCLK_DIVIDE=1,CLKFBOUT_MULT=10,CLKFBOUT_PHASE=0.0,CLKOUT0_DIVIDE=6,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DIVIDE=3,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKIN_PERIOD=10.0,REF_JITTER=0.01)>.
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 121: Assignment to clkout2_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 122: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 123: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 124: Assignment to clkout5_unused ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 332: Assignment to DATA_BUF_RE ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 64: Net <BANK_STATUS[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 70: Net <DATA_RE[15]> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <ddr_sdram>.
+    Related source file is "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v".
+WARNING:Xst:647 - Input <BL> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <BANK_STATUS> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DATA_RE> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 4-bit register for signal <COMMAND>.
+    Found 13-bit register for signal <ADDR_RAM>.
+    Found 1-bit register for signal <BUSY>.
+    Found 2-bit register for signal <BA>.
+    Found 5-bit register for signal <BUSY_COUNT>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<7><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<6><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<5><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<4><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<3><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<2><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<1><0>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><31>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><30>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><29>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><28>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><27>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><26>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><25>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><24>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><23>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><22>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><21>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><20>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><19>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><18>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><17>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><16>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><15>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><14>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><13>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><12>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><11>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><10>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><9>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><8>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><7>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><6>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><5>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><4>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><3>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><2>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><1>>.
+    Found 1-bit register for signal <DATA_BUF_WR<0><0>>.
+    Found 5-bit register for signal <wr_count>.
+    Found 1-bit register for signal <WR_STROBE>.
+    Found 16-bit register for signal <DATA_WR>.
+    Found 2-bit register for signal <DM>.
+    Found 3-bit register for signal <STATUS>.
+    Found finite state machine <FSM_0> for signal <STATUS>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 33                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 3                                              |
+    | Clock              | WR_CLK_333M (rising_edge)                      |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 5-bit subtractor for signal <BUSY_COUNT[4]_GND_1_o_sub_36_OUT> created at line 272.
+    Found 4-bit subtractor for signal <GND_1_o_GND_1_o_sub_107_OUT> created at line 307.
+    Found 5-bit adder for signal <wr_count[4]_GND_1_o_add_84_OUT> created at line 282.
+    Found 3-bit adder for signal <n2378[1:3]> created at line 307.
+    Found 1-bit tristate buffer for signal <DATA_RAM<15>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<14>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<13>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<12>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<11>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<10>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<9>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<8>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<7>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<6>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<5>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<4>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<3>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<2>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<1>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_RAM<0>> created at line 71
+    Found 1-bit tristate buffer for signal <DATA_IN<255>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<254>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<253>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<252>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<251>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<250>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<249>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<248>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<247>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<246>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<245>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<244>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<243>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<242>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<241>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<240>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<239>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<238>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<237>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<236>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<235>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<234>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<233>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<232>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<231>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<230>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<229>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<228>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<227>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<226>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<225>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<224>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<223>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<222>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<221>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<220>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<219>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<218>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<217>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<216>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<215>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<214>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<213>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<212>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<211>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<210>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<209>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<208>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<207>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<206>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<205>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<204>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<203>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<202>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<201>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<200>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<199>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<198>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<197>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<196>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<195>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<194>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<193>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<192>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<191>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<190>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<189>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<188>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<187>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<186>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<185>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<184>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<183>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<182>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<181>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<180>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<179>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<178>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<177>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<176>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<175>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<174>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<173>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<172>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<171>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<170>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<169>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<168>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<167>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<166>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<165>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<164>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<163>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<162>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<161>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<160>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<159>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<158>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<157>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<156>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<155>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<154>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<153>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<152>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<151>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<150>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<149>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<148>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<147>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<146>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<145>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<144>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<143>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<142>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<141>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<140>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<139>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<138>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<137>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<136>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<135>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<134>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<133>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<132>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<131>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<130>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<129>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<128>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<127>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<126>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<125>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<124>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<123>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<122>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<121>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<120>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<119>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<118>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<117>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<116>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<115>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<114>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<113>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<112>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<111>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<110>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<109>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<108>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<107>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<106>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<105>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<104>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<103>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<102>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<101>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<100>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<99>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<98>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<97>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<96>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<95>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<94>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<93>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<92>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<91>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<90>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<89>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<88>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<87>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<86>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<85>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<84>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<83>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<82>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<81>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<80>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<79>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<78>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<77>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<76>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<75>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<74>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<73>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<72>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<71>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<70>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<69>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<68>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<67>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<66>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<65>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<64>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<63>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<62>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<61>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<60>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<59>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<58>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<57>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<56>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<55>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<54>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<53>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<52>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<51>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<50>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<49>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<48>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<47>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<46>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<45>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<44>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<43>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<42>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<41>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<40>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<39>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<38>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<37>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<36>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<35>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<34>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<33>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<32>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<31>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<30>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<29>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<28>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<27>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<26>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<25>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<24>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<23>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<22>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<21>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<20>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<19>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<18>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<17>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<16>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<15>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<14>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<13>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<12>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<11>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<10>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<9>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<8>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<7>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<6>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<5>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<4>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<3>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<2>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<1>> created at line 72
+    Found 1-bit tristate buffer for signal <DATA_IN<0>> created at line 72
+    Found 1-bit tristate buffer for signal <DQS<1>> created at line 80
+    Found 1-bit tristate buffer for signal <DQS<0>> created at line 81
+    Found 5-bit comparator greater for signal <GND_1_o_wr_count[4]_LessThan_87_o> created at line 285
+    Found 32-bit comparator greater for signal <n1974> created at line 307
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred 305 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  25 Multiplexer(s).
+	inferred 274 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <ddr_sdram> synthesized.
+
+Synthesizing Unit <ddr_clk_mod>.
+    Related source file is "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v".
+    Summary:
+	no macro.
+Unit <ddr_clk_mod> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 3-bit adder                                           : 1
+ 4-bit subtractor                                      : 1
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+# Registers                                            : 25
+ 1-bit register                                        : 2
+ 13-bit register                                       : 1
+ 16-bit register                                       : 17
+ 2-bit register                                        : 2
+ 4-bit register                                        : 1
+ 5-bit register                                        : 2
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 1
+ 5-bit comparator greater                              : 1
+# Multiplexers                                         : 25
+ 1-bit 2-to-1 multiplexer                              : 22
+ 13-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# Tristates                                            : 274
+ 1-bit tristate buffer                                 : 274
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <ddr_sdram>.
+The following registers are absorbed into counter <wr_count>: 1 register on signal <wr_count>.
+Unit <ddr_sdram> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 3-bit adder                                           : 1
+ 4-bit subtractor                                      : 1
+ 5-bit subtractor                                      : 1
+# Counters                                             : 1
+ 5-bit up counter                                      : 1
+# Registers                                            : 300
+ Flip-Flops                                            : 300
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 1
+ 5-bit comparator greater                              : 1
+# Multiplexers                                         : 37
+ 1-bit 2-to-1 multiplexer                              : 35
+ 4-bit 2-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <STATUS[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 100   | 01
+ 010   | 11
+ 001   | 10
+-------------------
+INFO:Xst:1901 - Instance ddr_clocks/pll_base_inst in unit ddr_clocks/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+
+Optimizing unit <ddr_sdram> ...
+WARNING:Xst:1710 - FF/Latch <DM_0> (without init value) has a constant value of 1 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DM_1> (without init value) has a constant value of 1 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_75> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_65> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_55> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_45> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_36> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_218> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_118> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_05> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_314> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_304> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_294> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_284> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_274> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_264> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_254> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_244> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_234> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_224> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_217> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_265> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_255> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_245> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_235> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_225> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_219> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_205> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_195> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_185> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_175> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_165> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_155> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_145> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_135> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_125> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_119> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_105> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_95> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_85> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_173> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_163> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_154> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_144> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_134> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_124> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_117> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_104> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_94> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_84> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_74> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_64> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_54> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_44> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_35> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_215> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_116> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_04> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_153> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_204> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_194> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_184> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_174> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_164> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_313> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_303> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_293> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_283> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_273> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_263> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_253> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_243> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_233> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_223> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_216> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_203> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_193> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_183> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_197> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_187> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_177> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_167> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_157> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_147> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_137> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_128> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_1111> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_107> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_97> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_87> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_77> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_67> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_57> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_47> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_38> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_227> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_127> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <wr_count_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <wr_count_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <wr_count_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <wr_count_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <wr_count_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <STATUS_FSM_FFd1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <STATUS_FSM_FFd2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_317> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_307> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_297> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_287> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_277> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_267> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_257> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_247> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_237> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_228> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_2111> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_207> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_296> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_286> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_276> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_266> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_256> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_246> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_236> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_226> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_2110> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_206> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_196> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_186> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_176> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_166> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_315> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_305> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_295> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_285> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_275> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_07> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_156> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_146> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_136> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_126> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_1110> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_106> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_96> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_86> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_76> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_66> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_56> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_46> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_37> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_220> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_120> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_06> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_316> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_306> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY_COUNT_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY_COUNT_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_181> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_171> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_161> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <WR_STROBE> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY_COUNT_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY_COUNT_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY_COUNT_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <COMMAND_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <COMMAND_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <COMMAND_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <COMMAND_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <BUSY> has a constant value of 1 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_272> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_262> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_252> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_242> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_232> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_222> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_213> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_202> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_192> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_182> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_172> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_162> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_152> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_142> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_132> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_122> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_113> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_102> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_92> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_143> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_133> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_123> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_115> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_103> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_93> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_83> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_73> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_63> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_53> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_43> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_34> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_214> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_114> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_03> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_312> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_302> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_292> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_282> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_51> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_41> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_32> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_210> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_110> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_01> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_311> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_301> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_291> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_281> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_271> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_261> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_251> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_241> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_231> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_221> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_211> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_201> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_191> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_82> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_72> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_62> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_52> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_42> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_33> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_212> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_112> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_02> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_151> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_141> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_131> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_121> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_111> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_101> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_91> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_81> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_71> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_61> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <BA_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <BA_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ddr_sdram, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : ddr_sdram.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 3
+#      GND                         : 1
+#      INV                         : 1
+#      VCC                         : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 299
+#      IBUFG                       : 1
+#      OBUF                        : 24
+#      OBUFT                       : 274
+# Others                           : 1
+#      PLL_ADV                     : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                    1  out of   5720     0%  
+    Number used as Logic:                 1  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:      1
+   Number with an unused Flip Flop:       1  out of      1   100%  
+   Number with an unused LUT:             0  out of      1     0%  
+   Number of fully used LUT-FF pairs:     0  out of      1     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         329
+ Number of bonded IOBs:                 299  out of    200   149% (*) 
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of PLL_ADVs:                      1  out of      2    50%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 15.47 secs
+ 
 --> 
 
-Total memory usage is 182732 kilobytes
+Total memory usage is 240932 kilobytes
 
-Number of errors   :    3 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  319 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

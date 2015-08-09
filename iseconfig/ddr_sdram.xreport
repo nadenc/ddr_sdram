@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-07-18T15:15:42</DateModified>
+  <DateModified>2015-08-08T23:59:48</DateModified>
   <ModuleName>ddr_sdram</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-07-23T18:05:52</SummaryTimeStamp>
   <SavedFilePath>D:/Projects/FPGA/ddr_sdram/iseconfig/ddr_sdram.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/Projects/FPGA/ddr_sdram\</ImplementationReportsDirectory>
-  <DateInitialized>2015-06-20T20:55:05</DateInitialized>
+  <DateInitialized>2015-07-20T21:40:16</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

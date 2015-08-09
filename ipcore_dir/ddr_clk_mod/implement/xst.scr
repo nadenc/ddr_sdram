@@ -1,0 +1,9 @@
+run
+-ifmt MIXED
+-top ddr_clk_mod_exdes
+-p xc6slx9-csg324-3
+-ifn xst.prj
+-ofn ddr_clk_mod_exdes
+-keep_hierarchy soft 
+-equivalent_register_removal no 
+-max_fanout 65535
