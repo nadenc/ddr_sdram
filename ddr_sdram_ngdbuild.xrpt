@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Sun Aug 09 04:13:55 2015">
+  <application stringID="NgdBuild" timeStamp="Sun Aug 09 15:54:23 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -60,9 +60,9 @@
     </task>
     <task stringID="NGDBUILD_REPORT">
       <section stringID="NGDBUILD_DESIGN_SUMMARY">
-        <item dataType="int" stringID="NGDBUILD_NUM_ERRORS" value="65"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="NGDBUILD_FILTERED_WARNINGS" value="0"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_WARNINGS" value="32"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_WARNINGS" value="1"/>
         <item dataType="int" stringID="NGDBUILD_FILTERED_INFOS" value="0"/>
         <item dataType="int" stringID="NGDBUILD_NUM_INFOS" value="1"/>
       </section>
@@ -70,8 +70,8 @@
         <item dataType="int" stringID="NGDBUILD_NUM_BUFG" value="3"/>
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="24"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="22"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_OBUFDS" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUFT" value="274"/>
         <item dataType="int" stringID="NGDBUILD_NUM_VCC" value="1"/>
       </section>
@@ -79,8 +79,8 @@
         <item dataType="int" stringID="NGDBUILD_NUM_BUFG" value="3"/>
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="24"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="22"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_OBUFDS" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUFT" value="274"/>
         <item dataType="int" stringID="NGDBUILD_NUM_PLL_ADV" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_VCC" value="1"/>

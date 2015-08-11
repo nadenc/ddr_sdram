@@ -1,4 +1,9 @@
 `timescale 1ns / 1ps
+// LPDDR3 SDRAM driver for Spartan 6
+// By Chad Plesa-Naden
+// Created: July 2015
+
+// Device Info:
 // MT46H32M16LF - 8Meg x 16 x 4 banks
 // 8K row addressing ADDR[12:0]
 // 1K col address ADDR[9:0]
@@ -28,7 +33,7 @@ output CKE,
 output WE,
 output CAS,
 output RAS,
-output reg [1:0] BA,
+output [1:0] BA,
 output reg [1:0] DM,
 inout [1:0] DQS,
 inout [15:0] DATA_RAM,
@@ -39,19 +44,15 @@ input [1:0] BA_IN,
 inout [(16*BURST_LENGTH-1):0] DATA_IN,
 input [12:0] ADDR_ROW_IN, // start of burst row address
 input [9:0] ADDR_COL_IN, // column address
-input [1:0] BL, // burst length
 
 input WRITE,
 input READ,
 
-input WRITE_LENGTH, // number of words to be written in burst
+input [3:0] WRITE_LENGTH, // number of words to be written in burst
 output reg BUSY // busy status to broadcast 
 );
 
 // Clocking
-assign CLK_P = DDR_CLK_166M;
-assign CLK_N = !DDR_CLK_166M;
-
 reg CLK_RESET;
 wire CLK_LOCKED;
 
@@ -63,13 +64,24 @@ reg [12:0] openRowB0;
 
 reg [3:0] BANK_STATUS; // 3-b3open,2-b2open,1-b1open,0-b0open
 
+assign BA = BA_IN;
+
 // Data/Address wire maps
 reg [31:0] DATA_BUF_WR[BURST_LENGTH-2:0];
 reg [31:0] DATA_BUF_RE[BURST_LENGTH-2:0];
 reg [15:0] DATA_WR;
-reg [15:0] DATA_RE;
+wire [(16*BURST_LENGTH-1):0] DATA_RE;
 assign DATA_RAM = (STATUS == S_WRITE) ? DATA_WR : 16'bZ; // out if write, Z otherwise
 assign DATA_IN = (STATUS == S_READ) ? DATA_RE : 256'bZ; // data if read, Z otherwise
+
+assign DATA_RE[31:0] = DATA_BUF_RE[0];
+if (BURST_LENGTH > 2) assign DATA_RE[63:32] = DATA_BUF_RE[1];
+if (BURST_LENGTH > 4) assign DATA_RE[95:64] = DATA_BUF_RE[2];
+if (BURST_LENGTH > 4) assign DATA_RE[127:96] = DATA_BUF_RE[3];
+if (BURST_LENGTH > 8) assign DATA_RE[159:128] = DATA_BUF_RE[4];
+if (BURST_LENGTH > 8) assign DATA_RE[191:160] = DATA_BUF_RE[5];
+if (BURST_LENGTH > 8) assign DATA_RE[223:192] = DATA_BUF_RE[6];
+if (BURST_LENGTH > 8) assign DATA_RE[255:224] = DATA_BUF_RE[7];
 
 reg [12:0] ADDR; // store intermediate address how to handle A10?
 assign ADDR_RAM = ADDR;
@@ -110,8 +122,8 @@ localparam C_WRITE	= 4'b1001;
 localparam C_NOP	= 4'b0000;
 
 // System parameters
-localparam CAS_LAT = 3; // CAS latency clock delay (both edge delay)
-localparam BURST_LENGTH = 16; // data burst length, 2,4,8,16 available
+localparam CAS_LAT = 3; // CAS latency clock delay
+parameter BURST_LENGTH = 16; // data burst length, 2,4,8,16 available
 
 // Counters
 reg [4:0] wr_count;
@@ -127,28 +139,29 @@ ddr_clk_mod ddr_clocks (
 	.LOCKED(CLK_LOCKED)
 );
 
+OBUFDS diff_clk_buff(
+	.O(CLK_P),
+	.OB(CLK_N),
+	.I(DDR_CLK_166M)
+);
+
 initial begin
 	BUSY <= 1'b1;
-	BUSY_COUNT <= 3'b0;
+	BUSY_COUNT <= 5'b0;
 	STATUS <= S_IDLE;
 	CLK_RESET <= 1'b1; // hold clocks in reset
+	INITIALIZED <= 1'b0;
+	
+	BANK_STATUS <= 4'b0;
 	
 	wr_count <= 5'b0;
 	re_count <= 4'b0;
 	
+	WR_STROBE <= 1'b0;
+	
 	#200 PWR_ON <= 1'b1; // wait 200ns after power up before issuing any commands, set power on
 	CLK_RESET <= 1'b0; // release clocks from reset
 end
-
-/*
-always @ (posedge DDR_CLK_166M) begin // check request for active/precharge requirement
-	
-end
-
-always @ (negedge DDR_CLK_166M) begin // command pass
-
-end
-*/
 
 always @ (posedge WR_CLK_333M) begin
 
@@ -162,6 +175,10 @@ always @ (posedge WR_CLK_333M) begin
 				else if (!BANK_STATUS[0]) begin // if bank isnt open call active
 					STATUS <= S_ACTIVE; // active required
 				end
+				else begin
+					if (WRITE) STATUS <= S_WRITE;
+					if (READ) STATUS <= S_READ;
+				end
 			end
 			2'b01: begin
 				if (BANK_STATUS[1] && (openRowB1 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
@@ -169,6 +186,10 @@ always @ (posedge WR_CLK_333M) begin
 				end
 				else if (!BANK_STATUS[1]) begin // if bank isnt open call active
 					STATUS <= S_ACTIVE; // active required
+				end
+				else begin
+					if (WRITE) STATUS <= S_WRITE;
+					if (READ) STATUS <= S_READ;
 				end
 			end
 			2'b10: begin
@@ -178,6 +199,10 @@ always @ (posedge WR_CLK_333M) begin
 				else if (!BANK_STATUS[2]) begin // if bank isnt open call active
 					STATUS <= S_ACTIVE; // active required
 				end
+				else begin
+					if (WRITE) STATUS <= S_WRITE;
+					if (READ) STATUS <= S_READ;
+				end
 			end
 			2'b11: begin
 				if (BANK_STATUS[3] && (openRowB3 != ADDR_ROW_IN[12:0])) begin // if bank is open and wrong row is open call precharge
@@ -185,6 +210,10 @@ always @ (posedge WR_CLK_333M) begin
 				end
 				else if (!BANK_STATUS[3]) begin // if bank isnt open call active
 					STATUS <= S_ACTIVE; // active required
+				end
+				else begin
+					if (WRITE) STATUS <= S_WRITE;
+					if (READ) STATUS <= S_READ;
 				end
 			end
 		endcase
@@ -203,25 +232,62 @@ always @ (posedge WR_CLK_333M) begin
 				8: ADDR[2:0] <= 3'h3;
 				16: ADDR[2:0] <= 3'h4;
 			endcase
-			BUSY <= 1'b0;
+			#200 BUSY <= 1'b0;
 			INITIALIZED <= 1'b1;
 		end
 		else if (STATUS == S_PRE && !BUSY) begin // precharge
 			COMMAND <= C_PRE; // set op command
-			BA <= BA_IN; // set bank address
 			ADDR[10] <= 0; // clear only single bank
 			STATUS <= S_ACTIVE; // require precharge
+			
+			case (BA) // close banks
+				2'b00:
+					begin
+						BANK_STATUS[0] <= 1'b0;
+						openRowB0 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+					end
+				2'b01:
+					begin
+						BANK_STATUS[1] <= 1'b0;
+						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+					end
+				2'b10:
+					begin
+						BANK_STATUS[1] <= 1'b0;
+						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+					end
+				2'b11:
+					begin
+						BANK_STATUS[1] <= 1'b0;
+						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+					end
+			endcase
 		end
 		else if (STATUS == S_ACTIVE && !BUSY) begin // active
 			COMMAND <= C_ACTIVE; // set op command
-			BA <= BA_IN; // set bank address
 			ADDR <= ADDR_ROW_IN[12:0]; // set row address
 			
-			case (BA_IN) // record new open row in bank
-				2'b00: openRowB0 <= ADDR_ROW_IN[12:0];
-				2'b01: openRowB1 <= ADDR_ROW_IN[12:0];
-				2'b10: openRowB2 <= ADDR_ROW_IN[12:0];
-				2'b11: openRowB3 <= ADDR_ROW_IN[12:0];
+			case (BA) // record new open row in bank
+				2'b00:
+					begin
+						BANK_STATUS[0] <= 1'b1;
+						openRowB0 <= ADDR_ROW_IN[12:0];
+					end
+				2'b01:
+					begin
+						BANK_STATUS[1] <= 1'b1;
+						openRowB1 <= ADDR_ROW_IN[12:0];
+					end
+				2'b10:
+					begin
+						BANK_STATUS[2] <= 1'b1;
+						openRowB2 <= ADDR_ROW_IN[12:0];
+					end
+				2'b11:
+					begin
+						BANK_STATUS[3] <= 1'b1;
+						openRowB3 <= ADDR_ROW_IN[12:0];
+					end
 			endcase
 			
 			if (READ) begin
@@ -235,21 +301,21 @@ always @ (posedge WR_CLK_333M) begin
 		end
 		else if (STATUS == S_READ && READ && !BUSY)begin // read required
 			COMMAND <= C_READ; // set op command
-			BA <= BA_IN[1:0]; // set bank address
+			//BA <= BA_IN[1:0]; // set bank address
 			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
 			ADDR[10] <= 1'b0; // set precharge bit low
 			
 			BUSY <= 1'b1; // busy
-			BUSY_COUNT <= (CAS_LAT + BURST_LENGTH); // set busy for length
+			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length
 		end
 		else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
 			COMMAND <= C_WRITE; // set op command
-			BA <= BA_IN[1:0]; // set bank address
+			//BA <= BA_IN[1:0]; // set bank address
 			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
 			ADDR[10] <= 1'b0; // set precharge bit low
 			
 			BUSY <= 1'b1; // busy
-			BUSY_COUNT <= (CAS_LAT + BURST_LENGTH); // set busy for length
+			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length
 			
 			DATA_BUF_WR[0] <= DATA_IN[31:0];
 			if (BURST_LENGTH > 2) DATA_BUF_WR[1] <= DATA_IN[63:32];
@@ -264,44 +330,43 @@ always @ (posedge WR_CLK_333M) begin
 			COMMAND <= C_NOP; // set nop command
 			
 			// count down busy timer
-			if (BUSY_COUNT > 3'h0) begin // if busy in wr/re
-				if (BUSY_COUNT == 3'h2) begin
-					BUSY <= 1'b0;
-					STATUS <= S_IDLE; // clear status
-				end
-				BUSY_COUNT <= (BUSY_COUNT - 3'h2); // -2 since half clk
+			if (BUSY_COUNT > 5'h0) begin // if busy in wr/re
+				BUSY_COUNT <= (BUSY_COUNT - 5'h2); // -2 since half clk
+			end else if (BUSY_COUNT == 5'h0 && INITIALIZED) begin
+				BUSY <= 1'b0;
+				STATUS <= S_IDLE; // clear status
 			end
 		end
 	end
 	
 	//////////////////////////////// WRITE DATA ////////////////////////////////
 	if (STATUS == S_WRITE) begin
-		if (wr_count == CAS_LAT + BURST_LENGTH-1) begin
+		if (wr_count == CAS_LAT*2 + BURST_LENGTH + 2) begin
 			wr_count <= 5'b0;
 		end else begin
 			wr_count <= wr_count + 5'b1;
 		end
 		
-		if (wr_count > CAS_LAT) begin // write data when ready
-			WR_STROBE <= !WR_STROBE; // toggle DQS
+		if (wr_count > CAS_LAT*2) begin // write data when ready
+			WR_STROBE <= ~WR_STROBE; // toggle DQS
 
-			case (wr_count)
-				CAS_LAT+5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
-				CAS_LAT+5'h1: DATA_WR <= DATA_BUF_WR[0][31:16];
-				CAS_LAT+5'h2: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][15:0];
-				CAS_LAT+5'h3: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][31:16];
-				CAS_LAT+5'h4: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][15:0];
-				CAS_LAT+5'h5: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][31:16];
-				CAS_LAT+5'h6: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][15:0];
-				CAS_LAT+5'h7: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][31:16];
-				CAS_LAT+5'h8: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][15:0];
-				CAS_LAT+5'h9: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][31:16];
-				CAS_LAT+5'hA: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][15:0];
-				CAS_LAT+5'hB: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][31:16];
-				CAS_LAT+5'hC: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][15:0];
-				CAS_LAT+5'hD: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][31:16];
-				CAS_LAT+5'hE: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][15:0];
-				CAS_LAT+5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
+			case (wr_count - CAS_LAT*2 - 1)
+				5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
+				5'h1: DATA_WR <= DATA_BUF_WR[0][31:16];
+				5'h2: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][15:0];
+				5'h3: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][31:16];
+				5'h4: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][15:0];
+				5'h5: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[2][31:16];
+				5'h6: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][15:0];
+				5'h7: if (BURST_LENGTH > 4) DATA_WR <= DATA_BUF_WR[3][31:16];
+				5'h8: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][15:0];
+				5'h9: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[4][31:16];
+				5'hA: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][15:0];
+				5'hB: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[5][31:16];
+				5'hC: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][15:0];
+				5'hD: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][31:16];
+				5'hE: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][15:0];
+				5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
 			endcase
 			
 			if (wr_count >= CAS_LAT + WRITE_LENGTH - 1) begin // mask excess writes

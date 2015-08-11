@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/Projects/FPGA/ddr_sdram/DDR_TB_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="DDR_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="29" />
+   <wvobject fp_name="/DDR_TB/uut/ddr_clocks/SYS_CLK_100M" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SYS_CLK_100M</obj_property>
+      <obj_property name="ObjectShortName">SYS_CLK_100M</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/ddr_clocks/DDR_CLK_166M" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">DDR_CLK_166M</obj_property>
+      <obj_property name="ObjectShortName">DDR_CLK_166M</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/ddr_clocks/WR_CLK_333M" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WR_CLK_333M</obj_property>
+      <obj_property name="ObjectShortName">WR_CLK_333M</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/WRITE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WRITE</obj_property>
+      <obj_property name="ObjectShortName">WRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/READ" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">READ</obj_property>
+      <obj_property name="ObjectShortName">READ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/COMMAND" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">COMMAND[3:0]</obj_property>
+      <obj_property name="ObjectShortName">COMMAND[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">STATUS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">STATUS[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/BUSY" type="logic" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">BUSY</obj_property>
+      <obj_property name="ObjectShortName">BUSY</obj_property>
+      <obj_property name="label">BUSY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/BUSY_COUNT" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BUSY_COUNT[4:0]</obj_property>
+      <obj_property name="ObjectShortName">BUSY_COUNT[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/wr_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_count[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_count[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/re_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">re_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">re_count[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/BA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">BA[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/BANK_STATUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BANK_STATUS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">BANK_STATUS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DM[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DM[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DQS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DQS[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DQS[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA_IN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_IN[255:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[255:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA_RAM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_RAM[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_RAM[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/ADDR_RAM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR_RAM[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_RAM[12:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/ADDR_ROW_IN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR_ROW_IN[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_ROW_IN[12:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/ADDR_COL_IN" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR_COL_IN[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_COL_IN[9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/WRITE_LENGTH" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">WRITE_LENGTH[3:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_LENGTH[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA1[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA2[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA3[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA4[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA5" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA5[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA6" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA6[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DATA7" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA7[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-08-08T23:59:48</DateModified>
+  <DateModified>2015-08-09T15:52:03</DateModified>
   <ModuleName>ddr_sdram</ModuleName>
-  <SummaryTimeStamp>2015-07-23T18:05:52</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-08-09T15:17:06</SummaryTimeStamp>
   <SavedFilePath>D:/Projects/FPGA/ddr_sdram/iseconfig/ddr_sdram.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/Projects/FPGA/ddr_sdram\</ImplementationReportsDirectory>
   <DateInitialized>2015-07-20T21:40:16</DateInitialized>
@@ -11,7 +11,7 @@
  </header>
  <body>
   <viewgroup label="Design Overview" >
-   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="ACTIVE_summary.html" label="Summary" >
+   <view inputState="Unknown" program="implementation" ShowPartitionData="false" type="FPGASummary" file="ACTIVE_summary.html" label="Summary" ExpandClockNets="false" >
     <toc-item title="Design Overview" target="Design Overview" />
     <toc-item title="Design Utilization Summary" target="Design Utilization Summary" />
     <toc-item title="Performance Summary" target="Performance Summary" />

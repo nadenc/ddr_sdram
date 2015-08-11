@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\Projects\FPGA\ddr_sdram\ddr_sdram.ncd
+OUTFILE=D:\Projects\FPGA\ddr_sdram\ddr_sdram.bit
+FAMILY=Spartan6
+PART=xc6slx9-3csg324
+WORKINGDIR=D:\Projects\FPGA\ddr_sdram
+LICENSE=WebPack
+USER_INFO=211059095_0_0_532

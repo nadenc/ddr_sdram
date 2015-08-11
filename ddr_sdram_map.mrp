@@ -1,0 +1,1629 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'ddr_sdram'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx9-csg324-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o ddr_sdram_map.ncd ddr_sdram.ngd ddr_sdram.pcf 
+Target Device  : xc6slx9
+Target Package : csg324
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Sun Aug 09 15:54:26 2015
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:  275
+Slice Logic Utilization:
+  Number of Slice Registers:                     0 out of  11,440    0%
+  Number of Slice LUTs:                          1 out of   5,720    1%
+    Number used as logic:                        1 out of   5,720    1%
+      Number using O6 output only:               0
+      Number using O5 output only:               0
+      Number using O5 and O6:                    1
+      Number used as ROM:                        0
+    Number used as Memory:                       0 out of   1,440    0%
+
+Slice Logic Distribution:
+  Number of occupied Slices:                     1 out of   1,430    1%
+  Number of MUXCYs used:                         0 out of   2,860    0%
+  Number of LUT Flip Flop pairs used:            1
+    Number with an unused Flip Flop:             1 out of       1  100%
+    Number with an unused LUT:                   0 out of       1    0%
+    Number of fully used LUT-FF pairs:           0 out of       1    0%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  11,440    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        25 out of     200   12%
+    Number of LOCed IOBs:                       23 out of      25   92%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            1 out of       2   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                1.00
+
+Peak Memory Usage:  403 MB
+Total REAL time to MAP completion:  7 secs 
+Total CPU time to MAP completion:   6 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:701 - Signal DQS<1> connected to top level port DQS<1> has been
+   removed.
+WARNING:MapLib:701 - Signal DQS<0> connected to top level port DQS<0> has been
+   removed.
+WARNING:MapLib:701 - Signal DATA_RAM<15> connected to top level port
+   DATA_RAM<15> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<14> connected to top level port
+   DATA_RAM<14> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<13> connected to top level port
+   DATA_RAM<13> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<12> connected to top level port
+   DATA_RAM<12> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<11> connected to top level port
+   DATA_RAM<11> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<10> connected to top level port
+   DATA_RAM<10> has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<9> connected to top level port DATA_RAM<9>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<8> connected to top level port DATA_RAM<8>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<7> connected to top level port DATA_RAM<7>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<6> connected to top level port DATA_RAM<6>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<5> connected to top level port DATA_RAM<5>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<4> connected to top level port DATA_RAM<4>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<3> connected to top level port DATA_RAM<3>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<2> connected to top level port DATA_RAM<2>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<1> connected to top level port DATA_RAM<1>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_RAM<0> connected to top level port DATA_RAM<0>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<255> connected to top level port
+   DATA_IN<255> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<254> connected to top level port
+   DATA_IN<254> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<253> connected to top level port
+   DATA_IN<253> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<252> connected to top level port
+   DATA_IN<252> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<251> connected to top level port
+   DATA_IN<251> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<250> connected to top level port
+   DATA_IN<250> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<249> connected to top level port
+   DATA_IN<249> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<248> connected to top level port
+   DATA_IN<248> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<247> connected to top level port
+   DATA_IN<247> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<246> connected to top level port
+   DATA_IN<246> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<245> connected to top level port
+   DATA_IN<245> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<244> connected to top level port
+   DATA_IN<244> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<243> connected to top level port
+   DATA_IN<243> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<242> connected to top level port
+   DATA_IN<242> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<241> connected to top level port
+   DATA_IN<241> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<240> connected to top level port
+   DATA_IN<240> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<239> connected to top level port
+   DATA_IN<239> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<238> connected to top level port
+   DATA_IN<238> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<237> connected to top level port
+   DATA_IN<237> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<236> connected to top level port
+   DATA_IN<236> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<235> connected to top level port
+   DATA_IN<235> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<234> connected to top level port
+   DATA_IN<234> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<233> connected to top level port
+   DATA_IN<233> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<232> connected to top level port
+   DATA_IN<232> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<231> connected to top level port
+   DATA_IN<231> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<230> connected to top level port
+   DATA_IN<230> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<229> connected to top level port
+   DATA_IN<229> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<228> connected to top level port
+   DATA_IN<228> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<227> connected to top level port
+   DATA_IN<227> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<226> connected to top level port
+   DATA_IN<226> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<225> connected to top level port
+   DATA_IN<225> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<224> connected to top level port
+   DATA_IN<224> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<223> connected to top level port
+   DATA_IN<223> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<222> connected to top level port
+   DATA_IN<222> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<221> connected to top level port
+   DATA_IN<221> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<220> connected to top level port
+   DATA_IN<220> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<219> connected to top level port
+   DATA_IN<219> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<218> connected to top level port
+   DATA_IN<218> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<217> connected to top level port
+   DATA_IN<217> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<216> connected to top level port
+   DATA_IN<216> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<215> connected to top level port
+   DATA_IN<215> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<214> connected to top level port
+   DATA_IN<214> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<213> connected to top level port
+   DATA_IN<213> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<212> connected to top level port
+   DATA_IN<212> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<211> connected to top level port
+   DATA_IN<211> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<210> connected to top level port
+   DATA_IN<210> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<209> connected to top level port
+   DATA_IN<209> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<208> connected to top level port
+   DATA_IN<208> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<207> connected to top level port
+   DATA_IN<207> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<206> connected to top level port
+   DATA_IN<206> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<205> connected to top level port
+   DATA_IN<205> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<204> connected to top level port
+   DATA_IN<204> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<203> connected to top level port
+   DATA_IN<203> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<202> connected to top level port
+   DATA_IN<202> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<201> connected to top level port
+   DATA_IN<201> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<200> connected to top level port
+   DATA_IN<200> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<199> connected to top level port
+   DATA_IN<199> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<198> connected to top level port
+   DATA_IN<198> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<197> connected to top level port
+   DATA_IN<197> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<196> connected to top level port
+   DATA_IN<196> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<195> connected to top level port
+   DATA_IN<195> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<194> connected to top level port
+   DATA_IN<194> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<193> connected to top level port
+   DATA_IN<193> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<192> connected to top level port
+   DATA_IN<192> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<191> connected to top level port
+   DATA_IN<191> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<190> connected to top level port
+   DATA_IN<190> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<189> connected to top level port
+   DATA_IN<189> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<188> connected to top level port
+   DATA_IN<188> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<187> connected to top level port
+   DATA_IN<187> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<186> connected to top level port
+   DATA_IN<186> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<185> connected to top level port
+   DATA_IN<185> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<184> connected to top level port
+   DATA_IN<184> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<183> connected to top level port
+   DATA_IN<183> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<182> connected to top level port
+   DATA_IN<182> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<181> connected to top level port
+   DATA_IN<181> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<180> connected to top level port
+   DATA_IN<180> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<179> connected to top level port
+   DATA_IN<179> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<178> connected to top level port
+   DATA_IN<178> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<177> connected to top level port
+   DATA_IN<177> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<176> connected to top level port
+   DATA_IN<176> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<175> connected to top level port
+   DATA_IN<175> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<174> connected to top level port
+   DATA_IN<174> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<173> connected to top level port
+   DATA_IN<173> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<172> connected to top level port
+   DATA_IN<172> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<171> connected to top level port
+   DATA_IN<171> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<170> connected to top level port
+   DATA_IN<170> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<169> connected to top level port
+   DATA_IN<169> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<168> connected to top level port
+   DATA_IN<168> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<167> connected to top level port
+   DATA_IN<167> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<166> connected to top level port
+   DATA_IN<166> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<165> connected to top level port
+   DATA_IN<165> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<164> connected to top level port
+   DATA_IN<164> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<163> connected to top level port
+   DATA_IN<163> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<162> connected to top level port
+   DATA_IN<162> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<161> connected to top level port
+   DATA_IN<161> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<160> connected to top level port
+   DATA_IN<160> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<159> connected to top level port
+   DATA_IN<159> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<158> connected to top level port
+   DATA_IN<158> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<157> connected to top level port
+   DATA_IN<157> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<156> connected to top level port
+   DATA_IN<156> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<155> connected to top level port
+   DATA_IN<155> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<154> connected to top level port
+   DATA_IN<154> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<153> connected to top level port
+   DATA_IN<153> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<152> connected to top level port
+   DATA_IN<152> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<151> connected to top level port
+   DATA_IN<151> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<150> connected to top level port
+   DATA_IN<150> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<149> connected to top level port
+   DATA_IN<149> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<148> connected to top level port
+   DATA_IN<148> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<147> connected to top level port
+   DATA_IN<147> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<146> connected to top level port
+   DATA_IN<146> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<145> connected to top level port
+   DATA_IN<145> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<144> connected to top level port
+   DATA_IN<144> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<143> connected to top level port
+   DATA_IN<143> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<142> connected to top level port
+   DATA_IN<142> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<141> connected to top level port
+   DATA_IN<141> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<140> connected to top level port
+   DATA_IN<140> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<139> connected to top level port
+   DATA_IN<139> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<138> connected to top level port
+   DATA_IN<138> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<137> connected to top level port
+   DATA_IN<137> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<136> connected to top level port
+   DATA_IN<136> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<135> connected to top level port
+   DATA_IN<135> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<134> connected to top level port
+   DATA_IN<134> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<133> connected to top level port
+   DATA_IN<133> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<132> connected to top level port
+   DATA_IN<132> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<131> connected to top level port
+   DATA_IN<131> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<130> connected to top level port
+   DATA_IN<130> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<129> connected to top level port
+   DATA_IN<129> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<128> connected to top level port
+   DATA_IN<128> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<127> connected to top level port
+   DATA_IN<127> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<126> connected to top level port
+   DATA_IN<126> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<125> connected to top level port
+   DATA_IN<125> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<124> connected to top level port
+   DATA_IN<124> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<123> connected to top level port
+   DATA_IN<123> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<122> connected to top level port
+   DATA_IN<122> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<121> connected to top level port
+   DATA_IN<121> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<120> connected to top level port
+   DATA_IN<120> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<119> connected to top level port
+   DATA_IN<119> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<118> connected to top level port
+   DATA_IN<118> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<117> connected to top level port
+   DATA_IN<117> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<116> connected to top level port
+   DATA_IN<116> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<115> connected to top level port
+   DATA_IN<115> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<114> connected to top level port
+   DATA_IN<114> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<113> connected to top level port
+   DATA_IN<113> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<112> connected to top level port
+   DATA_IN<112> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<111> connected to top level port
+   DATA_IN<111> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<110> connected to top level port
+   DATA_IN<110> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<109> connected to top level port
+   DATA_IN<109> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<108> connected to top level port
+   DATA_IN<108> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<107> connected to top level port
+   DATA_IN<107> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<106> connected to top level port
+   DATA_IN<106> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<105> connected to top level port
+   DATA_IN<105> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<104> connected to top level port
+   DATA_IN<104> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<103> connected to top level port
+   DATA_IN<103> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<102> connected to top level port
+   DATA_IN<102> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<101> connected to top level port
+   DATA_IN<101> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<100> connected to top level port
+   DATA_IN<100> has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<99> connected to top level port DATA_IN<99>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<98> connected to top level port DATA_IN<98>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<97> connected to top level port DATA_IN<97>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<96> connected to top level port DATA_IN<96>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<95> connected to top level port DATA_IN<95>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<94> connected to top level port DATA_IN<94>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<93> connected to top level port DATA_IN<93>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<92> connected to top level port DATA_IN<92>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<91> connected to top level port DATA_IN<91>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<90> connected to top level port DATA_IN<90>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<89> connected to top level port DATA_IN<89>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<88> connected to top level port DATA_IN<88>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<87> connected to top level port DATA_IN<87>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<86> connected to top level port DATA_IN<86>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<85> connected to top level port DATA_IN<85>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<84> connected to top level port DATA_IN<84>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<83> connected to top level port DATA_IN<83>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<82> connected to top level port DATA_IN<82>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<81> connected to top level port DATA_IN<81>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<80> connected to top level port DATA_IN<80>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<79> connected to top level port DATA_IN<79>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<78> connected to top level port DATA_IN<78>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<77> connected to top level port DATA_IN<77>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<76> connected to top level port DATA_IN<76>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<75> connected to top level port DATA_IN<75>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<74> connected to top level port DATA_IN<74>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<73> connected to top level port DATA_IN<73>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<72> connected to top level port DATA_IN<72>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<71> connected to top level port DATA_IN<71>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<70> connected to top level port DATA_IN<70>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<69> connected to top level port DATA_IN<69>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<68> connected to top level port DATA_IN<68>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<67> connected to top level port DATA_IN<67>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<66> connected to top level port DATA_IN<66>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<65> connected to top level port DATA_IN<65>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<64> connected to top level port DATA_IN<64>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<63> connected to top level port DATA_IN<63>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<62> connected to top level port DATA_IN<62>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<61> connected to top level port DATA_IN<61>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<60> connected to top level port DATA_IN<60>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<59> connected to top level port DATA_IN<59>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<58> connected to top level port DATA_IN<58>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<57> connected to top level port DATA_IN<57>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<56> connected to top level port DATA_IN<56>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<55> connected to top level port DATA_IN<55>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<54> connected to top level port DATA_IN<54>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<53> connected to top level port DATA_IN<53>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<52> connected to top level port DATA_IN<52>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<51> connected to top level port DATA_IN<51>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<50> connected to top level port DATA_IN<50>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<49> connected to top level port DATA_IN<49>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<48> connected to top level port DATA_IN<48>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<47> connected to top level port DATA_IN<47>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<46> connected to top level port DATA_IN<46>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<45> connected to top level port DATA_IN<45>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<44> connected to top level port DATA_IN<44>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<43> connected to top level port DATA_IN<43>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<42> connected to top level port DATA_IN<42>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<41> connected to top level port DATA_IN<41>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<40> connected to top level port DATA_IN<40>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<39> connected to top level port DATA_IN<39>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<38> connected to top level port DATA_IN<38>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<37> connected to top level port DATA_IN<37>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<36> connected to top level port DATA_IN<36>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<35> connected to top level port DATA_IN<35>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<34> connected to top level port DATA_IN<34>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<33> connected to top level port DATA_IN<33>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<32> connected to top level port DATA_IN<32>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<31> connected to top level port DATA_IN<31>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<30> connected to top level port DATA_IN<30>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<29> connected to top level port DATA_IN<29>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<28> connected to top level port DATA_IN<28>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<27> connected to top level port DATA_IN<27>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<26> connected to top level port DATA_IN<26>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<25> connected to top level port DATA_IN<25>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<24> connected to top level port DATA_IN<24>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<23> connected to top level port DATA_IN<23>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<22> connected to top level port DATA_IN<22>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<21> connected to top level port DATA_IN<21>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<20> connected to top level port DATA_IN<20>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<19> connected to top level port DATA_IN<19>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<18> connected to top level port DATA_IN<18>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<17> connected to top level port DATA_IN<17>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<16> connected to top level port DATA_IN<16>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<15> connected to top level port DATA_IN<15>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<14> connected to top level port DATA_IN<14>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<13> connected to top level port DATA_IN<13>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<12> connected to top level port DATA_IN<12>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<11> connected to top level port DATA_IN<11>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<10> connected to top level port DATA_IN<10>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<9> connected to top level port DATA_IN<9>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<8> connected to top level port DATA_IN<8>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<7> connected to top level port DATA_IN<7>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<6> connected to top level port DATA_IN<6>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<5> connected to top level port DATA_IN<5>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<4> connected to top level port DATA_IN<4>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<3> connected to top level port DATA_IN<3>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<2> connected to top level port DATA_IN<2>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<1> connected to top level port DATA_IN<1>
+   has been removed.
+WARNING:MapLib:701 - Signal DATA_IN<0> connected to top level port DATA_IN<0>
+   has been removed.
+WARNING:Place:1137 - This design is not guaranteed to be routable! This design
+   contains a global buffer instance, <ddr_clocks/clkout1_buf>, driving the net,
+   <DDR_CLK_166M>, that is driving the following (first 30) non-clock load pins.
+   < PIN: diff_clk_buff/N/INV.A5; >
+   This is not a recommended design practice in Spartan-6 due to limitations in
+   the global routing that may cause excessive delay, skew or unroutable
+   situations.  It is recommended to only use a BUFG resource to drive clock
+   loads. Please pay extra attention to the timing and routing of this path to
+   ensure the design goals are met. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
+   <ddr_clocks/clkout1_buf.O> allowing your design to continue. This constraint
+   disables all clock placer rules related to the specified COMP.PIN.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network BA_IN<1> has no load.
+INFO:LIT:395 - The above info message is repeated 30 more times for the
+   following (max. 5 shown):
+   BA_IN<0>,
+   ADDR_ROW_IN<12>,
+   ADDR_ROW_IN<11>,
+   ADDR_ROW_IN<10>,
+   ADDR_ROW_IN<9>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal SYS_CLK_100M are pushed
+   forward through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 25 IOs, 23 are locked
+   and 2 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 549 block(s) removed
+   2 block(s) optimized away
+ 275 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "ddr_clocks/clkout2_buf" (CKBUF) removed.
+ The signal "ddr_clocks/clkout1" is loadless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "DATA_IN<255>" is unused and has been removed.
+ Unused block "DATA_IN_255_OBUFT" (TRI) removed.
+The signal "DATA_IN<254>" is unused and has been removed.
+ Unused block "DATA_IN_254_OBUFT" (TRI) removed.
+The signal "DATA_IN<253>" is unused and has been removed.
+ Unused block "DATA_IN_253_OBUFT" (TRI) removed.
+The signal "DATA_IN<252>" is unused and has been removed.
+ Unused block "DATA_IN_252_OBUFT" (TRI) removed.
+The signal "DATA_IN<251>" is unused and has been removed.
+ Unused block "DATA_IN_251_OBUFT" (TRI) removed.
+The signal "DATA_IN<250>" is unused and has been removed.
+ Unused block "DATA_IN_250_OBUFT" (TRI) removed.
+The signal "DATA_IN<249>" is unused and has been removed.
+ Unused block "DATA_IN_249_OBUFT" (TRI) removed.
+The signal "DATA_IN<248>" is unused and has been removed.
+ Unused block "DATA_IN_248_OBUFT" (TRI) removed.
+The signal "DATA_IN<247>" is unused and has been removed.
+ Unused block "DATA_IN_247_OBUFT" (TRI) removed.
+The signal "DATA_IN<246>" is unused and has been removed.
+ Unused block "DATA_IN_246_OBUFT" (TRI) removed.
+The signal "DATA_IN<245>" is unused and has been removed.
+ Unused block "DATA_IN_245_OBUFT" (TRI) removed.
+The signal "DATA_IN<244>" is unused and has been removed.
+ Unused block "DATA_IN_244_OBUFT" (TRI) removed.
+The signal "DATA_IN<243>" is unused and has been removed.
+ Unused block "DATA_IN_243_OBUFT" (TRI) removed.
+The signal "DATA_IN<242>" is unused and has been removed.
+ Unused block "DATA_IN_242_OBUFT" (TRI) removed.
+The signal "DATA_IN<241>" is unused and has been removed.
+ Unused block "DATA_IN_241_OBUFT" (TRI) removed.
+The signal "DATA_IN<240>" is unused and has been removed.
+ Unused block "DATA_IN_240_OBUFT" (TRI) removed.
+The signal "DATA_IN<239>" is unused and has been removed.
+ Unused block "DATA_IN_239_OBUFT" (TRI) removed.
+The signal "DATA_IN<238>" is unused and has been removed.
+ Unused block "DATA_IN_238_OBUFT" (TRI) removed.
+The signal "DATA_IN<237>" is unused and has been removed.
+ Unused block "DATA_IN_237_OBUFT" (TRI) removed.
+The signal "DATA_IN<236>" is unused and has been removed.
+ Unused block "DATA_IN_236_OBUFT" (TRI) removed.
+The signal "DATA_IN<235>" is unused and has been removed.
+ Unused block "DATA_IN_235_OBUFT" (TRI) removed.
+The signal "DATA_IN<234>" is unused and has been removed.
+ Unused block "DATA_IN_234_OBUFT" (TRI) removed.
+The signal "DATA_IN<233>" is unused and has been removed.
+ Unused block "DATA_IN_233_OBUFT" (TRI) removed.
+The signal "DATA_IN<232>" is unused and has been removed.
+ Unused block "DATA_IN_232_OBUFT" (TRI) removed.
+The signal "DATA_IN<231>" is unused and has been removed.
+ Unused block "DATA_IN_231_OBUFT" (TRI) removed.
+The signal "DATA_IN<230>" is unused and has been removed.
+ Unused block "DATA_IN_230_OBUFT" (TRI) removed.
+The signal "DATA_IN<229>" is unused and has been removed.
+ Unused block "DATA_IN_229_OBUFT" (TRI) removed.
+The signal "DATA_IN<228>" is unused and has been removed.
+ Unused block "DATA_IN_228_OBUFT" (TRI) removed.
+The signal "DATA_IN<227>" is unused and has been removed.
+ Unused block "DATA_IN_227_OBUFT" (TRI) removed.
+The signal "DATA_IN<226>" is unused and has been removed.
+ Unused block "DATA_IN_226_OBUFT" (TRI) removed.
+The signal "DATA_IN<225>" is unused and has been removed.
+ Unused block "DATA_IN_225_OBUFT" (TRI) removed.
+The signal "DATA_IN<224>" is unused and has been removed.
+ Unused block "DATA_IN_224_OBUFT" (TRI) removed.
+The signal "DATA_IN<223>" is unused and has been removed.
+ Unused block "DATA_IN_223_OBUFT" (TRI) removed.
+The signal "DATA_IN<222>" is unused and has been removed.
+ Unused block "DATA_IN_222_OBUFT" (TRI) removed.
+The signal "DATA_IN<221>" is unused and has been removed.
+ Unused block "DATA_IN_221_OBUFT" (TRI) removed.
+The signal "DATA_IN<220>" is unused and has been removed.
+ Unused block "DATA_IN_220_OBUFT" (TRI) removed.
+The signal "DATA_IN<219>" is unused and has been removed.
+ Unused block "DATA_IN_219_OBUFT" (TRI) removed.
+The signal "DATA_IN<218>" is unused and has been removed.
+ Unused block "DATA_IN_218_OBUFT" (TRI) removed.
+The signal "DATA_IN<217>" is unused and has been removed.
+ Unused block "DATA_IN_217_OBUFT" (TRI) removed.
+The signal "DATA_IN<216>" is unused and has been removed.
+ Unused block "DATA_IN_216_OBUFT" (TRI) removed.
+The signal "DATA_IN<215>" is unused and has been removed.
+ Unused block "DATA_IN_215_OBUFT" (TRI) removed.
+The signal "DATA_IN<214>" is unused and has been removed.
+ Unused block "DATA_IN_214_OBUFT" (TRI) removed.
+The signal "DATA_IN<213>" is unused and has been removed.
+ Unused block "DATA_IN_213_OBUFT" (TRI) removed.
+The signal "DATA_IN<212>" is unused and has been removed.
+ Unused block "DATA_IN_212_OBUFT" (TRI) removed.
+The signal "DATA_IN<211>" is unused and has been removed.
+ Unused block "DATA_IN_211_OBUFT" (TRI) removed.
+The signal "DATA_IN<210>" is unused and has been removed.
+ Unused block "DATA_IN_210_OBUFT" (TRI) removed.
+The signal "DATA_IN<209>" is unused and has been removed.
+ Unused block "DATA_IN_209_OBUFT" (TRI) removed.
+The signal "DATA_IN<208>" is unused and has been removed.
+ Unused block "DATA_IN_208_OBUFT" (TRI) removed.
+The signal "DATA_IN<207>" is unused and has been removed.
+ Unused block "DATA_IN_207_OBUFT" (TRI) removed.
+The signal "DATA_IN<206>" is unused and has been removed.
+ Unused block "DATA_IN_206_OBUFT" (TRI) removed.
+The signal "DATA_IN<205>" is unused and has been removed.
+ Unused block "DATA_IN_205_OBUFT" (TRI) removed.
+The signal "DATA_IN<204>" is unused and has been removed.
+ Unused block "DATA_IN_204_OBUFT" (TRI) removed.
+The signal "DATA_IN<203>" is unused and has been removed.
+ Unused block "DATA_IN_203_OBUFT" (TRI) removed.
+The signal "DATA_IN<202>" is unused and has been removed.
+ Unused block "DATA_IN_202_OBUFT" (TRI) removed.
+The signal "DATA_IN<201>" is unused and has been removed.
+ Unused block "DATA_IN_201_OBUFT" (TRI) removed.
+The signal "DATA_IN<200>" is unused and has been removed.
+ Unused block "DATA_IN_200_OBUFT" (TRI) removed.
+The signal "DATA_IN<199>" is unused and has been removed.
+ Unused block "DATA_IN_199_OBUFT" (TRI) removed.
+The signal "DATA_IN<198>" is unused and has been removed.
+ Unused block "DATA_IN_198_OBUFT" (TRI) removed.
+The signal "DATA_IN<197>" is unused and has been removed.
+ Unused block "DATA_IN_197_OBUFT" (TRI) removed.
+The signal "DATA_IN<196>" is unused and has been removed.
+ Unused block "DATA_IN_196_OBUFT" (TRI) removed.
+The signal "DATA_IN<195>" is unused and has been removed.
+ Unused block "DATA_IN_195_OBUFT" (TRI) removed.
+The signal "DATA_IN<194>" is unused and has been removed.
+ Unused block "DATA_IN_194_OBUFT" (TRI) removed.
+The signal "DATA_IN<193>" is unused and has been removed.
+ Unused block "DATA_IN_193_OBUFT" (TRI) removed.
+The signal "DATA_IN<192>" is unused and has been removed.
+ Unused block "DATA_IN_192_OBUFT" (TRI) removed.
+The signal "DATA_IN<191>" is unused and has been removed.
+ Unused block "DATA_IN_191_OBUFT" (TRI) removed.
+The signal "DATA_IN<190>" is unused and has been removed.
+ Unused block "DATA_IN_190_OBUFT" (TRI) removed.
+The signal "DATA_IN<189>" is unused and has been removed.
+ Unused block "DATA_IN_189_OBUFT" (TRI) removed.
+The signal "DATA_IN<188>" is unused and has been removed.
+ Unused block "DATA_IN_188_OBUFT" (TRI) removed.
+The signal "DATA_IN<187>" is unused and has been removed.
+ Unused block "DATA_IN_187_OBUFT" (TRI) removed.
+The signal "DATA_IN<186>" is unused and has been removed.
+ Unused block "DATA_IN_186_OBUFT" (TRI) removed.
+The signal "DATA_IN<185>" is unused and has been removed.
+ Unused block "DATA_IN_185_OBUFT" (TRI) removed.
+The signal "DATA_IN<184>" is unused and has been removed.
+ Unused block "DATA_IN_184_OBUFT" (TRI) removed.
+The signal "DATA_IN<183>" is unused and has been removed.
+ Unused block "DATA_IN_183_OBUFT" (TRI) removed.
+The signal "DATA_IN<182>" is unused and has been removed.
+ Unused block "DATA_IN_182_OBUFT" (TRI) removed.
+The signal "DATA_IN<181>" is unused and has been removed.
+ Unused block "DATA_IN_181_OBUFT" (TRI) removed.
+The signal "DATA_IN<180>" is unused and has been removed.
+ Unused block "DATA_IN_180_OBUFT" (TRI) removed.
+The signal "DATA_IN<179>" is unused and has been removed.
+ Unused block "DATA_IN_179_OBUFT" (TRI) removed.
+The signal "DATA_IN<178>" is unused and has been removed.
+ Unused block "DATA_IN_178_OBUFT" (TRI) removed.
+The signal "DATA_IN<177>" is unused and has been removed.
+ Unused block "DATA_IN_177_OBUFT" (TRI) removed.
+The signal "DATA_IN<176>" is unused and has been removed.
+ Unused block "DATA_IN_176_OBUFT" (TRI) removed.
+The signal "DATA_IN<175>" is unused and has been removed.
+ Unused block "DATA_IN_175_OBUFT" (TRI) removed.
+The signal "DATA_IN<174>" is unused and has been removed.
+ Unused block "DATA_IN_174_OBUFT" (TRI) removed.
+The signal "DATA_IN<173>" is unused and has been removed.
+ Unused block "DATA_IN_173_OBUFT" (TRI) removed.
+The signal "DATA_IN<172>" is unused and has been removed.
+ Unused block "DATA_IN_172_OBUFT" (TRI) removed.
+The signal "DATA_IN<171>" is unused and has been removed.
+ Unused block "DATA_IN_171_OBUFT" (TRI) removed.
+The signal "DATA_IN<170>" is unused and has been removed.
+ Unused block "DATA_IN_170_OBUFT" (TRI) removed.
+The signal "DATA_IN<169>" is unused and has been removed.
+ Unused block "DATA_IN_169_OBUFT" (TRI) removed.
+The signal "DATA_IN<168>" is unused and has been removed.
+ Unused block "DATA_IN_168_OBUFT" (TRI) removed.
+The signal "DATA_IN<167>" is unused and has been removed.
+ Unused block "DATA_IN_167_OBUFT" (TRI) removed.
+The signal "DATA_IN<166>" is unused and has been removed.
+ Unused block "DATA_IN_166_OBUFT" (TRI) removed.
+The signal "DATA_IN<165>" is unused and has been removed.
+ Unused block "DATA_IN_165_OBUFT" (TRI) removed.
+The signal "DATA_IN<164>" is unused and has been removed.
+ Unused block "DATA_IN_164_OBUFT" (TRI) removed.
+The signal "DATA_IN<163>" is unused and has been removed.
+ Unused block "DATA_IN_163_OBUFT" (TRI) removed.
+The signal "DATA_IN<162>" is unused and has been removed.
+ Unused block "DATA_IN_162_OBUFT" (TRI) removed.
+The signal "DATA_IN<161>" is unused and has been removed.
+ Unused block "DATA_IN_161_OBUFT" (TRI) removed.
+The signal "DATA_IN<160>" is unused and has been removed.
+ Unused block "DATA_IN_160_OBUFT" (TRI) removed.
+The signal "DATA_IN<159>" is unused and has been removed.
+ Unused block "DATA_IN_159_OBUFT" (TRI) removed.
+The signal "DATA_IN<158>" is unused and has been removed.
+ Unused block "DATA_IN_158_OBUFT" (TRI) removed.
+The signal "DATA_IN<157>" is unused and has been removed.
+ Unused block "DATA_IN_157_OBUFT" (TRI) removed.
+The signal "DATA_IN<156>" is unused and has been removed.
+ Unused block "DATA_IN_156_OBUFT" (TRI) removed.
+The signal "DATA_IN<155>" is unused and has been removed.
+ Unused block "DATA_IN_155_OBUFT" (TRI) removed.
+The signal "DATA_IN<154>" is unused and has been removed.
+ Unused block "DATA_IN_154_OBUFT" (TRI) removed.
+The signal "DATA_IN<153>" is unused and has been removed.
+ Unused block "DATA_IN_153_OBUFT" (TRI) removed.
+The signal "DATA_IN<152>" is unused and has been removed.
+ Unused block "DATA_IN_152_OBUFT" (TRI) removed.
+The signal "DATA_IN<151>" is unused and has been removed.
+ Unused block "DATA_IN_151_OBUFT" (TRI) removed.
+The signal "DATA_IN<150>" is unused and has been removed.
+ Unused block "DATA_IN_150_OBUFT" (TRI) removed.
+The signal "DATA_IN<149>" is unused and has been removed.
+ Unused block "DATA_IN_149_OBUFT" (TRI) removed.
+The signal "DATA_IN<148>" is unused and has been removed.
+ Unused block "DATA_IN_148_OBUFT" (TRI) removed.
+The signal "DATA_IN<147>" is unused and has been removed.
+ Unused block "DATA_IN_147_OBUFT" (TRI) removed.
+The signal "DATA_IN<146>" is unused and has been removed.
+ Unused block "DATA_IN_146_OBUFT" (TRI) removed.
+The signal "DATA_IN<145>" is unused and has been removed.
+ Unused block "DATA_IN_145_OBUFT" (TRI) removed.
+The signal "DATA_IN<144>" is unused and has been removed.
+ Unused block "DATA_IN_144_OBUFT" (TRI) removed.
+The signal "DATA_IN<143>" is unused and has been removed.
+ Unused block "DATA_IN_143_OBUFT" (TRI) removed.
+The signal "DATA_IN<142>" is unused and has been removed.
+ Unused block "DATA_IN_142_OBUFT" (TRI) removed.
+The signal "DATA_IN<141>" is unused and has been removed.
+ Unused block "DATA_IN_141_OBUFT" (TRI) removed.
+The signal "DATA_IN<140>" is unused and has been removed.
+ Unused block "DATA_IN_140_OBUFT" (TRI) removed.
+The signal "DATA_IN<139>" is unused and has been removed.
+ Unused block "DATA_IN_139_OBUFT" (TRI) removed.
+The signal "DATA_IN<138>" is unused and has been removed.
+ Unused block "DATA_IN_138_OBUFT" (TRI) removed.
+The signal "DATA_IN<137>" is unused and has been removed.
+ Unused block "DATA_IN_137_OBUFT" (TRI) removed.
+The signal "DATA_IN<136>" is unused and has been removed.
+ Unused block "DATA_IN_136_OBUFT" (TRI) removed.
+The signal "DATA_IN<135>" is unused and has been removed.
+ Unused block "DATA_IN_135_OBUFT" (TRI) removed.
+The signal "DATA_IN<134>" is unused and has been removed.
+ Unused block "DATA_IN_134_OBUFT" (TRI) removed.
+The signal "DATA_IN<133>" is unused and has been removed.
+ Unused block "DATA_IN_133_OBUFT" (TRI) removed.
+The signal "DATA_IN<132>" is unused and has been removed.
+ Unused block "DATA_IN_132_OBUFT" (TRI) removed.
+The signal "DATA_IN<131>" is unused and has been removed.
+ Unused block "DATA_IN_131_OBUFT" (TRI) removed.
+The signal "DATA_IN<130>" is unused and has been removed.
+ Unused block "DATA_IN_130_OBUFT" (TRI) removed.
+The signal "DATA_IN<129>" is unused and has been removed.
+ Unused block "DATA_IN_129_OBUFT" (TRI) removed.
+The signal "DATA_IN<128>" is unused and has been removed.
+ Unused block "DATA_IN_128_OBUFT" (TRI) removed.
+The signal "DATA_IN<127>" is unused and has been removed.
+ Unused block "DATA_IN_127_OBUFT" (TRI) removed.
+The signal "DATA_IN<126>" is unused and has been removed.
+ Unused block "DATA_IN_126_OBUFT" (TRI) removed.
+The signal "DATA_IN<125>" is unused and has been removed.
+ Unused block "DATA_IN_125_OBUFT" (TRI) removed.
+The signal "DATA_IN<124>" is unused and has been removed.
+ Unused block "DATA_IN_124_OBUFT" (TRI) removed.
+The signal "DATA_IN<123>" is unused and has been removed.
+ Unused block "DATA_IN_123_OBUFT" (TRI) removed.
+The signal "DATA_IN<122>" is unused and has been removed.
+ Unused block "DATA_IN_122_OBUFT" (TRI) removed.
+The signal "DATA_IN<121>" is unused and has been removed.
+ Unused block "DATA_IN_121_OBUFT" (TRI) removed.
+The signal "DATA_IN<120>" is unused and has been removed.
+ Unused block "DATA_IN_120_OBUFT" (TRI) removed.
+The signal "DATA_IN<119>" is unused and has been removed.
+ Unused block "DATA_IN_119_OBUFT" (TRI) removed.
+The signal "DATA_IN<118>" is unused and has been removed.
+ Unused block "DATA_IN_118_OBUFT" (TRI) removed.
+The signal "DATA_IN<117>" is unused and has been removed.
+ Unused block "DATA_IN_117_OBUFT" (TRI) removed.
+The signal "DATA_IN<116>" is unused and has been removed.
+ Unused block "DATA_IN_116_OBUFT" (TRI) removed.
+The signal "DATA_IN<115>" is unused and has been removed.
+ Unused block "DATA_IN_115_OBUFT" (TRI) removed.
+The signal "DATA_IN<114>" is unused and has been removed.
+ Unused block "DATA_IN_114_OBUFT" (TRI) removed.
+The signal "DATA_IN<113>" is unused and has been removed.
+ Unused block "DATA_IN_113_OBUFT" (TRI) removed.
+The signal "DATA_IN<112>" is unused and has been removed.
+ Unused block "DATA_IN_112_OBUFT" (TRI) removed.
+The signal "DATA_IN<111>" is unused and has been removed.
+ Unused block "DATA_IN_111_OBUFT" (TRI) removed.
+The signal "DATA_IN<110>" is unused and has been removed.
+ Unused block "DATA_IN_110_OBUFT" (TRI) removed.
+The signal "DATA_IN<109>" is unused and has been removed.
+ Unused block "DATA_IN_109_OBUFT" (TRI) removed.
+The signal "DATA_IN<108>" is unused and has been removed.
+ Unused block "DATA_IN_108_OBUFT" (TRI) removed.
+The signal "DATA_IN<107>" is unused and has been removed.
+ Unused block "DATA_IN_107_OBUFT" (TRI) removed.
+The signal "DATA_IN<106>" is unused and has been removed.
+ Unused block "DATA_IN_106_OBUFT" (TRI) removed.
+The signal "DATA_IN<105>" is unused and has been removed.
+ Unused block "DATA_IN_105_OBUFT" (TRI) removed.
+The signal "DATA_IN<104>" is unused and has been removed.
+ Unused block "DATA_IN_104_OBUFT" (TRI) removed.
+The signal "DATA_IN<103>" is unused and has been removed.
+ Unused block "DATA_IN_103_OBUFT" (TRI) removed.
+The signal "DATA_IN<102>" is unused and has been removed.
+ Unused block "DATA_IN_102_OBUFT" (TRI) removed.
+The signal "DATA_IN<101>" is unused and has been removed.
+ Unused block "DATA_IN_101_OBUFT" (TRI) removed.
+The signal "DATA_IN<100>" is unused and has been removed.
+ Unused block "DATA_IN_100_OBUFT" (TRI) removed.
+The signal "DATA_IN<99>" is unused and has been removed.
+ Unused block "DATA_IN_99_OBUFT" (TRI) removed.
+The signal "DATA_IN<98>" is unused and has been removed.
+ Unused block "DATA_IN_98_OBUFT" (TRI) removed.
+The signal "DATA_IN<97>" is unused and has been removed.
+ Unused block "DATA_IN_97_OBUFT" (TRI) removed.
+The signal "DATA_IN<96>" is unused and has been removed.
+ Unused block "DATA_IN_96_OBUFT" (TRI) removed.
+The signal "DATA_IN<95>" is unused and has been removed.
+ Unused block "DATA_IN_95_OBUFT" (TRI) removed.
+The signal "DATA_IN<94>" is unused and has been removed.
+ Unused block "DATA_IN_94_OBUFT" (TRI) removed.
+The signal "DATA_IN<93>" is unused and has been removed.
+ Unused block "DATA_IN_93_OBUFT" (TRI) removed.
+The signal "DATA_IN<92>" is unused and has been removed.
+ Unused block "DATA_IN_92_OBUFT" (TRI) removed.
+The signal "DATA_IN<91>" is unused and has been removed.
+ Unused block "DATA_IN_91_OBUFT" (TRI) removed.
+The signal "DATA_IN<90>" is unused and has been removed.
+ Unused block "DATA_IN_90_OBUFT" (TRI) removed.
+The signal "DATA_IN<89>" is unused and has been removed.
+ Unused block "DATA_IN_89_OBUFT" (TRI) removed.
+The signal "DATA_IN<88>" is unused and has been removed.
+ Unused block "DATA_IN_88_OBUFT" (TRI) removed.
+The signal "DATA_IN<87>" is unused and has been removed.
+ Unused block "DATA_IN_87_OBUFT" (TRI) removed.
+The signal "DATA_IN<86>" is unused and has been removed.
+ Unused block "DATA_IN_86_OBUFT" (TRI) removed.
+The signal "DATA_IN<85>" is unused and has been removed.
+ Unused block "DATA_IN_85_OBUFT" (TRI) removed.
+The signal "DATA_IN<84>" is unused and has been removed.
+ Unused block "DATA_IN_84_OBUFT" (TRI) removed.
+The signal "DATA_IN<83>" is unused and has been removed.
+ Unused block "DATA_IN_83_OBUFT" (TRI) removed.
+The signal "DATA_IN<82>" is unused and has been removed.
+ Unused block "DATA_IN_82_OBUFT" (TRI) removed.
+The signal "DATA_IN<81>" is unused and has been removed.
+ Unused block "DATA_IN_81_OBUFT" (TRI) removed.
+The signal "DATA_IN<80>" is unused and has been removed.
+ Unused block "DATA_IN_80_OBUFT" (TRI) removed.
+The signal "DATA_IN<79>" is unused and has been removed.
+ Unused block "DATA_IN_79_OBUFT" (TRI) removed.
+The signal "DATA_IN<78>" is unused and has been removed.
+ Unused block "DATA_IN_78_OBUFT" (TRI) removed.
+The signal "DATA_IN<77>" is unused and has been removed.
+ Unused block "DATA_IN_77_OBUFT" (TRI) removed.
+The signal "DATA_IN<76>" is unused and has been removed.
+ Unused block "DATA_IN_76_OBUFT" (TRI) removed.
+The signal "DATA_IN<75>" is unused and has been removed.
+ Unused block "DATA_IN_75_OBUFT" (TRI) removed.
+The signal "DATA_IN<74>" is unused and has been removed.
+ Unused block "DATA_IN_74_OBUFT" (TRI) removed.
+The signal "DATA_IN<73>" is unused and has been removed.
+ Unused block "DATA_IN_73_OBUFT" (TRI) removed.
+The signal "DATA_IN<72>" is unused and has been removed.
+ Unused block "DATA_IN_72_OBUFT" (TRI) removed.
+The signal "DATA_IN<71>" is unused and has been removed.
+ Unused block "DATA_IN_71_OBUFT" (TRI) removed.
+The signal "DATA_IN<70>" is unused and has been removed.
+ Unused block "DATA_IN_70_OBUFT" (TRI) removed.
+The signal "DATA_IN<69>" is unused and has been removed.
+ Unused block "DATA_IN_69_OBUFT" (TRI) removed.
+The signal "DATA_IN<68>" is unused and has been removed.
+ Unused block "DATA_IN_68_OBUFT" (TRI) removed.
+The signal "DATA_IN<67>" is unused and has been removed.
+ Unused block "DATA_IN_67_OBUFT" (TRI) removed.
+The signal "DATA_IN<66>" is unused and has been removed.
+ Unused block "DATA_IN_66_OBUFT" (TRI) removed.
+The signal "DATA_IN<65>" is unused and has been removed.
+ Unused block "DATA_IN_65_OBUFT" (TRI) removed.
+The signal "DATA_IN<64>" is unused and has been removed.
+ Unused block "DATA_IN_64_OBUFT" (TRI) removed.
+The signal "DATA_IN<63>" is unused and has been removed.
+ Unused block "DATA_IN_63_OBUFT" (TRI) removed.
+The signal "DATA_IN<62>" is unused and has been removed.
+ Unused block "DATA_IN_62_OBUFT" (TRI) removed.
+The signal "DATA_IN<61>" is unused and has been removed.
+ Unused block "DATA_IN_61_OBUFT" (TRI) removed.
+The signal "DATA_IN<60>" is unused and has been removed.
+ Unused block "DATA_IN_60_OBUFT" (TRI) removed.
+The signal "DATA_IN<59>" is unused and has been removed.
+ Unused block "DATA_IN_59_OBUFT" (TRI) removed.
+The signal "DATA_IN<58>" is unused and has been removed.
+ Unused block "DATA_IN_58_OBUFT" (TRI) removed.
+The signal "DATA_IN<57>" is unused and has been removed.
+ Unused block "DATA_IN_57_OBUFT" (TRI) removed.
+The signal "DATA_IN<56>" is unused and has been removed.
+ Unused block "DATA_IN_56_OBUFT" (TRI) removed.
+The signal "DATA_IN<55>" is unused and has been removed.
+ Unused block "DATA_IN_55_OBUFT" (TRI) removed.
+The signal "DATA_IN<54>" is unused and has been removed.
+ Unused block "DATA_IN_54_OBUFT" (TRI) removed.
+The signal "DATA_IN<53>" is unused and has been removed.
+ Unused block "DATA_IN_53_OBUFT" (TRI) removed.
+The signal "DATA_IN<52>" is unused and has been removed.
+ Unused block "DATA_IN_52_OBUFT" (TRI) removed.
+The signal "DATA_IN<51>" is unused and has been removed.
+ Unused block "DATA_IN_51_OBUFT" (TRI) removed.
+The signal "DATA_IN<50>" is unused and has been removed.
+ Unused block "DATA_IN_50_OBUFT" (TRI) removed.
+The signal "DATA_IN<49>" is unused and has been removed.
+ Unused block "DATA_IN_49_OBUFT" (TRI) removed.
+The signal "DATA_IN<48>" is unused and has been removed.
+ Unused block "DATA_IN_48_OBUFT" (TRI) removed.
+The signal "DATA_IN<47>" is unused and has been removed.
+ Unused block "DATA_IN_47_OBUFT" (TRI) removed.
+The signal "DATA_IN<46>" is unused and has been removed.
+ Unused block "DATA_IN_46_OBUFT" (TRI) removed.
+The signal "DATA_IN<45>" is unused and has been removed.
+ Unused block "DATA_IN_45_OBUFT" (TRI) removed.
+The signal "DATA_IN<44>" is unused and has been removed.
+ Unused block "DATA_IN_44_OBUFT" (TRI) removed.
+The signal "DATA_IN<43>" is unused and has been removed.
+ Unused block "DATA_IN_43_OBUFT" (TRI) removed.
+The signal "DATA_IN<42>" is unused and has been removed.
+ Unused block "DATA_IN_42_OBUFT" (TRI) removed.
+The signal "DATA_IN<41>" is unused and has been removed.
+ Unused block "DATA_IN_41_OBUFT" (TRI) removed.
+The signal "DATA_IN<40>" is unused and has been removed.
+ Unused block "DATA_IN_40_OBUFT" (TRI) removed.
+The signal "DATA_IN<39>" is unused and has been removed.
+ Unused block "DATA_IN_39_OBUFT" (TRI) removed.
+The signal "DATA_IN<38>" is unused and has been removed.
+ Unused block "DATA_IN_38_OBUFT" (TRI) removed.
+The signal "DATA_IN<37>" is unused and has been removed.
+ Unused block "DATA_IN_37_OBUFT" (TRI) removed.
+The signal "DATA_IN<36>" is unused and has been removed.
+ Unused block "DATA_IN_36_OBUFT" (TRI) removed.
+The signal "DATA_IN<35>" is unused and has been removed.
+ Unused block "DATA_IN_35_OBUFT" (TRI) removed.
+The signal "DATA_IN<34>" is unused and has been removed.
+ Unused block "DATA_IN_34_OBUFT" (TRI) removed.
+The signal "DATA_IN<33>" is unused and has been removed.
+ Unused block "DATA_IN_33_OBUFT" (TRI) removed.
+The signal "DATA_IN<32>" is unused and has been removed.
+ Unused block "DATA_IN_32_OBUFT" (TRI) removed.
+The signal "DATA_IN<31>" is unused and has been removed.
+ Unused block "DATA_IN_31_OBUFT" (TRI) removed.
+The signal "DATA_IN<30>" is unused and has been removed.
+ Unused block "DATA_IN_30_OBUFT" (TRI) removed.
+The signal "DATA_IN<29>" is unused and has been removed.
+ Unused block "DATA_IN_29_OBUFT" (TRI) removed.
+The signal "DATA_IN<28>" is unused and has been removed.
+ Unused block "DATA_IN_28_OBUFT" (TRI) removed.
+The signal "DATA_IN<27>" is unused and has been removed.
+ Unused block "DATA_IN_27_OBUFT" (TRI) removed.
+The signal "DATA_IN<26>" is unused and has been removed.
+ Unused block "DATA_IN_26_OBUFT" (TRI) removed.
+The signal "DATA_IN<25>" is unused and has been removed.
+ Unused block "DATA_IN_25_OBUFT" (TRI) removed.
+The signal "DATA_IN<24>" is unused and has been removed.
+ Unused block "DATA_IN_24_OBUFT" (TRI) removed.
+The signal "DATA_IN<23>" is unused and has been removed.
+ Unused block "DATA_IN_23_OBUFT" (TRI) removed.
+The signal "DATA_IN<22>" is unused and has been removed.
+ Unused block "DATA_IN_22_OBUFT" (TRI) removed.
+The signal "DATA_IN<21>" is unused and has been removed.
+ Unused block "DATA_IN_21_OBUFT" (TRI) removed.
+The signal "DATA_IN<20>" is unused and has been removed.
+ Unused block "DATA_IN_20_OBUFT" (TRI) removed.
+The signal "DATA_IN<19>" is unused and has been removed.
+ Unused block "DATA_IN_19_OBUFT" (TRI) removed.
+The signal "DATA_IN<18>" is unused and has been removed.
+ Unused block "DATA_IN_18_OBUFT" (TRI) removed.
+The signal "DATA_IN<17>" is unused and has been removed.
+ Unused block "DATA_IN_17_OBUFT" (TRI) removed.
+The signal "DATA_IN<16>" is unused and has been removed.
+ Unused block "DATA_IN_16_OBUFT" (TRI) removed.
+The signal "DATA_IN<15>" is unused and has been removed.
+ Unused block "DATA_IN_15_OBUFT" (TRI) removed.
+The signal "DATA_IN<14>" is unused and has been removed.
+ Unused block "DATA_IN_14_OBUFT" (TRI) removed.
+The signal "DATA_IN<13>" is unused and has been removed.
+ Unused block "DATA_IN_13_OBUFT" (TRI) removed.
+The signal "DATA_IN<12>" is unused and has been removed.
+ Unused block "DATA_IN_12_OBUFT" (TRI) removed.
+The signal "DATA_IN<11>" is unused and has been removed.
+ Unused block "DATA_IN_11_OBUFT" (TRI) removed.
+The signal "DATA_IN<10>" is unused and has been removed.
+ Unused block "DATA_IN_10_OBUFT" (TRI) removed.
+The signal "DATA_IN<9>" is unused and has been removed.
+ Unused block "DATA_IN_9_OBUFT" (TRI) removed.
+The signal "DATA_IN<8>" is unused and has been removed.
+ Unused block "DATA_IN_8_OBUFT" (TRI) removed.
+The signal "DATA_IN<7>" is unused and has been removed.
+ Unused block "DATA_IN_7_OBUFT" (TRI) removed.
+The signal "DATA_IN<6>" is unused and has been removed.
+ Unused block "DATA_IN_6_OBUFT" (TRI) removed.
+The signal "DATA_IN<5>" is unused and has been removed.
+ Unused block "DATA_IN_5_OBUFT" (TRI) removed.
+The signal "DATA_IN<4>" is unused and has been removed.
+ Unused block "DATA_IN_4_OBUFT" (TRI) removed.
+The signal "DATA_IN<3>" is unused and has been removed.
+ Unused block "DATA_IN_3_OBUFT" (TRI) removed.
+The signal "DATA_IN<2>" is unused and has been removed.
+ Unused block "DATA_IN_2_OBUFT" (TRI) removed.
+The signal "DATA_IN<1>" is unused and has been removed.
+ Unused block "DATA_IN_1_OBUFT" (TRI) removed.
+The signal "DATA_IN<0>" is unused and has been removed.
+ Unused block "DATA_IN_0_OBUFT" (TRI) removed.
+The signal "DATA_RAM<15>" is unused and has been removed.
+ Unused block "DATA_RAM_15_OBUFT" (TRI) removed.
+The signal "DATA_RAM<14>" is unused and has been removed.
+ Unused block "DATA_RAM_14_OBUFT" (TRI) removed.
+The signal "DATA_RAM<13>" is unused and has been removed.
+ Unused block "DATA_RAM_13_OBUFT" (TRI) removed.
+The signal "DATA_RAM<12>" is unused and has been removed.
+ Unused block "DATA_RAM_12_OBUFT" (TRI) removed.
+The signal "DATA_RAM<11>" is unused and has been removed.
+ Unused block "DATA_RAM_11_OBUFT" (TRI) removed.
+The signal "DATA_RAM<10>" is unused and has been removed.
+ Unused block "DATA_RAM_10_OBUFT" (TRI) removed.
+The signal "DATA_RAM<9>" is unused and has been removed.
+ Unused block "DATA_RAM_9_OBUFT" (TRI) removed.
+The signal "DATA_RAM<8>" is unused and has been removed.
+ Unused block "DATA_RAM_8_OBUFT" (TRI) removed.
+The signal "DATA_RAM<7>" is unused and has been removed.
+ Unused block "DATA_RAM_7_OBUFT" (TRI) removed.
+The signal "DATA_RAM<6>" is unused and has been removed.
+ Unused block "DATA_RAM_6_OBUFT" (TRI) removed.
+The signal "DATA_RAM<5>" is unused and has been removed.
+ Unused block "DATA_RAM_5_OBUFT" (TRI) removed.
+The signal "DATA_RAM<4>" is unused and has been removed.
+ Unused block "DATA_RAM_4_OBUFT" (TRI) removed.
+The signal "DATA_RAM<3>" is unused and has been removed.
+ Unused block "DATA_RAM_3_OBUFT" (TRI) removed.
+The signal "DATA_RAM<2>" is unused and has been removed.
+ Unused block "DATA_RAM_2_OBUFT" (TRI) removed.
+The signal "DATA_RAM<1>" is unused and has been removed.
+ Unused block "DATA_RAM_1_OBUFT" (TRI) removed.
+The signal "DATA_RAM<0>" is unused and has been removed.
+ Unused block "DATA_RAM_0_OBUFT" (TRI) removed.
+The signal "DQS<1>" is unused and has been removed.
+ Unused block "DQS_1_OBUFT" (TRI) removed.
+The signal "DQS<0>" is unused and has been removed.
+ Unused block "DQS_0_OBUFT" (TRI) removed.
+Unused block "DATA_IN<0>" (PAD) removed.
+Unused block "DATA_IN<100>" (PAD) removed.
+Unused block "DATA_IN<101>" (PAD) removed.
+Unused block "DATA_IN<102>" (PAD) removed.
+Unused block "DATA_IN<103>" (PAD) removed.
+Unused block "DATA_IN<104>" (PAD) removed.
+Unused block "DATA_IN<105>" (PAD) removed.
+Unused block "DATA_IN<106>" (PAD) removed.
+Unused block "DATA_IN<107>" (PAD) removed.
+Unused block "DATA_IN<108>" (PAD) removed.
+Unused block "DATA_IN<109>" (PAD) removed.
+Unused block "DATA_IN<10>" (PAD) removed.
+Unused block "DATA_IN<110>" (PAD) removed.
+Unused block "DATA_IN<111>" (PAD) removed.
+Unused block "DATA_IN<112>" (PAD) removed.
+Unused block "DATA_IN<113>" (PAD) removed.
+Unused block "DATA_IN<114>" (PAD) removed.
+Unused block "DATA_IN<115>" (PAD) removed.
+Unused block "DATA_IN<116>" (PAD) removed.
+Unused block "DATA_IN<117>" (PAD) removed.
+Unused block "DATA_IN<118>" (PAD) removed.
+Unused block "DATA_IN<119>" (PAD) removed.
+Unused block "DATA_IN<11>" (PAD) removed.
+Unused block "DATA_IN<120>" (PAD) removed.
+Unused block "DATA_IN<121>" (PAD) removed.
+Unused block "DATA_IN<122>" (PAD) removed.
+Unused block "DATA_IN<123>" (PAD) removed.
+Unused block "DATA_IN<124>" (PAD) removed.
+Unused block "DATA_IN<125>" (PAD) removed.
+Unused block "DATA_IN<126>" (PAD) removed.
+Unused block "DATA_IN<127>" (PAD) removed.
+Unused block "DATA_IN<128>" (PAD) removed.
+Unused block "DATA_IN<129>" (PAD) removed.
+Unused block "DATA_IN<12>" (PAD) removed.
+Unused block "DATA_IN<130>" (PAD) removed.
+Unused block "DATA_IN<131>" (PAD) removed.
+Unused block "DATA_IN<132>" (PAD) removed.
+Unused block "DATA_IN<133>" (PAD) removed.
+Unused block "DATA_IN<134>" (PAD) removed.
+Unused block "DATA_IN<135>" (PAD) removed.
+Unused block "DATA_IN<136>" (PAD) removed.
+Unused block "DATA_IN<137>" (PAD) removed.
+Unused block "DATA_IN<138>" (PAD) removed.
+Unused block "DATA_IN<139>" (PAD) removed.
+Unused block "DATA_IN<13>" (PAD) removed.
+Unused block "DATA_IN<140>" (PAD) removed.
+Unused block "DATA_IN<141>" (PAD) removed.
+Unused block "DATA_IN<142>" (PAD) removed.
+Unused block "DATA_IN<143>" (PAD) removed.
+Unused block "DATA_IN<144>" (PAD) removed.
+Unused block "DATA_IN<145>" (PAD) removed.
+Unused block "DATA_IN<146>" (PAD) removed.
+Unused block "DATA_IN<147>" (PAD) removed.
+Unused block "DATA_IN<148>" (PAD) removed.
+Unused block "DATA_IN<149>" (PAD) removed.
+Unused block "DATA_IN<14>" (PAD) removed.
+Unused block "DATA_IN<150>" (PAD) removed.
+Unused block "DATA_IN<151>" (PAD) removed.
+Unused block "DATA_IN<152>" (PAD) removed.
+Unused block "DATA_IN<153>" (PAD) removed.
+Unused block "DATA_IN<154>" (PAD) removed.
+Unused block "DATA_IN<155>" (PAD) removed.
+Unused block "DATA_IN<156>" (PAD) removed.
+Unused block "DATA_IN<157>" (PAD) removed.
+Unused block "DATA_IN<158>" (PAD) removed.
+Unused block "DATA_IN<159>" (PAD) removed.
+Unused block "DATA_IN<15>" (PAD) removed.
+Unused block "DATA_IN<160>" (PAD) removed.
+Unused block "DATA_IN<161>" (PAD) removed.
+Unused block "DATA_IN<162>" (PAD) removed.
+Unused block "DATA_IN<163>" (PAD) removed.
+Unused block "DATA_IN<164>" (PAD) removed.
+Unused block "DATA_IN<165>" (PAD) removed.
+Unused block "DATA_IN<166>" (PAD) removed.
+Unused block "DATA_IN<167>" (PAD) removed.
+Unused block "DATA_IN<168>" (PAD) removed.
+Unused block "DATA_IN<169>" (PAD) removed.
+Unused block "DATA_IN<16>" (PAD) removed.
+Unused block "DATA_IN<170>" (PAD) removed.
+Unused block "DATA_IN<171>" (PAD) removed.
+Unused block "DATA_IN<172>" (PAD) removed.
+Unused block "DATA_IN<173>" (PAD) removed.
+Unused block "DATA_IN<174>" (PAD) removed.
+Unused block "DATA_IN<175>" (PAD) removed.
+Unused block "DATA_IN<176>" (PAD) removed.
+Unused block "DATA_IN<177>" (PAD) removed.
+Unused block "DATA_IN<178>" (PAD) removed.
+Unused block "DATA_IN<179>" (PAD) removed.
+Unused block "DATA_IN<17>" (PAD) removed.
+Unused block "DATA_IN<180>" (PAD) removed.
+Unused block "DATA_IN<181>" (PAD) removed.
+Unused block "DATA_IN<182>" (PAD) removed.
+Unused block "DATA_IN<183>" (PAD) removed.
+Unused block "DATA_IN<184>" (PAD) removed.
+Unused block "DATA_IN<185>" (PAD) removed.
+Unused block "DATA_IN<186>" (PAD) removed.
+Unused block "DATA_IN<187>" (PAD) removed.
+Unused block "DATA_IN<188>" (PAD) removed.
+Unused block "DATA_IN<189>" (PAD) removed.
+Unused block "DATA_IN<18>" (PAD) removed.
+Unused block "DATA_IN<190>" (PAD) removed.
+Unused block "DATA_IN<191>" (PAD) removed.
+Unused block "DATA_IN<192>" (PAD) removed.
+Unused block "DATA_IN<193>" (PAD) removed.
+Unused block "DATA_IN<194>" (PAD) removed.
+Unused block "DATA_IN<195>" (PAD) removed.
+Unused block "DATA_IN<196>" (PAD) removed.
+Unused block "DATA_IN<197>" (PAD) removed.
+Unused block "DATA_IN<198>" (PAD) removed.
+Unused block "DATA_IN<199>" (PAD) removed.
+Unused block "DATA_IN<19>" (PAD) removed.
+Unused block "DATA_IN<1>" (PAD) removed.
+Unused block "DATA_IN<200>" (PAD) removed.
+Unused block "DATA_IN<201>" (PAD) removed.
+Unused block "DATA_IN<202>" (PAD) removed.
+Unused block "DATA_IN<203>" (PAD) removed.
+Unused block "DATA_IN<204>" (PAD) removed.
+Unused block "DATA_IN<205>" (PAD) removed.
+Unused block "DATA_IN<206>" (PAD) removed.
+Unused block "DATA_IN<207>" (PAD) removed.
+Unused block "DATA_IN<208>" (PAD) removed.
+Unused block "DATA_IN<209>" (PAD) removed.
+Unused block "DATA_IN<20>" (PAD) removed.
+Unused block "DATA_IN<210>" (PAD) removed.
+Unused block "DATA_IN<211>" (PAD) removed.
+Unused block "DATA_IN<212>" (PAD) removed.
+Unused block "DATA_IN<213>" (PAD) removed.
+Unused block "DATA_IN<214>" (PAD) removed.
+Unused block "DATA_IN<215>" (PAD) removed.
+Unused block "DATA_IN<216>" (PAD) removed.
+Unused block "DATA_IN<217>" (PAD) removed.
+Unused block "DATA_IN<218>" (PAD) removed.
+Unused block "DATA_IN<219>" (PAD) removed.
+Unused block "DATA_IN<21>" (PAD) removed.
+Unused block "DATA_IN<220>" (PAD) removed.
+Unused block "DATA_IN<221>" (PAD) removed.
+Unused block "DATA_IN<222>" (PAD) removed.
+Unused block "DATA_IN<223>" (PAD) removed.
+Unused block "DATA_IN<224>" (PAD) removed.
+Unused block "DATA_IN<225>" (PAD) removed.
+Unused block "DATA_IN<226>" (PAD) removed.
+Unused block "DATA_IN<227>" (PAD) removed.
+Unused block "DATA_IN<228>" (PAD) removed.
+Unused block "DATA_IN<229>" (PAD) removed.
+Unused block "DATA_IN<22>" (PAD) removed.
+Unused block "DATA_IN<230>" (PAD) removed.
+Unused block "DATA_IN<231>" (PAD) removed.
+Unused block "DATA_IN<232>" (PAD) removed.
+Unused block "DATA_IN<233>" (PAD) removed.
+Unused block "DATA_IN<234>" (PAD) removed.
+Unused block "DATA_IN<235>" (PAD) removed.
+Unused block "DATA_IN<236>" (PAD) removed.
+Unused block "DATA_IN<237>" (PAD) removed.
+Unused block "DATA_IN<238>" (PAD) removed.
+Unused block "DATA_IN<239>" (PAD) removed.
+Unused block "DATA_IN<23>" (PAD) removed.
+Unused block "DATA_IN<240>" (PAD) removed.
+Unused block "DATA_IN<241>" (PAD) removed.
+Unused block "DATA_IN<242>" (PAD) removed.
+Unused block "DATA_IN<243>" (PAD) removed.
+Unused block "DATA_IN<244>" (PAD) removed.
+Unused block "DATA_IN<245>" (PAD) removed.
+Unused block "DATA_IN<246>" (PAD) removed.
+Unused block "DATA_IN<247>" (PAD) removed.
+Unused block "DATA_IN<248>" (PAD) removed.
+Unused block "DATA_IN<249>" (PAD) removed.
+Unused block "DATA_IN<24>" (PAD) removed.
+Unused block "DATA_IN<250>" (PAD) removed.
+Unused block "DATA_IN<251>" (PAD) removed.
+Unused block "DATA_IN<252>" (PAD) removed.
+Unused block "DATA_IN<253>" (PAD) removed.
+Unused block "DATA_IN<254>" (PAD) removed.
+Unused block "DATA_IN<255>" (PAD) removed.
+Unused block "DATA_IN<25>" (PAD) removed.
+Unused block "DATA_IN<26>" (PAD) removed.
+Unused block "DATA_IN<27>" (PAD) removed.
+Unused block "DATA_IN<28>" (PAD) removed.
+Unused block "DATA_IN<29>" (PAD) removed.
+Unused block "DATA_IN<2>" (PAD) removed.
+Unused block "DATA_IN<30>" (PAD) removed.
+Unused block "DATA_IN<31>" (PAD) removed.
+Unused block "DATA_IN<32>" (PAD) removed.
+Unused block "DATA_IN<33>" (PAD) removed.
+Unused block "DATA_IN<34>" (PAD) removed.
+Unused block "DATA_IN<35>" (PAD) removed.
+Unused block "DATA_IN<36>" (PAD) removed.
+Unused block "DATA_IN<37>" (PAD) removed.
+Unused block "DATA_IN<38>" (PAD) removed.
+Unused block "DATA_IN<39>" (PAD) removed.
+Unused block "DATA_IN<3>" (PAD) removed.
+Unused block "DATA_IN<40>" (PAD) removed.
+Unused block "DATA_IN<41>" (PAD) removed.
+Unused block "DATA_IN<42>" (PAD) removed.
+Unused block "DATA_IN<43>" (PAD) removed.
+Unused block "DATA_IN<44>" (PAD) removed.
+Unused block "DATA_IN<45>" (PAD) removed.
+Unused block "DATA_IN<46>" (PAD) removed.
+Unused block "DATA_IN<47>" (PAD) removed.
+Unused block "DATA_IN<48>" (PAD) removed.
+Unused block "DATA_IN<49>" (PAD) removed.
+Unused block "DATA_IN<4>" (PAD) removed.
+Unused block "DATA_IN<50>" (PAD) removed.
+Unused block "DATA_IN<51>" (PAD) removed.
+Unused block "DATA_IN<52>" (PAD) removed.
+Unused block "DATA_IN<53>" (PAD) removed.
+Unused block "DATA_IN<54>" (PAD) removed.
+Unused block "DATA_IN<55>" (PAD) removed.
+Unused block "DATA_IN<56>" (PAD) removed.
+Unused block "DATA_IN<57>" (PAD) removed.
+Unused block "DATA_IN<58>" (PAD) removed.
+Unused block "DATA_IN<59>" (PAD) removed.
+Unused block "DATA_IN<5>" (PAD) removed.
+Unused block "DATA_IN<60>" (PAD) removed.
+Unused block "DATA_IN<61>" (PAD) removed.
+Unused block "DATA_IN<62>" (PAD) removed.
+Unused block "DATA_IN<63>" (PAD) removed.
+Unused block "DATA_IN<64>" (PAD) removed.
+Unused block "DATA_IN<65>" (PAD) removed.
+Unused block "DATA_IN<66>" (PAD) removed.
+Unused block "DATA_IN<67>" (PAD) removed.
+Unused block "DATA_IN<68>" (PAD) removed.
+Unused block "DATA_IN<69>" (PAD) removed.
+Unused block "DATA_IN<6>" (PAD) removed.
+Unused block "DATA_IN<70>" (PAD) removed.
+Unused block "DATA_IN<71>" (PAD) removed.
+Unused block "DATA_IN<72>" (PAD) removed.
+Unused block "DATA_IN<73>" (PAD) removed.
+Unused block "DATA_IN<74>" (PAD) removed.
+Unused block "DATA_IN<75>" (PAD) removed.
+Unused block "DATA_IN<76>" (PAD) removed.
+Unused block "DATA_IN<77>" (PAD) removed.
+Unused block "DATA_IN<78>" (PAD) removed.
+Unused block "DATA_IN<79>" (PAD) removed.
+Unused block "DATA_IN<7>" (PAD) removed.
+Unused block "DATA_IN<80>" (PAD) removed.
+Unused block "DATA_IN<81>" (PAD) removed.
+Unused block "DATA_IN<82>" (PAD) removed.
+Unused block "DATA_IN<83>" (PAD) removed.
+Unused block "DATA_IN<84>" (PAD) removed.
+Unused block "DATA_IN<85>" (PAD) removed.
+Unused block "DATA_IN<86>" (PAD) removed.
+Unused block "DATA_IN<87>" (PAD) removed.
+Unused block "DATA_IN<88>" (PAD) removed.
+Unused block "DATA_IN<89>" (PAD) removed.
+Unused block "DATA_IN<8>" (PAD) removed.
+Unused block "DATA_IN<90>" (PAD) removed.
+Unused block "DATA_IN<91>" (PAD) removed.
+Unused block "DATA_IN<92>" (PAD) removed.
+Unused block "DATA_IN<93>" (PAD) removed.
+Unused block "DATA_IN<94>" (PAD) removed.
+Unused block "DATA_IN<95>" (PAD) removed.
+Unused block "DATA_IN<96>" (PAD) removed.
+Unused block "DATA_IN<97>" (PAD) removed.
+Unused block "DATA_IN<98>" (PAD) removed.
+Unused block "DATA_IN<99>" (PAD) removed.
+Unused block "DATA_IN<9>" (PAD) removed.
+Unused block "DATA_RAM<0>" (PAD) removed.
+Unused block "DATA_RAM<10>" (PAD) removed.
+Unused block "DATA_RAM<11>" (PAD) removed.
+Unused block "DATA_RAM<12>" (PAD) removed.
+Unused block "DATA_RAM<13>" (PAD) removed.
+Unused block "DATA_RAM<14>" (PAD) removed.
+Unused block "DATA_RAM<15>" (PAD) removed.
+Unused block "DATA_RAM<1>" (PAD) removed.
+Unused block "DATA_RAM<2>" (PAD) removed.
+Unused block "DATA_RAM<3>" (PAD) removed.
+Unused block "DATA_RAM<4>" (PAD) removed.
+Unused block "DATA_RAM<5>" (PAD) removed.
+Unused block "DATA_RAM<6>" (PAD) removed.
+Unused block "DATA_RAM<7>" (PAD) removed.
+Unused block "DATA_RAM<8>" (PAD) removed.
+Unused block "DATA_RAM<9>" (PAD) removed.
+Unused block "DQS<0>" (PAD) removed.
+Unused block "DQS<1>" (PAD) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ADDR_RAM<0>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<1>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<2>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<3>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<4>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<5>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<6>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<7>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<8>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<9>                        | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<10>                       | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<11>                       | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| ADDR_RAM<12>                       | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| BA<0>                              | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| BA<1>                              | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| BUSY                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| CAS                                | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| CKE                                | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| CLK_N                              | IOB              | OUTPUT    | DIFF_MOBILE_DDR      |       |          |      |              |          |          |
+| CLK_P                              | IOB              | OUTPUT    | DIFF_MOBILE_DDR      |       |          |      |              |          |          |
+| DM<0>                              | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| DM<1>                              | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| RAS                                | IOB              | OUTPUT    | MOBILE_DDR           |       |          |      |              |          |          |
+| SYS_CLK_100M                       | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| WE                                 | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

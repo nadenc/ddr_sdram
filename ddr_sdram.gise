@@ -23,27 +23,118 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="ACTIVE_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DDR_TB_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="DDR_TB_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="DDR_TB_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DDR_TB_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ddr_sdram.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="ddr_sdram.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="ddr_sdram.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="ddr_sdram.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="ddr_sdram.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="ddr_sdram.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ddr_sdram.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ddr_sdram.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="ddr_sdram.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="ddr_sdram.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="ddr_sdram.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="ddr_sdram.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="ddr_sdram.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ddr_sdram.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="ddr_sdram.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="ddr_sdram.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="ddr_sdram.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="ddr_sdram.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="ddr_sdram.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="ddr_sdram.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ddr_sdram.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="ddr_sdram.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ddr_sdram.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="ddr_sdram_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ddr_sdram_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ddr_sdram_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ddr_sdram_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="ddr_sdram_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ddr_sdram_map.xrpt"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ddr_sdram_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="ddr_sdram_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="ddr_sdram_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ddr_sdram_par.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="ddr_sdram_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="ddr_sdram_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ddr_sdram_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1439167475" xil_pn:name="TRANEXT_compLibraries_FPGA" xil_pn:prop_ck="1321705353062746806" xil_pn:start_ts="1439167475">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439167482" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1439167482">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439224497" xil_pn:in_ck="-1377816677218372185" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1439224497">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DDR_TB.v"/>
+      <outfile xil_pn:name="ddr_sdram.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1439167528" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4126444145074059098" xil_pn:start_ts="1439167528">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439167528" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2094587929691067292" xil_pn:start_ts="1439167528">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439167528" xil_pn:in_ck="2228802705570958617" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="4795958504120532486" xil_pn:start_ts="1439167528">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/ddr_clk_mod.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1439224497" xil_pn:in_ck="-4019526079414487860" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1439224497">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DDR_TB.v"/>
+      <outfile xil_pn:name="ddr_sdram.v"/>
+      <outfile xil_pn:name="ipcore_dir/ddr_clk_mod.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1439224504" xil_pn:in_ck="-4019526079414487860" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5054779402096002283" xil_pn:start_ts="1439224497">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DDR_TB_beh.prj"/>
+      <outfile xil_pn:name="DDR_TB_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1439224504" xil_pn:in_ck="5927944564189602750" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-8630670919994774386" xil_pn:start_ts="1439224504">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="DDR_TB_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
     <transform xil_pn:end_ts="1439109448" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1439109448">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -52,7 +143,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1439109448" xil_pn:in_ck="2228802705570958617" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4795958504120532486" xil_pn:start_ts="1439109448">
+    <transform xil_pn:end_ts="1439155158" xil_pn:in_ck="2228802705570958617" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4795958504120532486" xil_pn:start_ts="1439155158">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/ddr_clk_mod.v"/>
@@ -73,10 +164,14 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1439118823" xil_pn:in_ck="57324663036231737" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="2594242264357156821" xil_pn:start_ts="1439118805">
+    <transform xil_pn:end_ts="1439160354" xil_pn:in_ck="57324663036231737" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="2594242264357156821" xil_pn:start_ts="1439160331">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="ddr_sdram.lso"/>
       <outfile xil_pn:name="ddr_sdram.ngc"/>
@@ -89,18 +184,75 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1439114376" xil_pn:in_ck="807267725868526409" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8119209964174687886" xil_pn:start_ts="1439114376">
+    <transform xil_pn:end_ts="1439160857" xil_pn:in_ck="807267725868526409" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8119209964174687886" xil_pn:start_ts="1439160857">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1439118837" xil_pn:in_ck="-4746196407191819662" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-739499357982995193" xil_pn:start_ts="1439118828">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1439160865" xil_pn:in_ck="-4746196407191819662" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-739499357982995193" xil_pn:start_ts="1439160857">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="ddr_sdram.bld"/>
+      <outfile xil_pn:name="ddr_sdram.ngd"/>
       <outfile xil_pn:name="ddr_sdram_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1439160875" xil_pn:in_ck="-5046074634871970797" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="1405206279585514545" xil_pn:start_ts="1439160865">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="ddr_sdram.pcf"/>
+      <outfile xil_pn:name="ddr_sdram_map.map"/>
+      <outfile xil_pn:name="ddr_sdram_map.mrp"/>
+      <outfile xil_pn:name="ddr_sdram_map.ncd"/>
+      <outfile xil_pn:name="ddr_sdram_map.ngm"/>
+      <outfile xil_pn:name="ddr_sdram_map.xrpt"/>
+      <outfile xil_pn:name="ddr_sdram_summary.xml"/>
+      <outfile xil_pn:name="ddr_sdram_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1439160892" xil_pn:in_ck="-3023260770545353524" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1439160875">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="ddr_sdram.ncd"/>
+      <outfile xil_pn:name="ddr_sdram.pad"/>
+      <outfile xil_pn:name="ddr_sdram.par"/>
+      <outfile xil_pn:name="ddr_sdram.ptwx"/>
+      <outfile xil_pn:name="ddr_sdram.unroutes"/>
+      <outfile xil_pn:name="ddr_sdram.xpi"/>
+      <outfile xil_pn:name="ddr_sdram_pad.csv"/>
+      <outfile xil_pn:name="ddr_sdram_pad.txt"/>
+      <outfile xil_pn:name="ddr_sdram_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1439160962" xil_pn:in_ck="6001640728613464627" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1439160945">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="ddr_sdram.bgn"/>
+      <outfile xil_pn:name="ddr_sdram.bit"/>
+      <outfile xil_pn:name="ddr_sdram.drc"/>
+      <outfile xil_pn:name="ddr_sdram.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1439160892" xil_pn:in_ck="-2355636728511124209" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1439160886">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="ddr_sdram.twr"/>
+      <outfile xil_pn:name="ddr_sdram.twx"/>
     </transform>
   </transforms>
 
