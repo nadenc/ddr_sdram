@@ -14,9 +14,8 @@
 /* External Interface
 Set WRITE or READ inputs high to initialize a command
 
-
 BA is bank address [1:0]
-DATA_IN is the data bus [15:0]
+DATA_IN is the data bus [15:0] ** this needs updating
 ADDR_ROW_IN is the row address for the first word in the burst
 ADDR_COL_IN is the column address
 Use WRITE_LENGTH to specify number of 16-bit words to be written in burst
@@ -123,7 +122,7 @@ localparam C_NOP	= 4'b0000;
 
 // System parameters
 localparam CAS_LAT = 3; // CAS latency clock delay
-parameter BURST_LENGTH = 16; // data burst length, 2,4,8,16 available
+parameter BURST_LENGTH = 5'd16; // data burst length, 2,4,8,16 available
 
 // Counters
 reg [4:0] wr_count;
@@ -149,6 +148,7 @@ initial begin
 	BUSY <= 1'b1;
 	BUSY_COUNT <= 5'b0;
 	STATUS <= S_IDLE;
+	PWR_ON <= 1'b0;
 	CLK_RESET <= 1'b1; // hold clocks in reset
 	INITIALIZED <= 1'b0;
 	
@@ -224,16 +224,16 @@ always @ (posedge WR_CLK_333M) begin
 		if (PWR_ON && !INITIALIZED && CLK_LOCKED) begin // initialize once clk locked and power on
 			COMMAND <= C_INIT; // set op command 
 			ADDR[12:7] <= 6'b0;
-			ADDR[6:4] <= CAS_LAT;
-			ADDR[4] <= 1'b0;
-			case (BURST_LENGTH)
+			ADDR[6:4] <= CAS_LAT; // set CAS_LAT
+			ADDR[3] <= 1'b0; // set burst to sequential
+			case (BURST_LENGTH) // set burst length
 				2: ADDR[2:0] <= 3'h1;
 				4: ADDR[2:0] <= 3'h2;
 				8: ADDR[2:0] <= 3'h3;
 				16: ADDR[2:0] <= 3'h4;
 			endcase
-			#200 BUSY <= 1'b0;
 			INITIALIZED <= 1'b1;
+			BUSY <= 1'b0;
 		end
 		else if (STATUS == S_PRE && !BUSY) begin // precharge
 			COMMAND <= C_PRE; // set op command
@@ -244,22 +244,22 @@ always @ (posedge WR_CLK_333M) begin
 				2'b00:
 					begin
 						BANK_STATUS[0] <= 1'b0;
-						openRowB0 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+						openRowB0 <= 13'h1FFF; // set address to last address in bank - this address should never be accessed at the start of burst
 					end
 				2'b01:
 					begin
 						BANK_STATUS[1] <= 1'b0;
-						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+						openRowB1 <= 13'h1FFF; // set address to last address in bank - this address should never be accessed at the start of burst
 					end
 				2'b10:
 					begin
-						BANK_STATUS[1] <= 1'b0;
-						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+						BANK_STATUS[2] <= 1'b0;
+						openRowB2 <= 13'h1FFF; // set address to last address in bank - this address should never be accessed at the start of burst
 					end
 				2'b11:
 					begin
-						BANK_STATUS[1] <= 1'b0;
-						openRowB1 <= 13'h2000; // set address to last address in bank - this address should never be accessed at the start of burst
+						BANK_STATUS[3] <= 1'b0;
+						openRowB3 <= 13'h1FFF; // set address to last address in bank - this address should never be accessed at the start of burst
 					end
 			endcase
 		end
@@ -301,21 +301,13 @@ always @ (posedge WR_CLK_333M) begin
 		end
 		else if (STATUS == S_READ && READ && !BUSY)begin // read required
 			COMMAND <= C_READ; // set op command
-			//BA <= BA_IN[1:0]; // set bank address
 			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
 			ADDR[10] <= 1'b0; // set precharge bit low
-			
-			BUSY <= 1'b1; // busy
-			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length
 		end
 		else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
 			COMMAND <= C_WRITE; // set op command
-			//BA <= BA_IN[1:0]; // set bank address
 			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
 			ADDR[10] <= 1'b0; // set precharge bit low
-			
-			BUSY <= 1'b1; // busy
-			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length
 			
 			DATA_BUF_WR[0] <= DATA_IN[31:0];
 			if (BURST_LENGTH > 2) DATA_BUF_WR[1] <= DATA_IN[63:32];
@@ -328,29 +320,32 @@ always @ (posedge WR_CLK_333M) begin
 		end
 		else begin // count after read/write command, send NOPs
 			COMMAND <= C_NOP; // set nop command
-			
-			// count down busy timer
-			if (BUSY_COUNT > 5'h0) begin // if busy in wr/re
-				BUSY_COUNT <= (BUSY_COUNT - 5'h2); // -2 since half clk
-			end else if (BUSY_COUNT == 5'h0 && INITIALIZED) begin
-				BUSY <= 1'b0;
-				STATUS <= S_IDLE; // clear status
-			end
+			if (BUSY_COUNT == 5'h0 && INITIALIZED) STATUS <= S_IDLE; // clear status
 		end
 	end
 	
+	// count down busy timer
+	if (BUSY_COUNT > 5'h2 && BUSY) begin // if busy in wr/re
+		BUSY_COUNT <= (BUSY_COUNT - 5'h1);
+	end else if (INITIALIZED && BUSY) begin
+		BUSY <= 1'b0;
+		BUSY_COUNT <= 5'h0;
+	end
+			
 	//////////////////////////////// WRITE DATA ////////////////////////////////
 	if (STATUS == S_WRITE) begin
-		if (wr_count == CAS_LAT*2 + BURST_LENGTH + 2) begin
-			wr_count <= 5'b0;
-		end else begin
-			wr_count <= wr_count + 5'b1;
-		end
 		
-		if (wr_count > CAS_LAT*2) begin // write data when ready
+		if ((COMMAND == C_WRITE || COMMAND == C_READ) && !BUSY) begin // start of write
+			BUSY <= 1'b1; // busy
+			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length of write
+			wr_count <= 5'b1;
+		end else if (BUSY) wr_count <= wr_count + 5'b1;
+		else wr_count <= 5'b0;
+		
+		if (wr_count >= CAS_LAT*2) begin // write data when ready
 			WR_STROBE <= ~WR_STROBE; // toggle DQS
 
-			case (wr_count - CAS_LAT*2 - 1)
+			case (wr_count - CAS_LAT*2)
 				5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
 				5'h1: DATA_WR <= DATA_BUF_WR[0][31:16];
 				5'h2: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][15:0];
@@ -369,7 +364,7 @@ always @ (posedge WR_CLK_333M) begin
 				5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
 			endcase
 			
-			if (wr_count >= CAS_LAT + WRITE_LENGTH - 1) begin // mask excess writes
+			if (wr_count >= CAS_LAT*2 + WRITE_LENGTH) begin // mask excess writes
 				DM <= 2'b11; // set data mask high
 			end	else begin
 				DM <= 2'b00; // clear any data mask

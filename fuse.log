@@ -6,6 +6,7 @@ Determining compilation order of HDL files
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/ipcore_dir/ddr_clk_mod.v" into library work
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" into library work
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" into library work
+WARNING:HDLCompiler:568 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 120: Constant value is truncated to fit in <10> bits.
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
@@ -15,11 +16,11 @@ Compiling module PLL_BASE(CLKFBOUT_MULT=10,CLKIN_...
 Compiling module BUFG
 Compiling module ddr_clk_mod
 Compiling module OBUFDS
-Compiling module ddr_sdram(BURST_LENGTH=16)
+Compiling module ddr_sdram(BURST_LENGTH=5'b10000)
 Compiling module DDR_TB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 9 Verilog Units
 Built simulation executable D:/Projects/FPGA/ddr_sdram/DDR_TB_isim_beh.exe
-Fuse Memory Usage: 40904 KB
-Fuse CPU Usage: 1858 ms
+Fuse Memory Usage: 40892 KB
+Fuse CPU Usage: 812 ms

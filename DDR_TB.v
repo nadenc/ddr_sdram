@@ -29,7 +29,7 @@ module DDR_TB;
 	wire [(16*BURST_LENGTH-1):0] DATA_IN;
 	
 	// Parameters
-	parameter BURST_LENGTH = 16;
+	parameter BURST_LENGTH = 5'd16;
 
 	// Instantiate the Unit Under Test (UUT)
 	ddr_sdram #(
@@ -71,14 +71,14 @@ module DDR_TB;
 	reg [31:0] DATA6;
 	reg [31:0] DATA7;
 	
-	assign DATA_IN [31:0] = DATA0;
-	assign DATA_IN [63:32] = DATA1;
-	assign DATA_IN [95:64] = DATA2;
-	assign DATA_IN [127:96] = DATA3;
-	assign DATA_IN [159:128] = DATA4;
-	assign DATA_IN [191:160] = DATA5;
-	assign DATA_IN [223:192] = DATA6;
-	assign DATA_IN [255:224] = DATA7;
+	assign DATA_IN[31:0] = DATA0;
+	if (BURST_LENGTH > 2) assign DATA_IN[63:32] = DATA1;
+	if (BURST_LENGTH > 4) assign DATA_IN[95:64] = DATA2;
+	if (BURST_LENGTH > 4) assign DATA_IN[127:96] = DATA3;
+	if (BURST_LENGTH > 8) assign DATA_IN[159:128] = DATA4;
+	if (BURST_LENGTH > 8) assign DATA_IN[191:160] = DATA5;
+	if (BURST_LENGTH > 8) assign DATA_IN[223:192] = DATA6;
+	if (BURST_LENGTH > 8) assign DATA_IN[255:224] = DATA7;
 	
 	reg READY_FLAG;
 
@@ -109,20 +109,23 @@ module DDR_TB;
 	
 	always @ (posedge SYS_CLK_100M) begin
 		if (!BUSY) begin
-			WRITE <= 1'b1;
-			WRITE_LENGTH <= BURST_LENGTH;
-			if (BA_IN == 2'b11) begin
+			if (!WRITE) begin
+				WRITE <= 1'b1;
+				BA_IN <= BA_IN + 2'b1;
+			end
+				
+			WRITE_LENGTH <= BURST_LENGTH - 4'b1;
+			if (BA_IN == 2'b11 && !WRITE) begin
 				BA_IN <= 2'b00;
-				if (ADDR_COL_IN == (10'd1023 - BURST_LENGTH)) begin
+				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
 					ADDR_COL_IN <= 10'b0;
 					if (ADDR_ROW_IN == 13'b1111111111111) ADDR_ROW_IN <= 13'b0;
-					else ADDR_ROW_IN <= ADDR_ROW_IN + BURST_LENGTH;
+					else ADDR_ROW_IN <= ADDR_ROW_IN + 13'b1;
 				end
-				else ADDR_COL_IN <= ADDR_COL_IN + 10'b1;
+				else ADDR_COL_IN <= ADDR_COL_IN + BURST_LENGTH;
 			end
-			else BA_IN <= BA_IN + 2'b1;
+			//else BA_IN <= BA_IN + 2'b1;
 		end
-		
 		if (BUSY) WRITE <= 1'b0;
 	end
       
