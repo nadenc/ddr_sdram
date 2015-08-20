@@ -34,8 +34,8 @@ output CAS,
 output RAS,
 output [1:0] BA,
 output reg [1:0] DM,
-inout [1:0] DQS,
-inout [15:0] DATA_RAM,
+inout [1:0] DQS, // inout
+inout [15:0] DATA_RAM, // inout
 output [12:0] ADDR_RAM,
 
 //External Interface
@@ -66,8 +66,8 @@ reg [3:0] BANK_STATUS; // 3-b3open,2-b2open,1-b1open,0-b0open
 assign BA = BA_IN;
 
 // Data/Address wire maps
-reg [31:0] DATA_BUF_WR[BURST_LENGTH-2:0];
-reg [31:0] DATA_BUF_RE[BURST_LENGTH-2:0];
+reg [31:0] DATA_BUF_WR[(BURST_LENGTH >> 1) - 1:0];
+reg [31:0] DATA_BUF_RE[(BURST_LENGTH >> 1) - 1:0];
 reg [15:0] DATA_WR;
 wire [(16*BURST_LENGTH-1):0] DATA_RE;
 assign DATA_RAM = (STATUS == S_WRITE) ? DATA_WR : 16'bZ; // out if write, Z otherwise
@@ -126,7 +126,7 @@ parameter BURST_LENGTH = 5'd16; // data burst length, 2,4,8,16 available
 
 // Counters
 reg [4:0] wr_count;
-reg [3:0] re_count;
+reg [4:0] re_count;
 reg [4:0] BUSY_COUNT;
 
 // module instances
@@ -155,7 +155,7 @@ initial begin
 	BANK_STATUS <= 4'b0;
 	
 	wr_count <= 5'b0;
-	re_count <= 4'b0;
+	re_count <= 5'b0;
 	
 	WR_STROBE <= 1'b0;
 	
@@ -300,16 +300,18 @@ always @ (posedge WR_CLK_333M) begin
 			
 		end
 		else if (STATUS == S_READ && READ && !BUSY)begin // read required
-			COMMAND <= C_READ; // set op command
-			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
-			ADDR[10] <= 1'b0; // set precharge bit low
-		end
-		else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
-			COMMAND <= C_WRITE; // set op command
-			ADDR[9:0] <= ADDR_COL_IN[9:0]; // set column address
-			ADDR[10] <= 1'b0; // set precharge bit low
+		
+			COMMAND <= C_READ;		// set op command
+			ADDR[9:0] <= ADDR_COL_IN[9:0];		// set column address
+			ADDR[10] <= 1'b0;		// set precharge bit low
 			
-			DATA_BUF_WR[0] <= DATA_IN[31:0];
+		end	else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
+		
+			COMMAND <= C_WRITE;		// set op command
+			ADDR[9:0] <= ADDR_COL_IN[9:0];		// set column address
+			ADDR[10] <= 1'b0;		// set precharge bit low
+			
+			DATA_BUF_WR[0] <= DATA_IN[31:0];		// load in write data buffer
 			if (BURST_LENGTH > 2) DATA_BUF_WR[1] <= DATA_IN[63:32];
 			if (BURST_LENGTH > 4) DATA_BUF_WR[2] <= DATA_IN[95:64];
 			if (BURST_LENGTH > 4) DATA_BUF_WR[3] <= DATA_IN[127:96];
@@ -317,35 +319,26 @@ always @ (posedge WR_CLK_333M) begin
 			if (BURST_LENGTH > 8) DATA_BUF_WR[5] <= DATA_IN[191:160];
 			if (BURST_LENGTH > 8) DATA_BUF_WR[6] <= DATA_IN[223:192];
 			if (BURST_LENGTH > 8) DATA_BUF_WR[7] <= DATA_IN[255:224];
+			
+		end else begin // count after read/write command, send NOPs
+		
+			COMMAND <= C_NOP;		// set nop command
+		
 		end
-		else begin // count after read/write command, send NOPs
-			COMMAND <= C_NOP; // set nop command
-			if (BUSY_COUNT == 5'h0 && INITIALIZED) STATUS <= S_IDLE; // clear status
-		end
+		
 	end
 	
-	// count down busy timer
-	if (BUSY_COUNT > 5'h2 && BUSY) begin // if busy in wr/re
-		BUSY_COUNT <= (BUSY_COUNT - 5'h1);
-	end else if (INITIALIZED && BUSY) begin
-		BUSY <= 1'b0;
-		BUSY_COUNT <= 5'h0;
-	end
-			
 	//////////////////////////////// WRITE DATA ////////////////////////////////
 	if (STATUS == S_WRITE) begin
-		
-		if ((COMMAND == C_WRITE || COMMAND == C_READ) && !BUSY) begin // start of write
-			BUSY <= 1'b1; // busy
-			BUSY_COUNT <= (CAS_LAT*2 + BURST_LENGTH); // set busy for length of write
-			wr_count <= 5'b1;
-		end else if (BUSY) wr_count <= wr_count + 5'b1;
-		else wr_count <= 5'b0;
+
+		if (wr_count < BURST_LENGTH + CAS_LAT*2) wr_count <= wr_count + 4'b1; // increment write counter		
 		
 		if (wr_count >= CAS_LAT*2) begin // write data when ready
-			WR_STROBE <= ~WR_STROBE; // toggle DQS
+			
+			WR_STROBE <= ~WR_STROBE; // toggle write strobe
 
-			case (wr_count - CAS_LAT*2)
+			case (wr_count - CAS_LAT*2) // load write data from buffer
+			
 				5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
 				5'h1: DATA_WR <= DATA_BUF_WR[0][31:16];
 				5'h2: if (BURST_LENGTH > 2) DATA_WR <= DATA_BUF_WR[1][15:0];
@@ -362,42 +355,65 @@ always @ (posedge WR_CLK_333M) begin
 				5'hD: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[6][31:16];
 				5'hE: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][15:0];
 				5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
+				
 			endcase
 			
 			if (wr_count >= CAS_LAT*2 + WRITE_LENGTH) begin // mask excess writes
-				DM <= 2'b11; // set data mask high
+			
+				DM <= 2'b11;		// set data mask high
+				
 			end	else begin
-				DM <= 2'b00; // clear any data mask
+				
+				DM <= 2'b00;		// clear any data mask
+			
 			end
+		
 		end
+		
 	end
+	
+	if ((STATUS == S_READ && re_count == 5'b0) || (STATUS == S_WRITE && wr_count == 4'b0)) begin // set busy at start of command
+		
+		BUSY <= 1'b1;
+		
+	end else if ((re_count == BURST_LENGTH + CAS_LAT*2) || ( wr_count == BURST_LENGTH + CAS_LAT*2)) begin // clear busy and reset at end of burst
+	
+		BUSY <= 1'b0;
+		STATUS <= S_IDLE;
+		re_count <= 5'b0;
+		wr_count <= 5'b0;
+	
+	end
+	
 end
 
 	//////////////////////////////// READ DATA ////////////////////////////////
-always @ (posedge DQS[1]) begin	
-	POS_DQS <= 1;
+always @ (posedge DQS[1]) begin // pos edge of read strobe
+	
+	POS_DQS <= 1;		// generate edge
 	#1 POS_DQS <= 0;
+
 end
 
-always @ (negedge DQS[1]) begin	
-	NEG_DQS <= 1;
+always @ (negedge DQS[1]) begin // neg edge of read strobe
+
+	NEG_DQS <= 1;		// generate edge
 	#1 NEG_DQS <= 0;
+
 end
 
-reg POS_DQS, NEG_DQS;
+reg POS_DQS, NEG_DQS;		// read strobe edges
 wire re_strobe;
 
-assign re_strobe = POS_DQS | NEG_DQS;
+assign re_strobe = POS_DQS | NEG_DQS;		// generate common read edge
 
 always @ (posedge re_strobe) begin // read data
-	if (STATUS == S_READ) begin
-		if (re_count == BURST_LENGTH-1) begin
-			re_count <= 4'b0;
-		end else begin
-			re_count <= re_count + 4'b1;
-		end
+	
+	if (STATUS == S_READ) begin // if in read state
 		
-		case (re_count)
+		if (re_count < BURST_LENGTH + CAS_LAT*2) re_count <= re_count + 5'b1; // increment read counter
+		
+		case (re_count - CAS_LAT*2) // store data in data read buffer
 			4'h0: DATA_BUF_RE[0][15:0] <= DATA_RAM;
 			4'h1: DATA_BUF_RE[0][31:16] <= DATA_RAM;
 			4'h2: DATA_BUF_RE[1][15:0] <= DATA_RAM;
@@ -417,6 +433,7 @@ always @ (posedge re_strobe) begin // read data
 		endcase
 		
 	end
+	
 end
 
 endmodule

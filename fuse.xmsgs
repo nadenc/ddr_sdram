@@ -5,7 +5,25 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 120: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 126: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 152: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Target &lt;<arg fmt="%s" index="1">DQS</arg>&gt; of concurrent assignment or output port connection should be a net type.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1190" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Non-net variable cannot be connected to inout port <arg fmt="%s" index="1">DQS</arg>
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Target &lt;<arg fmt="%s" index="1">DATA_RAM</arg>&gt; of concurrent assignment or output port connection should be a net type.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1190" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Non-net variable cannot be connected to inout port <arg fmt="%s" index="1">DATA_RAM</arg>
+</msg>
+
+<msg type="error" file="Simulator" num="778" delta="unknown" >Static elaboration of top level Verilog design unit(s) in library <arg fmt="%s" index="1">work</arg> failed
 </msg>
 
 </messages>

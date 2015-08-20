@@ -23,8 +23,8 @@ module DDR_TB;
 	wire BUSY;
 
 	// Bidirs
-	wire [1:0] DQS;
-	wire [15:0] DATA_RAM;
+	reg [1:0] DQS; // wire
+	reg [15:0] DATA_RAM; // wire
 	wire [12:0] ADDR_RAM;
 	wire [(16*BURST_LENGTH-1):0] DATA_IN;
 	
@@ -92,6 +92,8 @@ module DDR_TB;
 		ADDR_COL_IN <= 10'b0;
 		ADDR_ROW_IN <= 13'b0;
 		
+		DQS <= 2'b0;
+		
 		DATA0 <= 32'h76543210;
 		DATA1 <= 32'hFEDCBA98;
 		DATA2 <= 32'h98765432;
@@ -106,8 +108,38 @@ module DDR_TB;
 	always begin
 		#5 SYS_CLK_100M <= ~SYS_CLK_100M;
 	end
+
+	parameter TEST_MODE = 2; // 1 = Read, 2 = Write
+
+always @ (posedge SYS_CLK_100M) begin
+	if (TEST_MODE == 1) begin // Read tests
+		if (!BUSY) begin
+			if (!READ) begin
+				READ <= 1'b1;
+				BA_IN <= BA_IN + 2'b1;
+				DATA_RAM <= 16'hFFFF;
+			end
+				
+			WRITE_LENGTH <= BURST_LENGTH - 4'b1;
+			if (BA_IN == 2'b11 && !READ) begin
+				BA_IN <= 2'b00;
+				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
+					ADDR_COL_IN <= 10'b0;
+					if (ADDR_ROW_IN == 13'b1111111111111) ADDR_ROW_IN <= 13'b0;
+					else ADDR_ROW_IN <= ADDR_ROW_IN + 13'b1;
+				end
+				else ADDR_COL_IN <= ADDR_COL_IN + BURST_LENGTH;
+			end
+			//else BA_IN <= BA_IN + 2'b1;
+		end
+		if (BUSY) begin 
+			READ <= 1'b0;
+			DATA_RAM <= DATA_RAM - 1'h1;
+			DQS <= ~DQS;
+		end
+	end
 	
-	always @ (posedge SYS_CLK_100M) begin
+	if (TEST_MODE == 2) begin // Write tests
 		if (!BUSY) begin
 			if (!WRITE) begin
 				WRITE <= 1'b1;
@@ -128,6 +160,8 @@ module DDR_TB;
 		end
 		if (BUSY) WRITE <= 1'b0;
 	end
-      
+
+end
+	
 endmodule
 

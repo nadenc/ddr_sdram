@@ -10,7 +10,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="33" />
+   <WVObjectSize size="41" />
    <wvobject fp_name="/DDR_TB/uut/ddr_clocks/SYS_CLK_100M" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">SYS_CLK_100M</obj_property>
       <obj_property name="ObjectShortName">SYS_CLK_100M</obj_property>
@@ -51,14 +51,19 @@
       <obj_property name="ObjectShortName">BUSY_COUNT[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/BURST_LENGTH" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BURST_LENGTH[4:0]</obj_property>
+      <obj_property name="ObjectShortName">BURST_LENGTH[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/DDR_TB/uut/wr_count" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">wr_count[4:0]</obj_property>
       <obj_property name="ObjectShortName">wr_count[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_TB/uut/re_count" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">re_count[3:0]</obj_property>
-      <obj_property name="ObjectShortName">re_count[3:0]</obj_property>
+      <obj_property name="ElementShortName">re_count[4:0]</obj_property>
+      <obj_property name="ObjectShortName">re_count[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_TB/BA" type="array" db_ref_id="1">
@@ -77,15 +82,43 @@
       <obj_property name="ElementShortName">DQS[1:0]</obj_property>
       <obj_property name="ObjectShortName">DQS[1:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/DATA_RE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_RE[255:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_RE[255:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/DDR_TB/DATA_IN" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">DATA_IN[63:0]</obj_property>
-      <obj_property name="ObjectShortName">DATA_IN[63:0]</obj_property>
+      <obj_property name="ElementShortName">DATA_IN[255:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_IN[255:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/DATA_WR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_WR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WR[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_TB/DATA_RAM" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">DATA_RAM[15:0]</obj_property>
       <obj_property name="ObjectShortName">DATA_RAM[15:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/DATA_BUF_WR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_BUF_WR[7:0,31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_BUF_WR[7:0,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/DATA_BUF_RE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DATA_BUF_RE[7:0,31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_BUF_RE[7:0,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/DQS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DQS[1:0]</obj_property>
+      <obj_property name="ObjectShortName">DQS[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/WR_STROBE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">WR_STROBE</obj_property>
+      <obj_property name="ObjectShortName">WR_STROBE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR_TB/uut/re_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">re_strobe</obj_property>
+      <obj_property name="ObjectShortName">re_strobe</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_TB/uut/ADDR" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">ADDR[12:0]</obj_property>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-08-12T08:40:44</DateModified>
+  <DateModified>2015-08-16T15:32:32</DateModified>
   <ModuleName>ddr_sdram</ModuleName>
   <SummaryTimeStamp>2015-08-09T15:17:06</SummaryTimeStamp>
   <SavedFilePath>D:/Projects/FPGA/ddr_sdram/iseconfig/ddr_sdram.xreport</SavedFilePath>

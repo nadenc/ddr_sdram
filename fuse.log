@@ -6,21 +6,12 @@ Determining compilation order of HDL files
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/ipcore_dir/ddr_clk_mod.v" into library work
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" into library work
 Analyzing Verilog file "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" into library work
-WARNING:HDLCompiler:568 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 120: Constant value is truncated to fit in <10> bits.
+WARNING:HDLCompiler:568 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 126: Constant value is truncated to fit in <10> bits.
+WARNING:HDLCompiler:568 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 152: Constant value is truncated to fit in <10> bits.
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-Completed static elaboration
-Compiling module IBUFG
-Compiling module PLL_ADV(BANDWIDTH="OPTIMIZED",CL...
-Compiling module PLL_BASE(CLKFBOUT_MULT=10,CLKIN_...
-Compiling module BUFG
-Compiling module ddr_clk_mod
-Compiling module OBUFDS
-Compiling module ddr_sdram(BURST_LENGTH=5'b10000)
-Compiling module DDR_TB
-Compiling module glbl
-Time Resolution for simulation is 1ps.
-Compiled 9 Verilog Units
-Built simulation executable D:/Projects/FPGA/ddr_sdram/DDR_TB_isim_beh.exe
-Fuse Memory Usage: 40892 KB
-Fuse CPU Usage: 812 ms
+WARNING:HDLCompiler:329 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Target <DQS> of concurrent assignment or output port connection should be a net type.
+ERROR:HDLCompiler:1190 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Non-net variable cannot be connected to inout port DQS
+WARNING:HDLCompiler:329 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Target <DATA_RAM> of concurrent assignment or output port connection should be a net type.
+ERROR:HDLCompiler:1190 - "D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Non-net variable cannot be connected to inout port DATA_RAM
+ERROR:Simulator:778 - Static elaboration of top level Verilog design unit(s) in library work failed
