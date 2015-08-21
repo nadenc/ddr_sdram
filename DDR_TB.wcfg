@@ -56,6 +56,11 @@
       <obj_property name="ObjectShortName">BURST_LENGTH[4:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/DDR_TB/WRITE_LENGTH" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">WRITE_LENGTH[3:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_LENGTH[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/DDR_TB/uut/wr_count" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">wr_count[4:0]</obj_property>
       <obj_property name="ObjectShortName">wr_count[4:0]</obj_property>
@@ -107,10 +112,6 @@
    <wvobject fp_name="/DDR_TB/uut/DATA_BUF_RE" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">DATA_BUF_RE[7:0,31:0]</obj_property>
       <obj_property name="ObjectShortName">DATA_BUF_RE[7:0,31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/DDR_TB/DQS" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">DQS[1:0]</obj_property>
-      <obj_property name="ObjectShortName">DQS[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/DDR_TB/uut/WR_STROBE" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">WR_STROBE</obj_property>

@@ -5,25 +5,100 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 126: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 125: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 152: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 151: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Target &lt;<arg fmt="%s" index="1">DQS</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 423: Element index <arg fmt="%d" index="1">95</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
 </msg>
 
-<msg type="error" file="HDLCompiler" num="1190" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 49: Non-net variable cannot be connected to inout port <arg fmt="%s" index="1">DQS</arg>
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 424: Element index <arg fmt="%d" index="1">127</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="329" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Target &lt;<arg fmt="%s" index="1">DATA_RAM</arg>&gt; of concurrent assignment or output port connection should be a net type.
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 425: Element index <arg fmt="%d" index="1">159</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
 </msg>
 
-<msg type="error" file="HDLCompiler" num="1190" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 50: Non-net variable cannot be connected to inout port <arg fmt="%s" index="1">DATA_RAM</arg>
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 426: Element index <arg fmt="%d" index="1">191</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
 </msg>
 
-<msg type="error" file="Simulator" num="778" delta="unknown" >Static elaboration of top level Verilog design unit(s) in library <arg fmt="%s" index="1">work</arg> failed
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 427: Element index <arg fmt="%d" index="1">223</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 428: Element index <arg fmt="%d" index="1">255</arg> into <arg fmt="%s" index="2">DATA_IN</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 453: Element index <arg fmt="%d" index="1">2</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 454: Element index <arg fmt="%d" index="1">2</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 455: Element index <arg fmt="%d" index="1">3</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 456: Element index <arg fmt="%d" index="1">3</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 457: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 458: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 459: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 460: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 461: Element index <arg fmt="%d" index="1">6</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 462: Element index <arg fmt="%d" index="1">6</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 463: Element index <arg fmt="%d" index="1">7</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 464: Element index <arg fmt="%d" index="1">7</arg> into <arg fmt="%s" index="2">DATA_BUF_WR</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 530: Element index <arg fmt="%d" index="1">2</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 531: Element index <arg fmt="%d" index="1">2</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 532: Element index <arg fmt="%d" index="1">3</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 533: Element index <arg fmt="%d" index="1">3</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 534: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 535: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 536: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 537: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 538: Element index <arg fmt="%d" index="1">6</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 539: Element index <arg fmt="%d" index="1">6</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 540: Element index <arg fmt="%d" index="1">7</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"D:/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 541: Element index <arg fmt="%d" index="1">7</arg> into <arg fmt="%s" index="2">DATA_BUF_RE</arg> is out of bounds
 </msg>
 
 </messages>

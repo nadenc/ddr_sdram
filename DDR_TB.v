@@ -23,13 +23,13 @@ module DDR_TB;
 	wire BUSY;
 
 	// Bidirs
-	reg [1:0] DQS; // wire
-	reg [15:0] DATA_RAM; // wire
+	wire [1:0] DQS; // wire
+	wire [15:0] DATA_RAM; // wire
 	wire [12:0] ADDR_RAM;
 	wire [(16*BURST_LENGTH-1):0] DATA_IN;
 	
 	// Parameters
-	parameter BURST_LENGTH = 5'd16;
+	parameter BURST_LENGTH = 5'd4;
 
 	// Instantiate the Unit Under Test (UUT)
 	ddr_sdram #(
@@ -92,7 +92,7 @@ module DDR_TB;
 		ADDR_COL_IN <= 10'b0;
 		ADDR_ROW_IN <= 13'b0;
 		
-		DQS <= 2'b0;
+		//DQS <= 2'b0; // comment out for write tests
 		
 		DATA0 <= 32'h76543210;
 		DATA1 <= 32'hFEDCBA98;
@@ -117,10 +117,9 @@ always @ (posedge SYS_CLK_100M) begin
 			if (!READ) begin
 				READ <= 1'b1;
 				BA_IN <= BA_IN + 2'b1;
-				DATA_RAM <= 16'hFFFF;
+				//DATA_RAM <= 16'hFFFF; // comment out for write tests
 			end
-				
-			WRITE_LENGTH <= BURST_LENGTH - 4'b1;
+
 			if (BA_IN == 2'b11 && !READ) begin
 				BA_IN <= 2'b00;
 				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
@@ -134,8 +133,8 @@ always @ (posedge SYS_CLK_100M) begin
 		end
 		if (BUSY) begin 
 			READ <= 1'b0;
-			DATA_RAM <= DATA_RAM - 1'h1;
-			DQS <= ~DQS;
+			//DATA_RAM <= DATA_RAM - 1'h1; // comment out for write tests
+			//DQS <= ~DQS; // comment out for write tests
 		end
 	end
 	
@@ -146,7 +145,8 @@ always @ (posedge SYS_CLK_100M) begin
 				BA_IN <= BA_IN + 2'b1;
 			end
 				
-			WRITE_LENGTH <= BURST_LENGTH - 4'b1;
+			WRITE_LENGTH <= BURST_LENGTH - 4'd2;		// test data masks
+			
 			if (BA_IN == 2'b11 && !WRITE) begin
 				BA_IN <= 2'b00;
 				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
