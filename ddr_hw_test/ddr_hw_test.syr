@@ -1,0 +1,650 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: ddr_hw_test.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ddr_hw_test.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ddr_hw_test"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-csg324
+
+---- Source Options
+Top Module Name                    : ddr_hw_test
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" into library work
+Parsing module <ddr_clk_mod>.
+Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" into library work
+Parsing module <ddr_sdram>.
+Analyzing Verilog file "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" into library work
+Parsing module <ddr_hw_test>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 48: Port SYS_CLK_100M is not connected to this instance
+
+Elaborating module <ddr_hw_test>.
+WARNING:HDLCompiler:872 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 77: Using initial value of WRITE_LENGTH since it is never assigned
+WARNING:HDLCompiler:413 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 25: Result of 256-bit expression is truncated to fit in 32-bit target.
+
+Elaborating module <ddr_sdram(BURST_LENGTH=2)>.
+WARNING:HDLCompiler:872 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 149: Using initial value of PWR_ON since it is never assigned
+WARNING:HDLCompiler:413 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 76: Result of 256-bit expression is truncated to fit in 32-bit target.
+
+Elaborating module <ddr_clk_mod>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <PLL_BASE(BANDWIDTH="OPTIMIZED",CLK_FEEDBACK="CLKFBOUT",COMPENSATION="SYSTEM_SYNCHRONOUS",DIVCLK_DIVIDE=1,CLKFBOUT_MULT=10,CLKFBOUT_PHASE=0.0,CLKOUT0_DIVIDE=6,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DIVIDE=3,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKIN_PERIOD=10.0,REF_JITTER=0.01)>.
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 121: Assignment to clkout2_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 122: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 123: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 124: Assignment to clkout5_unused ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+
+Elaborating module <OBUFDS>.
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 23: Net <BA_IN[1]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 26: Net <ADDR_ROW_IN[12]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 27: Net <ADDR_COL_IN[9]> does not have a driver.
+WARNING:HDLCompiler:552 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" Line 50: Input port SYS_CLK_100M is not connected on this instance
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <ddr_hw_test>.
+    Related source file is "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v".
+        BURST_LENGTH = 2
+WARNING:Xst:2898 - Port 'SYS_CLK_100M', unconnected in block instance 'ddr_sdram', is tied to GND.
+WARNING:Xst:647 - Input <Switch<7:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <BA> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <DM> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <ADDR_RAM> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <CLK_P> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <CLK_N> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <CKE> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <WE> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <CAS> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\FPGA\ddr_hw_test\ddr_hw_test.v" line 50: Output port <RAS> of the instance <ddr_sdram> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <BA_IN> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ADDR_ROW_IN> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ADDR_COL_IN> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <write_data<7>>.
+    Found 1-bit register for signal <write_data<6>>.
+    Found 1-bit register for signal <write_data<5>>.
+    Found 1-bit register for signal <write_data<4>>.
+    Found 1-bit register for signal <write_data<3>>.
+    Found 1-bit register for signal <write_data<2>>.
+    Found 1-bit register for signal <write_data<1>>.
+    Found 1-bit register for signal <write_data<0>>.
+    Found 8-bit register for signal <LED>.
+    Found 8-bit register for signal <read_data<15:8>>.
+    Found 1-bit tristate buffer for signal <DATA_IN<31>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<30>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<29>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<28>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<27>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<26>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<25>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<24>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<23>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<22>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<21>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<20>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<19>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<18>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<17>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<16>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<7>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<6>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<5>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<4>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<3>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<2>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<1>> created at line 25
+    Found 1-bit tristate buffer for signal <DATA_IN<0>> created at line 25
+    WARNING:Xst:2404 -  FFs/Latches <WRITE<0:0>> (without init value) have a constant value of 0 in block <ddr_hw_test>.
+    WARNING:Xst:2404 -  FFs/Latches <READ<0:0>> (without init value) have a constant value of 0 in block <ddr_hw_test>.
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal DATA_IN<15> may hinder XST clustering optimizations.
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal DATA_IN<9> may hinder XST clustering optimizations.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred  24 Tristate(s).
+Unit <ddr_hw_test> synthesized.
+
+Synthesizing Unit <ddr_sdram>.
+    Related source file is "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v".
+        BURST_LENGTH = 2
+    Found 4-bit register for signal <COMMAND>.
+    Found 13-bit register for signal <ADDR>.
+    Found 1-bit register for signal <INITIALIZED>.
+    Found 1-bit register for signal <BUSY>.
+    Found 4-bit register for signal <BANK_STATUS>.
+    Found 13-bit register for signal <openRowB0>.
+    Found 32-bit register for signal <DATA_BUF_WR<0>>.
+    Found 5-bit register for signal <wr_count>.
+    Found 1-bit register for signal <WR_STROBE>.
+    Found 16-bit register for signal <DATA_WR>.
+    Found 2-bit register for signal <DM>.
+    Found 5-bit register for signal <re_count>.
+    Found 32-bit register for signal <DATA_BUF_RE<0>>.
+    Found 3-bit register for signal <STATUS>.
+    Found finite state machine <FSM_0> for signal <STATUS>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 40                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 4                                              |
+    | Clock              | WR_CLK_333M (rising_edge)                      |
+    | Clock enable       | _n0692 (negative)                              |
+    | Reset              | _n0548 (positive)                              |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 6-bit subtractor for signal <GND_34_o_GND_34_o_sub_93_OUT> created at line 447.
+    Found 6-bit subtractor for signal <GND_34_o_GND_34_o_sub_153_OUT> created at line 526.
+    Found 5-bit adder for signal <wr_count[4]_GND_34_o_add_89_OUT> created at line 441.
+    Found 5-bit adder for signal <re_count[4]_GND_34_o_add_148_OUT> created at line 522.
+    Found 1-bit tristate buffer for signal <DATA_RAM<15>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<14>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<13>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<12>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<11>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<10>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<9>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<8>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<7>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<6>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<5>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<4>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<3>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<2>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<1>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_RAM<0>> created at line 75
+    Found 1-bit tristate buffer for signal <DATA_IN<31>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<30>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<29>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<28>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<27>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<26>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<25>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<24>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<23>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<22>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<21>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<20>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<19>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<18>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<17>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<16>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<15>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<14>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<13>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<12>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<11>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<10>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<9>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<8>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<7>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<6>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<5>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<4>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<3>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<2>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<1>> created at line 76
+    Found 1-bit tristate buffer for signal <DATA_IN<0>> created at line 76
+    Found 1-bit tristate buffer for signal <DQS<1>> created at line 93
+    Found 1-bit tristate buffer for signal <DQS<0>> created at line 94
+    Found 5-bit comparator lessequal for signal <wr_count[4]_GND_34_o_LessThan_89_o> created at line 441
+    Found 5-bit comparator greater for signal <n0184> created at line 443
+    Found 5-bit comparator lessequal for signal <n0208> created at line 468
+    Found 5-bit comparator lessequal for signal <re_count[4]_GND_34_o_LessThan_148_o> created at line 522
+    WARNING:Xst:2404 -  FFs/Latches <POS_DQS<0:0>> (without init value) have a constant value of 0 in block <ddr_sdram>.
+    WARNING:Xst:2404 -  FFs/Latches <NEG_DQS<0:0>> (without init value) have a constant value of 0 in block <ddr_sdram>.
+    Summary:
+	inferred   4 Adder/Subtractor(s).
+	inferred 129 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  27 Multiplexer(s).
+	inferred  50 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <ddr_sdram> synthesized.
+
+Synthesizing Unit <ddr_clk_mod>.
+    Related source file is "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v".
+    Summary:
+	no macro.
+Unit <ddr_clk_mod> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 5-bit adder                                           : 2
+ 6-bit subtractor                                      : 2
+# Registers                                            : 23
+ 1-bit register                                        : 11
+ 13-bit register                                       : 2
+ 16-bit register                                       : 1
+ 2-bit register                                        : 1
+ 32-bit register                                       : 2
+ 4-bit register                                        : 2
+ 5-bit register                                        : 2
+ 8-bit register                                        : 2
+# Comparators                                          : 4
+ 5-bit comparator greater                              : 1
+ 5-bit comparator lessequal                            : 3
+# Multiplexers                                         : 27
+ 1-bit 2-to-1 multiplexer                              : 22
+ 13-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 2
+# Tristates                                            : 74
+ 1-bit tristate buffer                                 : 74
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <BANK_STATUS_1> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <BANK_STATUS_2> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <BANK_STATUS_3> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:1710 - FF/Latch <read_data_8> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_9> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_10> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_11> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_12> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_13> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_14> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_15> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_0> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_1> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_2> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_3> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_4> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_5> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_6> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_7> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <DATA_WR_0> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_1> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_2> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_3> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_4> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_5> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_6> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_7> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_8> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_9> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_10> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_11> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_12> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_13> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_14> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <DATA_WR_15> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <write_data_4> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_6> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_5> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_7> of sequential type is unconnected in block <ddr_hw_test>.
+
+Synthesizing (advanced) Unit <ddr_sdram>.
+The following registers are absorbed into counter <re_count>: 1 register on signal <re_count>.
+The following registers are absorbed into counter <wr_count>: 1 register on signal <wr_count>.
+Unit <ddr_sdram> synthesized (advanced).
+WARNING:Xst:2677 - Node <BANK_STATUS_1> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <BANK_STATUS_2> of sequential type is unconnected in block <ddr_sdram>.
+WARNING:Xst:2677 - Node <BANK_STATUS_3> of sequential type is unconnected in block <ddr_sdram>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 6-bit subtractor                                      : 2
+# Counters                                             : 2
+ 5-bit up counter                                      : 2
+# Registers                                            : 140
+ Flip-Flops                                            : 140
+# Comparators                                          : 4
+ 5-bit comparator greater                              : 1
+ 5-bit comparator lessequal                            : 3
+# Multiplexers                                         : 27
+ 1-bit 2-to-1 multiplexer                              : 22
+ 13-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 2
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <write_data_4> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_6> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_5> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <write_data_7> of sequential type is unconnected in block <ddr_hw_test>.
+INFO:Xst:2261 - The FF/Latch <DM_0> in Unit <ddr_sdram> is equivalent to the following FF/Latch, which will be removed : <DM_1> 
+INFO:Xst:2261 - The FF/Latch <DATA_BUF_WR_0_0> in Unit <ddr_sdram> is equivalent to the following 31 FFs/Latches, which will be removed : <DATA_BUF_WR_0_1> <DATA_BUF_WR_0_2> <DATA_BUF_WR_0_3> <DATA_BUF_WR_0_4> <DATA_BUF_WR_0_5> <DATA_BUF_WR_0_6> <DATA_BUF_WR_0_7> <DATA_BUF_WR_0_8> <DATA_BUF_WR_0_9> <DATA_BUF_WR_0_10> <DATA_BUF_WR_0_11> <DATA_BUF_WR_0_12> <DATA_BUF_WR_0_13> <DATA_BUF_WR_0_14> <DATA_BUF_WR_0_15> <DATA_BUF_WR_0_16> <DATA_BUF_WR_0_17> <DATA_BUF_WR_0_18> <DATA_BUF_WR_0_19> <DATA_BUF_WR_0_20> <DATA_BUF_WR_0_21> <DATA_BUF_WR_0_22> <DATA_BUF_WR_0_23> <DATA_BUF_WR_0_24> <DATA_BUF_WR_0_25> <DATA_BUF_WR_0_26> <DATA_BUF_WR_0_27> <DATA_BUF_WR_0_28> <DATA_BUF_WR_0_29> <DATA_BUF_WR_0_30> <DATA_BUF_WR_0_31> 
+WARNING:Xst:1710 - FF/Latch <DATA_BUF_WR_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <ddr_sdram/FSM_0> on signal <STATUS[1:3]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 100   | 011
+ 011   | 100
+-------------------
+WARNING:Xst:1293 - FF/Latch <re_count_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <re_count_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DATA_WR_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ADDR_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:1901 - Instance ddr_clocks/pll_base_inst in unit ddr_clocks/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+WARNING:Xst:2042 - Unit ddr_sdram: 18 internal tristates are replaced by logic (pull-up yes): DATA_RAM<0>, DATA_RAM<10>, DATA_RAM<11>, DATA_RAM<12>, DATA_RAM<13>, DATA_RAM<14>, DATA_RAM<15>, DATA_RAM<1>, DATA_RAM<2>, DATA_RAM<3>, DATA_RAM<4>, DATA_RAM<5>, DATA_RAM<6>, DATA_RAM<7>, DATA_RAM<8>, DATA_RAM<9>, DQS<0>, DQS<1>.
+
+Optimizing unit <ddr_hw_test> ...
+
+Optimizing unit <ddr_sdram> ...
+WARNING:Xst:1710 - FF/Latch <read_data_8> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_9> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_10> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_11> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_12> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_13> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_14> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <read_data_15> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_0> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_1> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_2> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_3> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_4> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_5> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_6> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_7> (without init value) has a constant value of 0 in block <ddr_hw_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ddr_sdram/DM_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/ADDR_5> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/ADDR_4> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/ADDR_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/COMMAND_3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/COMMAND_2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/COMMAND_1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/COMMAND_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/WR_STROBE> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/wr_count_4> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/wr_count_3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/wr_count_2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/wr_count_1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/wr_count_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/STATUS_FSM_FFd2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/STATUS_FSM_FFd3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/STATUS_FSM_FFd1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/INITIALIZED> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/BUSY> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_12> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_11> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_10> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_9> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_8> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_7> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_6> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_5> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_4> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_3> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_2> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_1> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/openRowB0_0> of sequential type is unconnected in block <ddr_hw_test>.
+WARNING:Xst:2677 - Node <ddr_sdram/BANK_STATUS_0> of sequential type is unconnected in block <ddr_hw_test>.
+
+Mapping all equations...
+ERROR:Xst:2033 - Port I of Input buffer ddr_sdram/ddr_clocks/clkin1_buf is connected to GND
+ERROR:Xst:1847 - Design checking failed
+--> 
+
+Total memory usage is 239852 kilobytes
+
+Number of errors   :    2 (   0 filtered)
+Number of warnings :  259 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
+

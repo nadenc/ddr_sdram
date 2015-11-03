@@ -1,0 +1,108 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source D:/Projects/FPGA/ddr_hw_test/pa.fromNetlist.tcl
+# create_project -name ddr_hw_test -dir "D:/Projects/FPGA/ddr_hw_test/planAhead_run_1" -part xc6slx9csg324-3
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {D:/Projects/FPGA/ddr_hw_test} }
+# set_param project.pinAheadLayout  yes
+# set_property target_constrs_file "ddr_hw_test.ucf" [current_fileset -constrset]
+Adding file 'D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf' to fileset 'constrs_1'
+# add_files [list {ddr_hw_test.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx9csg324-3
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design ddr_hw_test.ngc ...
+WARNING:NetListWriters:298 - No output is written to ddr_hw_test.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file ddr_hw_test.edif ...
+ngc2edif: Total memory usage is 77520 kilobytes
+
+Parsing EDIF File [./planAhead_run_1/ddr_hw_test.data/cache/ddr_hw_test_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_1/ddr_hw_test.data/cache/ddr_hw_test_ngc_zx.edif]
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/csg324/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+WARNING: [Constraints 18-505] Could not create 'SLEW' constraint because cell 'ddr_sdram/diff_clk_buff' is not directly connected to top level port. 'SLEW' is ignored by planAhead but preserved for implementation tool [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ngc:194]
+Parsing UCF File [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:41]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:41]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[10]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:42]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[10]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:42]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[11]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:43]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[11]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:43]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[12]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:44]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[12]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:44]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[1]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:45]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[1]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:45]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[2]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:46]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[2]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:46]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[3]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:47]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[3]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:47]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[4]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:48]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[4]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:48]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[5]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:49]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[5]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:49]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[6]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:50]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[6]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:50]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[7]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:51]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[7]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:51]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[8]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:52]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[8]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:52]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[9]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:53]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'ADDR_RAM[9]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:53]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'BA[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:54]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'BA[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:54]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'BA[1]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:55]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'BA[1]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:55]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CAS' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:56]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CAS' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:56]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CLK_P' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:57]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CLK_P' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:57]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CLK_N' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:58]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CLK_N' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:58]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CKE' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:59]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'CKE' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:59]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:60]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[0]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:60]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[10]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:61]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[10]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:61]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[11]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:62]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[11]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:62]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[12]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:63]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[12]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:63]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[13]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:64]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[13]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:64]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[14]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:65]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'DATA_RAM[14]' [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf:65]
+INFO: [Common 17-14] Message 'Constraints 18-11' appears 50 times and further instances of the messages will be disabled. Use the Tcl command set_msg_limit to change the current settings.
+Finished Parsing UCF File [D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: acc6066e
+link_design: Time (s): elapsed = 00:00:16 . Memory (MB): peak = 588.141 ; gain = 169.152
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Thu Aug 27 16:46:46 2015...
+INFO: [Common 17-83] Releasing license: PlanAhead

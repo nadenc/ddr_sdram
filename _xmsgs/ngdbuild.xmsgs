@@ -8,8 +8,5 @@
 <msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;PERIOD = 100MHz ;&gt; [ddr_sdram.ucf(15)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
 </msg>
 
-<msg type="warning" file="NgdBuild" num="478" delta="old" >clock net <arg fmt="%s" index="1">DDR_CLK_166M</arg> with clock driver <arg fmt="%s" index="2">ddr_clocks/clkout1_buf</arg> drives no clock pins
-</msg>
-
 </messages>
 

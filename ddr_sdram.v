@@ -73,7 +73,7 @@ reg [31:0] DATA_BUF_RE[(BURST_LENGTH >> 1) - 1:0];
 reg [15:0] DATA_WR;
 wire [(16*BURST_LENGTH-1):0] DATA_RE;
 assign DATA_RAM = (STATUS == S_WRITE) ? DATA_WR : 16'bZ;		// out if write, Z otherwise
-assign DATA_IN = (STATUS == S_READ) ? DATA_RE : 256'bZ;			// data if read, Z otherwise
+assign DATA_IN = (WRITE) ? 256'bZ : DATA_RE;			// input when writing
 
 assign DATA_RE[31:0] = DATA_BUF_RE[0];
 if (BURST_LENGTH > 2) assign DATA_RE[63:32] = DATA_BUF_RE[1];
@@ -487,7 +487,7 @@ always @ (posedge WR_CLK_333M) begin
 	
 		BUSY <= 1'b0;
 		STATUS <= S_IDLE;
-		re_count <= 5'b0;
+		// re_count <= 5'b0;
 		wr_count <= 5'b0;
 		DM <= 2'b0;
 	
@@ -521,24 +521,26 @@ always @ (posedge re_strobe) begin // read data
 		
 		if (re_count < BURST_LENGTH + CAS_LAT*2) re_count <= re_count + 5'b1; // increment read counter
 		
+		else if (re_count == BURST_LENGTH + CAS_LAT*2) re_count <= 5'b0;
+		
 		case (re_count - CAS_LAT*2) // store data in data read buffer
 		
 			4'h0: DATA_BUF_RE[0][15:0] <= DATA_RAM;
 			4'h1: DATA_BUF_RE[0][31:16] <= DATA_RAM;
-			4'h2: DATA_BUF_RE[1][15:0] <= DATA_RAM;
-			4'h3: DATA_BUF_RE[1][31:16] <= DATA_RAM;
-			4'h4: DATA_BUF_RE[2][15:0] <= DATA_RAM;
-			4'h5: DATA_BUF_RE[2][31:16] <= DATA_RAM;
-			4'h6: DATA_BUF_RE[3][15:0] <= DATA_RAM;
-			4'h7: DATA_BUF_RE[3][31:16] <= DATA_RAM;
-			4'h8: DATA_BUF_RE[4][15:0] <= DATA_RAM;
-			4'h9: DATA_BUF_RE[4][31:16] <= DATA_RAM;
-			4'hA: DATA_BUF_RE[5][15:0] <= DATA_RAM;
-			4'hB: DATA_BUF_RE[5][31:16] <= DATA_RAM;
-			4'hC: DATA_BUF_RE[6][15:0] <= DATA_RAM;
-			4'hD: DATA_BUF_RE[6][31:16] <= DATA_RAM;
-			4'hE: DATA_BUF_RE[7][15:0] <= DATA_RAM;
-			4'hF: DATA_BUF_RE[7][31:16] <= DATA_RAM;
+			4'h2: if (BURST_LENGTH > 2) DATA_BUF_RE[1][15:0] <= DATA_RAM;
+			4'h3: if (BURST_LENGTH > 2) DATA_BUF_RE[1][31:16] <= DATA_RAM;
+			4'h4: if (BURST_LENGTH > 4) DATA_BUF_RE[2][15:0] <= DATA_RAM;
+			4'h5: if (BURST_LENGTH > 4) DATA_BUF_RE[2][31:16] <= DATA_RAM;
+			4'h6: if (BURST_LENGTH > 4) DATA_BUF_RE[3][15:0] <= DATA_RAM;
+			4'h7: if (BURST_LENGTH > 4) DATA_BUF_RE[3][31:16] <= DATA_RAM;
+			4'h8: if (BURST_LENGTH > 8) DATA_BUF_RE[4][15:0] <= DATA_RAM;
+			4'h9: if (BURST_LENGTH > 8) DATA_BUF_RE[4][31:16] <= DATA_RAM;
+			4'hA: if (BURST_LENGTH > 8) DATA_BUF_RE[5][15:0] <= DATA_RAM;
+			4'hB: if (BURST_LENGTH > 8) DATA_BUF_RE[5][31:16] <= DATA_RAM;
+			4'hC: if (BURST_LENGTH > 8) DATA_BUF_RE[6][15:0] <= DATA_RAM;
+			4'hD: if (BURST_LENGTH > 8) DATA_BUF_RE[6][31:16] <= DATA_RAM;
+			4'hE: if (BURST_LENGTH > 8) DATA_BUF_RE[7][15:0] <= DATA_RAM;
+			4'hF: if (BURST_LENGTH > 8) DATA_BUF_RE[7][31:16] <= DATA_RAM;
 			
 		endcase
 		

@@ -19,8 +19,6 @@ INFO:ConstraintSystem - The Period constraint <PERIOD = 100MHz ;>
 Done...
 
 Checking expanded design ...
-WARNING:NgdBuild:478 - clock net DDR_CLK_166M with clock driver
-   ddr_clocks/clkout1_buf drives no clock pins
 
 Partition Implementation Status
 -------------------------------
@@ -31,12 +29,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   1
+  Number of warnings:   0
 
 Total memory usage is 178880 kilobytes
 
 Writing NGD file "ddr_sdram.ngd" ...
-Total REAL time to NGDBUILD completion:  6 sec
+Total REAL time to NGDBUILD completion:  5 sec
 Total CPU time to NGDBUILD completion:   5 sec
 
 Writing NGDBUILD log file "ddr_sdram.bld"...
