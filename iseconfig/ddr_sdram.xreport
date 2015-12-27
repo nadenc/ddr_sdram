@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-08-27T17:52:50</DateModified>
+  <DateModified>2015-12-26T19:59:58</DateModified>
   <ModuleName>ddr_sdram</ModuleName>
-  <SummaryTimeStamp>2015-08-27T17:51:07</SummaryTimeStamp>
-  <SavedFilePath>D:/Projects/FPGA/ddr_sdram/iseconfig/ddr_sdram.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/Projects/FPGA/ddr_sdram\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2015-12-26T12:14:33</SummaryTimeStamp>
+  <SavedFilePath>D:/Google Drive/Projects/FPGA/ddr_sdram/iseconfig/ddr_sdram.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/Google Drive/Projects/FPGA/ddr_sdram\</ImplementationReportsDirectory>
   <DateInitialized>2015-07-20T21:40:16</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

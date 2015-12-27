@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: ddr_sdram.prj
 
@@ -108,9 +108,9 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" into library work
+Analyzing Verilog file "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" into library work
 Parsing module <ddr_clk_mod>.
-Analyzing Verilog file "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" into library work
+Analyzing Verilog file "D:\Google Drive\Projects\FPGA\ddr_sdram\ddr_sdram.v" into library work
 Parsing module <ddr_sdram>.
 
 =========================================================================
@@ -118,33 +118,29 @@ Parsing module <ddr_sdram>.
 =========================================================================
 
 Elaborating module <ddr_sdram>.
-WARNING:HDLCompiler:872 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 149: Using initial value of PWR_ON since it is never assigned
-WARNING:HDLCompiler:413 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 76: Result of 256-bit expression is truncated to fit in 32-bit target.
+WARNING:HDLCompiler:872 - "D:\Google Drive\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 163: Using initial value of PWR_ON since it is never assigned
 
 Elaborating module <ddr_clk_mod>.
 
 Elaborating module <IBUFG>.
 
 Elaborating module <PLL_BASE(BANDWIDTH="OPTIMIZED",CLK_FEEDBACK="CLKFBOUT",COMPENSATION="SYSTEM_SYNCHRONOUS",DIVCLK_DIVIDE=1,CLKFBOUT_MULT=10,CLKFBOUT_PHASE=0.0,CLKOUT0_DIVIDE=6,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DIVIDE=3,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKIN_PERIOD=10.0,REF_JITTER=0.01)>.
-WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 121: Assignment to clkout2_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 122: Assignment to clkout3_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 123: Assignment to clkout4_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 124: Assignment to clkout5_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 121: Assignment to clkout2_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 122: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 123: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v" Line 124: Assignment to clkout5_unused ignored, since the identifier is never used
 
 Elaborating module <BUFG>.
 
 Elaborating module <OBUFDS>.
-WARNING:HDLCompiler:295 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 290: case condition never applies
-WARNING:HDLCompiler:295 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 291: case condition never applies
-WARNING:HDLCompiler:295 - "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v" Line 292: case condition never applies
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <ddr_sdram>.
-    Related source file is "D:\Projects\FPGA\ddr_sdram\ddr_sdram.v".
-        BURST_LENGTH = 5'b00010
+    Related source file is "D:\Google Drive\Projects\FPGA\ddr_sdram\ddr_sdram.v".
+        BURST_LENGTH = 5'b10000
     Found 4-bit register for signal <COMMAND>.
     Found 13-bit register for signal <ADDR_RAM>.
     Found 1-bit register for signal <INITIALIZED>.
@@ -154,94 +150,45 @@ Synthesizing Unit <ddr_sdram>.
     Found 13-bit register for signal <openRowB2>.
     Found 13-bit register for signal <openRowB1>.
     Found 13-bit register for signal <openRowB0>.
-    Found 32-bit register for signal <DATA_BUF_WR<0>>.
     Found 5-bit register for signal <wr_count>.
-    Found 1-bit register for signal <WR_STROBE>.
-    Found 16-bit register for signal <DATA_WR>.
+    Found 1-bit register for signal <WR_DQS>.
+    Found 1-bit register for signal <wr_edge>.
     Found 2-bit register for signal <DM>.
     Found 5-bit register for signal <re_count>.
-    Found 32-bit register for signal <DATA_BUF_RE<0>>.
+    Found 1-bit register for signal <RE_DQS>.
     Found 3-bit register for signal <STATUS>.
-    Found 6-bit subtractor for signal <GND_1_o_GND_1_o_sub_93_OUT> created at line 447.
-    Found 6-bit subtractor for signal <GND_1_o_GND_1_o_sub_153_OUT> created at line 526.
-    Found 5-bit adder for signal <wr_count[4]_GND_1_o_add_89_OUT> created at line 441.
-    Found 5-bit adder for signal <n0420> created at line 468.
-    Found 5-bit adder for signal <re_count[4]_GND_1_o_add_148_OUT> created at line 522.
-    Found 3-bit 4-to-1 multiplexer for signal <BA[1]_STATUS[2]_wide_mux_29_OUT> created at line 175.
-    Found 4-bit 4-to-1 multiplexer for signal <BA[1]_GND_1_o_wide_mux_32_OUT> created at line 307.
-    Found 4-bit 4-to-1 multiplexer for signal <BA[1]_PWR_1_o_wide_mux_38_OUT> created at line 354.
-    Found 3-bit 4-to-1 multiplexer for signal <_n0684> created at line 175.
-    Found 3-bit 4-to-1 multiplexer for signal <_n0687> created at line 175.
-    Found 1-bit tristate buffer for signal <DATA_RAM<15>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<14>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<13>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<12>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<11>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<10>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<9>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<8>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<7>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<6>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<5>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<4>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<3>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<2>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<1>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_RAM<0>> created at line 75
-    Found 1-bit tristate buffer for signal <DATA_IN<31>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<30>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<29>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<28>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<27>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<26>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<25>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<24>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<23>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<22>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<21>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<20>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<19>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<18>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<17>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<16>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<15>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<14>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<13>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<12>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<11>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<10>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<9>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<8>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<7>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<6>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<5>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<4>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<3>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<2>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<1>> created at line 76
-    Found 1-bit tristate buffer for signal <DATA_IN<0>> created at line 76
-    Found 1-bit tristate buffer for signal <DQS<1>> created at line 93
-    Found 1-bit tristate buffer for signal <DQS<0>> created at line 94
-    Found 13-bit comparator not equal for signal <n0062> created at line 179
-    Found 13-bit comparator not equal for signal <n0068> created at line 203
-    Found 13-bit comparator not equal for signal <n0074> created at line 227
-    Found 13-bit comparator not equal for signal <n0080> created at line 251
-    Found 5-bit comparator lessequal for signal <wr_count[4]_GND_1_o_LessThan_89_o> created at line 441
-    Found 5-bit comparator greater for signal <n0184> created at line 443
-    Found 5-bit comparator lessequal for signal <n0208> created at line 468
-    Found 5-bit comparator lessequal for signal <re_count[4]_GND_1_o_LessThan_148_o> created at line 522
+    Found 5-bit adder for signal <wr_count[4]_GND_1_o_add_80_OUT> created at line 461.
+    Found 5-bit adder for signal <n0296> created at line 506.
+    Found 5-bit adder for signal <re_count[4]_GND_1_o_add_117_OUT> created at line 561.
+    Found 3-bit 4-to-1 multiplexer for signal <BA[1]_STATUS[2]_wide_mux_26_OUT> created at line 192.
+    Found 4-bit 4-to-1 multiplexer for signal <BA[1]_GND_1_o_wide_mux_29_OUT> created at line 324.
+    Found 4-bit 4-to-1 multiplexer for signal <BA[1]_PWR_1_o_wide_mux_35_OUT> created at line 371.
+    Found 3-bit 4-to-1 multiplexer for signal <_n0429> created at line 192.
+    Found 3-bit 4-to-1 multiplexer for signal <_n0432> created at line 192.
+    Found 1-bit tristate buffer for signal <DQS<1>> created at line 102
+    Found 1-bit tristate buffer for signal <DQS<0>> created at line 103
+    Found 13-bit comparator not equal for signal <n0014> created at line 196
+    Found 13-bit comparator not equal for signal <n0020> created at line 220
+    Found 13-bit comparator not equal for signal <n0026> created at line 244
+    Found 13-bit comparator not equal for signal <n0032> created at line 268
+    Found 5-bit comparator greater for signal <wr_count[4]_PWR_1_o_LessThan_80_o> created at line 460
+    Found 5-bit comparator lessequal for signal <GND_1_o_wr_count[4]_LessThan_82_o> created at line 463
+    Found 5-bit comparator greater for signal <n0133> created at line 479
+    Found 5-bit comparator lessequal for signal <n0137> created at line 506
+    Found 5-bit comparator greater for signal <re_count[4]_PWR_1_o_LessThan_117_o> created at line 560
+    Found 5-bit comparator lessequal for signal <GND_1_o_re_count[4]_LessThan_119_o> created at line 563
     WARNING:Xst:2404 -  FFs/Latches <POS_DQS<0:0>> (without init value) have a constant value of 0 in block <ddr_sdram>.
     WARNING:Xst:2404 -  FFs/Latches <NEG_DQS<0:0>> (without init value) have a constant value of 0 in block <ddr_sdram>.
     Summary:
-	inferred   5 Adder/Subtractor(s).
-	inferred 171 D-type flip-flop(s).
-	inferred   8 Comparator(s).
-	inferred  49 Multiplexer(s).
-	inferred  50 Tristate(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  93 D-type flip-flop(s).
+	inferred  10 Comparator(s).
+	inferred  47 Multiplexer(s).
+	inferred   2 Tristate(s).
 Unit <ddr_sdram> synthesized.
 
 Synthesizing Unit <ddr_clk_mod>.
-    Related source file is "D:\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v".
+    Related source file is "D:\Google Drive\Projects\FPGA\ddr_sdram\ipcore_dir\ddr_clk_mod.v".
     Summary:
 	no macro.
 Unit <ddr_clk_mod> synthesized.
@@ -250,33 +197,30 @@ Unit <ddr_clk_mod> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 3
  5-bit adder                                           : 3
- 6-bit subtractor                                      : 2
-# Registers                                            : 17
- 1-bit register                                        : 3
+# Registers                                            : 16
+ 1-bit register                                        : 5
  13-bit register                                       : 5
- 16-bit register                                       : 1
  2-bit register                                        : 1
  3-bit register                                        : 1
- 32-bit register                                       : 2
  4-bit register                                        : 2
  5-bit register                                        : 2
-# Comparators                                          : 8
+# Comparators                                          : 10
  13-bit comparator not equal                           : 4
- 5-bit comparator greater                              : 1
+ 5-bit comparator greater                              : 3
  5-bit comparator lessequal                            : 3
-# Multiplexers                                         : 49
+# Multiplexers                                         : 47
  1-bit 2-to-1 multiplexer                              : 22
  13-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 15
  3-bit 4-to-1 multiplexer                              : 3
- 32-bit 2-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 3
  4-bit 4-to-1 multiplexer                              : 2
-# Tristates                                            : 50
- 1-bit tristate buffer                                 : 50
+# Tristates                                            : 2
+ 1-bit tristate buffer                                 : 2
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
@@ -284,43 +228,13 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RE_DQS> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_2> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_3> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WR_DQS> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <ddr_sdram>.
 The following registers are absorbed into counter <wr_count>: 1 register on signal <wr_count>.
@@ -331,64 +245,33 @@ Unit <ddr_sdram> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 3
+# Adders/Subtractors                                   : 1
  5-bit adder                                           : 1
- 6-bit subtractor                                      : 2
 # Counters                                             : 2
  5-bit up counter                                      : 2
-# Registers                                            : 161
- Flip-Flops                                            : 161
-# Comparators                                          : 8
+# Registers                                            : 83
+ Flip-Flops                                            : 83
+# Comparators                                          : 10
  13-bit comparator not equal                           : 4
- 5-bit comparator greater                              : 1
+ 5-bit comparator greater                              : 3
  5-bit comparator lessequal                            : 3
-# Multiplexers                                         : 49
+# Multiplexers                                         : 47
  1-bit 2-to-1 multiplexer                              : 22
  13-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 1
  3-bit 2-to-1 multiplexer                              : 15
  3-bit 4-to-1 multiplexer                              : 3
- 32-bit 2-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 3
  4-bit 4-to-1 multiplexer                              : 2
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_31> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_30> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_29> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_28> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_27> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_26> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_25> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_24> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_23> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_22> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_21> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_20> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_19> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_18> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_17> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_16> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_15> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_14> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_13> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_12> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_11> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_10> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_9> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_8> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_7> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_6> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_5> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_4> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_3> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_2> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_1> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <DATA_BUF_RE_0_0> (without init value) has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <RE_DQS> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <WR_DQS> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <DM_0> in Unit <ddr_sdram> is equivalent to the following FF/Latch, which will be removed : <DM_1> 
 WARNING:Xst:1293 - FF/Latch <re_count_0> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <re_count_1> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
@@ -398,15 +281,14 @@ WARNING:Xst:1293 - FF/Latch <re_count_4> has a constant value of 0 in block <ddr
 INFO:Xst:1901 - Instance ddr_clocks/pll_base_inst in unit ddr_clocks/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
 
 Optimizing unit <ddr_sdram> ...
-WARNING:Xst:1293 - FF/Latch <wr_count_4> has a constant value of 0 in block <ddr_sdram>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block ddr_sdram, actual ratio is 4.
-FlipFlop BUSY has been replicated 2 time(s)
-FlipFlop STATUS_0 has been replicated 1 time(s)
-FlipFlop STATUS_1 has been replicated 2 time(s)
-FlipFlop STATUS_2 has been replicated 2 time(s)
+Found area constraint ratio of 100 (+ 5) on block ddr_sdram, actual ratio is 3.
+FlipFlop BUSY has been replicated 3 time(s)
+FlipFlop STATUS_0 has been replicated 2 time(s)
+FlipFlop STATUS_1 has been replicated 3 time(s)
+FlipFlop STATUS_2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -414,8 +296,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 139
- Flip-Flops                                            : 139
+# Registers                                            : 94
+ Flip-Flops                                            : 94
 
 =========================================================================
 
@@ -438,31 +320,30 @@ Top Level Output File Name         : ddr_sdram.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 238
+# BELS                             : 196
 #      GND                         : 1
 #      INV                         : 2
 #      LUT2                        : 8
-#      LUT3                        : 106
-#      LUT4                        : 23
-#      LUT5                        : 25
-#      LUT6                        : 50
+#      LUT3                        : 21
+#      LUT4                        : 28
+#      LUT5                        : 59
+#      LUT6                        : 54
 #      MUXCY                       : 20
 #      MUXF7                       : 2
 #      VCC                         : 1
-# FlipFlops/Latches                : 139
-#      FD                          : 7
-#      FDE                         : 52
-#      FDRE                        : 25
-#      FDSE                        : 55
+# FlipFlops/Latches                : 94
+#      FD                          : 50
+#      FDE                         : 4
+#      FDRE                        : 24
+#      FDSE                        : 16
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 105
-#      IBUF                        : 31
+# IO Buffers                       : 90
+#      IBUF                        : 47
 #      IBUFG                       : 1
-#      IOBUF                       : 32
-#      OBUF                        : 22
+#      OBUF                        : 39
 #      OBUFDS                      : 1
-#      OBUFT                       : 18
+#      OBUFT                       : 2
 # Others                           : 1
 #      PLL_ADV                     : 1
 
@@ -473,20 +354,20 @@ Selected Device : 6slx9csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             139  out of  11440     1%  
- Number of Slice LUTs:                  214  out of   5720     3%  
-    Number used as Logic:               214  out of   5720     3%  
+ Number of Slice Registers:              94  out of  11440     0%  
+ Number of Slice LUTs:                  172  out of   5720     3%  
+    Number used as Logic:               172  out of   5720     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    219
-   Number with an unused Flip Flop:      80  out of    219    36%  
-   Number with an unused LUT:             5  out of    219     2%  
-   Number of fully used LUT-FF pairs:   134  out of    219    61%  
-   Number of unique control sets:        12
+ Number of LUT Flip Flop pairs used:    179
+   Number with an unused Flip Flop:      85  out of    179    47%  
+   Number with an unused LUT:             7  out of    179     3%  
+   Number of fully used LUT-FF pairs:    87  out of    179    48%  
+   Number of unique control sets:         6
 
 IO Utilization: 
- Number of IOs:                         106
- Number of bonded IOBs:                 106  out of    200    53%  
+ Number of IOs:                          91
+ Number of bonded IOBs:                  91  out of    200    45%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
@@ -513,7 +394,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-ddr_clocks/pll_base_inst/CLKOUT1   | BUFG                   | 139   |
+ddr_clocks/pll_base_inst/CLKOUT1   | BUFG                   | 94    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -524,10 +405,10 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 4.726ns (Maximum Frequency: 211.590MHz)
-   Minimum input arrival time before clock: 5.637ns
-   Maximum output required time after clock: 5.707ns
-   Maximum combinational path delay: 5.198ns
+   Minimum period: 4.367ns (Maximum Frequency: 228.985MHz)
+   Minimum input arrival time before clock: 5.510ns
+   Maximum output required time after clock: 5.247ns
+   Maximum combinational path delay: 4.820ns
 
 Timing Details:
 ---------------
@@ -535,33 +416,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ddr_clocks/pll_base_inst/CLKOUT1'
-  Clock period: 4.726ns (frequency: 211.590MHz)
-  Total number of paths / destination ports: 2886 / 335
+  Clock period: 4.367ns (frequency: 228.985MHz)
+  Total number of paths / destination ports: 2210 / 165
 -------------------------------------------------------------------------
-Delay:               4.726ns (Levels of Logic = 3)
-  Source:            BUSY_1 (FF)
-  Destination:       ADDR_0 (FF)
+Delay:               4.367ns (Levels of Logic = 4)
+  Source:            STATUS_1_1 (FF)
+  Destination:       STATUS_0 (FF)
   Source Clock:      ddr_clocks/pll_base_inst/CLKOUT1 rising
   Destination Clock: ddr_clocks/pll_base_inst/CLKOUT1 rising
 
-  Data Path: BUSY_1 to ADDR_0
+  Data Path: STATUS_1_1 to STATUS_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               7   0.447   1.021  BUSY_1 (BUSY_1)
-     LUT4:I0->O           71   0.203   1.687  STATUS[2]_BUSY_AND_10_o1 (STATUS[2]_BUSY_AND_10_o)
-     LUT4:I3->O           10   0.205   0.857  Mmux_ADDR[12]_ADDR[12]_mux_61_OUT141 (Mmux_ADDR[12]_ADDR[12]_mux_61_OUT14)
-     LUT6:I5->O            1   0.205   0.000  Mmux_ADDR[12]_ADDR[12]_mux_61_OUT1 (ADDR[12]_ADDR[12]_mux_61_OUT<0>)
-     FDSE:D                    0.102          ADDR_0
+     FDRE:C->Q             8   0.447   1.031  STATUS_1_1 (STATUS_1_1)
+     LUT4:I1->O            1   0.205   0.808  STATUS[2]_BUSY_AND_9_o1_2 (STATUS[2]_BUSY_AND_9_o11)
+     LUT6:I3->O            1   0.205   0.580  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11 (Mmux_STATUS[2]_STATUS[2]_mux_72_OUT1)
+     LUT3:I2->O            1   0.205   0.580  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13 (Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12)
+     LUT6:I5->O            3   0.205   0.000  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14 (STATUS[2]_STATUS[2]_mux_72_OUT<0>)
+     FDRE:D                    0.102          STATUS_0
     ----------------------------------------
-    Total                      4.726ns (1.162ns logic, 3.564ns route)
-                                       (24.6% logic, 75.4% route)
+    Total                      4.367ns (1.369ns logic, 2.998ns route)
+                                       (31.3% logic, 68.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'ddr_clocks/pll_base_inst/CLKOUT1'
-  Total number of paths / destination ports: 951 / 175
+  Total number of paths / destination ports: 927 / 105
 -------------------------------------------------------------------------
-Offset:              5.637ns (Levels of Logic = 5)
+Offset:              5.510ns (Levels of Logic = 5)
   Source:            BA_IN<0> (PAD)
   Destination:       STATUS_0 (FF)
   Destination Clock: ddr_clocks/pll_base_inst/CLKOUT1 rising
@@ -571,52 +453,52 @@ Offset:              5.637ns (Levels of Logic = 5)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            17   1.222   1.392  BA_IN_0_IBUF (BA_0_OBUF)
-     LUT6:I0->O            5   0.203   0.943  BA<1>31 (BA<1>3)
-     LUT6:I3->O            1   0.205   0.580  Mmux_STATUS[2]_STATUS[2]_mux_80_OUT11 (Mmux_STATUS[2]_STATUS[2]_mux_80_OUT1)
-     LUT3:I2->O            1   0.205   0.580  Mmux_STATUS[2]_STATUS[2]_mux_80_OUT13 (Mmux_STATUS[2]_STATUS[2]_mux_80_OUT12)
-     LUT6:I5->O            2   0.205   0.000  Mmux_STATUS[2]_STATUS[2]_mux_80_OUT14 (STATUS[2]_STATUS[2]_mux_80_OUT<0>)
+     LUT6:I0->O            5   0.203   0.819  BA<1>31 (BA<1>3)
+     LUT6:I4->O            1   0.203   0.580  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11 (Mmux_STATUS[2]_STATUS[2]_mux_72_OUT1)
+     LUT3:I2->O            1   0.205   0.580  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13 (Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12)
+     LUT6:I5->O            3   0.205   0.000  Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14 (STATUS[2]_STATUS[2]_mux_72_OUT<0>)
      FDRE:D                    0.102          STATUS_0
     ----------------------------------------
-    Total                      5.637ns (2.142ns logic, 3.494ns route)
-                                       (38.0% logic, 62.0% route)
+    Total                      5.510ns (2.140ns logic, 3.371ns route)
+                                       (38.8% logic, 61.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'ddr_clocks/pll_base_inst/CLKOUT1'
-  Total number of paths / destination ports: 92 / 38
+  Total number of paths / destination ports: 28 / 22
 -------------------------------------------------------------------------
-Offset:              5.707ns (Levels of Logic = 2)
-  Source:            STATUS_1 (FF)
+Offset:              5.247ns (Levels of Logic = 2)
+  Source:            STATUS_2 (FF)
   Destination:       DQS<1> (PAD)
   Source Clock:      ddr_clocks/pll_base_inst/CLKOUT1 rising
 
-  Data Path: STATUS_1 to DQS<1>
+  Data Path: STATUS_2 to DQS<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            26   0.447   1.435  STATUS_1 (STATUS_1)
-     LUT3:I0->O           18   0.205   1.049  STATUS[2]_GND_1_o_equal_2_o_inv1 (STATUS[2]_GND_1_o_equal_2_o_inv)
+     FDRE:C->Q            21   0.447   1.342  STATUS_2 (STATUS_2)
+     LUT3:I0->O            4   0.205   0.683  STATUS[2]_GND_1_o_equal_79_o_inv1 (STATUS[2]_GND_1_o_equal_79_o_inv)
      OBUFT:T->O                2.571          DQS_1_OBUFT (DQS<1>)
     ----------------------------------------
-    Total                      5.707ns (3.223ns logic, 2.484ns route)
-                                       (56.5% logic, 43.5% route)
+    Total                      5.247ns (3.223ns logic, 2.024ns route)
+                                       (61.4% logic, 38.6% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 34 / 34
+  Total number of paths / destination ports: 18 / 18
 -------------------------------------------------------------------------
-Delay:               5.198ns (Levels of Logic = 2)
-  Source:            WRITE (PAD)
-  Destination:       DATA_IN<31> (PAD)
+Delay:               4.820ns (Levels of Logic = 2)
+  Source:            BA_IN<0> (PAD)
+  Destination:       BA<0> (PAD)
 
-  Data Path: WRITE to DATA_IN<31>
+  Data Path: BA_IN<0> to BA<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            40   1.222   1.405  WRITE_IBUF (WRITE_IBUF)
-     IOBUF:T->IO               2.571          DATA_IN_31_IOBUF (DATA_IN<31>)
+     IBUF:I->O            17   1.222   1.027  BA_IN_0_IBUF (BA_0_OBUF)
+     OBUF:I->O                 2.571          BA_0_OBUF (BA<0>)
     ----------------------------------------
-    Total                      5.198ns (3.793ns logic, 1.405ns route)
-                                       (73.0% logic, 27.0% route)
+    Total                      4.820ns (3.793ns logic, 1.027ns route)
+                                       (78.7% logic, 21.3% route)
 
 =========================================================================
 
@@ -628,20 +510,20 @@ Clock to Setup on destination clock ddr_clocks/pll_base_inst/CLKOUT1
                                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------+---------+---------+---------+---------+
-ddr_clocks/pll_base_inst/CLKOUT1|    4.726|         |         |         |
+ddr_clocks/pll_base_inst/CLKOUT1|    4.367|         |         |         |
 --------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.84 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.23 secs
  
 --> 
 
-Total memory usage is 239852 kilobytes
+Total memory usage is 283200 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   86 (   0 filtered)
+Number of warnings :   21 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 

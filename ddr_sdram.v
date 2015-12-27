@@ -2,6 +2,7 @@
 // LPDDR3 SDRAM driver for Spartan 6
 // By Chad Plesa-Naden
 // Created: July 2015
+// Last Modified: December 26, 2015
 
 // Device Info:
 // MT46H32M16LF - 8Meg x 16 x 4 banks
@@ -15,7 +16,7 @@
 Set WRITE or READ inputs high to initialize a command
 
 BA is bank address [1:0]
-DATA_IN is the data bus [15:0] ** this needs updating
+DATA_IN is the data bus [15:0]
 ADDR_ROW_IN is the row address for the first word in the burst
 ADDR_COL_IN is the column address
 Use WRITE_LENGTH to specify number of 16-bit words to be written in burst
@@ -41,9 +42,11 @@ module ddr_sdram(
 
 	//External Interface
 	input [1:0] BA_IN,
-	inout [(16*BURST_LENGTH-1):0] DATA_IN,
+	inout [15:0] DATA_IN,
 	input [12:0] ADDR_ROW_IN,		// start of burst row address
 	input [9:0] ADDR_COL_IN,		// column address
+	output EXT_DQS,					// external data strobe for re/wr
+	
 
 	input WRITE,
 	input READ,
@@ -68,13 +71,17 @@ reg [3:0] BANK_STATUS;		// 3-b3open,2-b2open,1-b1open,0-b0open
 assign BA = BA_IN;
 
 // Data/Address wire maps
-reg [31:0] DATA_BUF_WR[(BURST_LENGTH >> 1) - 1:0];
-reg [31:0] DATA_BUF_RE[(BURST_LENGTH >> 1) - 1:0];
-reg [15:0] DATA_WR;
-wire [(16*BURST_LENGTH-1):0] DATA_RE;
-assign DATA_RAM = (STATUS == S_WRITE) ? DATA_WR : 16'bZ;		// out if write, Z otherwise
-assign DATA_IN = (WRITE) ? 256'bZ : DATA_RE;			// input when writing
+//reg [31:0] DATA_BUF_WR[(BURST_LENGTH >> 1) - 1:0];
+//reg [31:0] DATA_BUF_RE[(BURST_LENGTH >> 1) - 1:0];
+//reg [15:0] DATA_WR;
+//wire [15:0] DATA_RE;
 
+//assign DATA_IN = DATA_RAM;
+
+assign DATA_RAM = (STATUS == S_WRITE) ? DATA_IN : 16'bZ;		// out if write, Z otherwise
+assign DATA_IN = (STATUS == S_WRITE) ? 16'bZ : DATA_RAM; //DATA_RE;			// input when writing
+
+/*
 assign DATA_RE[31:0] = DATA_BUF_RE[0];
 if (BURST_LENGTH > 2) assign DATA_RE[63:32] = DATA_BUF_RE[1];
 if (BURST_LENGTH > 4) assign DATA_RE[95:64] = DATA_BUF_RE[2];
@@ -83,15 +90,22 @@ if (BURST_LENGTH > 8) assign DATA_RE[159:128] = DATA_BUF_RE[4];
 if (BURST_LENGTH > 8) assign DATA_RE[191:160] = DATA_BUF_RE[5];
 if (BURST_LENGTH > 8) assign DATA_RE[223:192] = DATA_BUF_RE[6];
 if (BURST_LENGTH > 8) assign DATA_RE[255:224] = DATA_BUF_RE[7];
+*/
 
 reg [12:0] ADDR;		// store intermediate address how to handle A10?
 assign ADDR_RAM = ADDR;
 
 // Data strobes
-reg WR_STROBE;
 
-assign DQS[1] = (STATUS == S_WRITE) ? WR_STROBE : 1'bZ;		// output if writing, input otherwise
-assign DQS[0] = (STATUS == S_WRITE) ? WR_STROBE : 1'bZ;		// output if writing, input otherwise
+reg wr_edge;
+
+assign DQS[1] = (STATUS == S_WRITE) ? wr_edge : 1'bZ;		// output if writing, input otherwise
+assign DQS[0] = (STATUS == S_WRITE) ? wr_edge : 1'bZ;		// output if writing, input otherwise
+
+reg WR_DQS;
+reg RE_DQS;
+
+assign EXT_DQS = (RE_DQS ^ WR_DQS);									// common dqs pin for re/wr
 
 // Status registers
 reg PWR_ON;
@@ -155,12 +169,15 @@ initial begin
 	CLK_RESET <= 1'b1;			// hold clocks in reset
 	INITIALIZED <= 1'b0;
 	
-	BANK_STATUS <= 4'b0;
+	BANK_STATUS <= 4'b0;			// clear banks
 	
 	wr_count <= 5'b0;
 	re_count <= 5'b0;
 	
-	WR_STROBE <= 1'b0;
+	wr_edge <= 1'b0;
+	
+	WR_DQS <= 1'b0;				// initialize data strobes
+	RE_DQS <= 1'b0;
 	
 	#200 PWR_ON <= 1'b1;		// wait 200ns after power up before issuing any commands, set power on
 	CLK_RESET <= 1'b0;			// release clocks from reset
@@ -391,20 +408,8 @@ always @ (posedge WR_CLK_333M) begin
 					
 			endcase
 			
-			if (READ) begin
-			
-				STATUS <= S_READ;
-				
-			end else if (WRITE) begin
-			
-				STATUS <= S_WRITE;
-				
-			end else begin
-			
-				STATUS <= S_IDLE;
-				
-			end
-			
+			STATUS <= S_IDLE;
+						
 		end
 		else if (STATUS == S_READ && READ && !BUSY)begin // read required
 		
@@ -412,12 +417,13 @@ always @ (posedge WR_CLK_333M) begin
 			ADDR[9:0] <= ADDR_COL_IN[9:0];		// set column address
 			ADDR[10] <= 1'b0;					// set precharge bit low
 			
-		end	else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
+		end else if (STATUS == S_WRITE && WRITE && !BUSY)begin // write required
 		
 			COMMAND <= C_WRITE;					// set op command
 			ADDR[9:0] <= ADDR_COL_IN[9:0];		// set column address
 			ADDR[10] <= 1'b0;					// set precharge bit low
 			
+			/*
 			DATA_BUF_WR[0] <= DATA_IN[31:0];		// load in write data buffer
 			if (BURST_LENGTH > 2) DATA_BUF_WR[1] <= DATA_IN[63:32];
 			if (BURST_LENGTH > 4) DATA_BUF_WR[2] <= DATA_IN[95:64];
@@ -426,6 +432,7 @@ always @ (posedge WR_CLK_333M) begin
 			if (BURST_LENGTH > 8) DATA_BUF_WR[5] <= DATA_IN[191:160];
 			if (BURST_LENGTH > 8) DATA_BUF_WR[6] <= DATA_IN[223:192];
 			if (BURST_LENGTH > 8) DATA_BUF_WR[7] <= DATA_IN[255:224];
+			*/
 			
 		end else begin // count after read/write command, send NOPs
 		
@@ -438,12 +445,30 @@ always @ (posedge WR_CLK_333M) begin
 	//////////////////////////////// WRITE DATA ////////////////////////////////
 	if (STATUS == S_WRITE) begin
 
-		if (wr_count < BURST_LENGTH + CAS_LAT*2) wr_count <= wr_count + 4'b1; // increment write counter		
+		if (wr_count < BURST_LENGTH + CAS_LAT*2) begin // during write period
+				wr_count <= wr_count + 4'b1; 		// increment write counter
+				
+				if (wr_count >= CAS_LAT*2) begin
+				
+					if (RE_DQS) begin					// set external write strobe
+						WR_DQS <= 1'b0;
+						#1 WR_DQS <= 1'b1;
+					end
+					
+					else begin
+						WR_DQS <= 1'b1;
+						#1 WR_DQS <= 1'b0;
+					end
+					
+				end
+		
+		end
 		
 		if (wr_count >= CAS_LAT*2) begin // write data when ready
 			
-			WR_STROBE <= ~WR_STROBE;		// toggle write strobe
-
+			wr_edge <= ~wr_edge;		// toggle write strobe
+			
+			/*
 			case (wr_count - CAS_LAT*2) // load write data from buffer
 			
 				5'h0: DATA_WR <= DATA_BUF_WR[0][15:0];
@@ -464,12 +489,13 @@ always @ (posedge WR_CLK_333M) begin
 				5'hF: if (BURST_LENGTH > 8) DATA_WR <= DATA_BUF_WR[7][31:16];
 				
 			endcase
+			*/
 			
 			if (wr_count >= CAS_LAT*2 + WRITE_LENGTH) begin // mask excess writes
 			
 				DM <= 2'b11;		// set data mask high
 				
-			end	else begin
+			end else begin
 				
 				DM <= 2'b00;		// clear any data mask
 			
@@ -499,30 +525,48 @@ end
 always @ (posedge DQS[1]) begin // pos edge of read strobe
 	
 	POS_DQS <= 1;		// generate edge
-	#1 POS_DQS <= 0;
+	#1 POS_DQS <= 0;	// set pulse length
 
 end
 
 always @ (negedge DQS[1]) begin // neg edge of read strobe
 
 	NEG_DQS <= 1;		// generate edge
-	#1 NEG_DQS <= 0;
+	#1 NEG_DQS <= 0;	// set pulse length
 
 end
 
 reg POS_DQS, NEG_DQS;		// read strobe edges
-wire re_strobe;
+wire re_edge;
 
-assign re_strobe = POS_DQS | NEG_DQS;		// generate common read edge
+assign re_edge = POS_DQS | NEG_DQS;		// generate common read edge
 
-always @ (posedge re_strobe) begin // read data
+always @ (posedge re_edge) begin // read data
 	
 	if (STATUS == S_READ) begin // if in read state
 		
-		if (re_count < BURST_LENGTH + CAS_LAT*2) re_count <= re_count + 5'b1; // increment read counter
+		if (re_count < BURST_LENGTH + CAS_LAT*2) begin // during read period
+			re_count <= re_count + 5'b1;	// increment read counter
+			
+			if (re_count >= CAS_LAT*2) begin
+			
+				if (WR_DQS) begin					// set external read strobe
+					RE_DQS <= 1'b0;
+					#1 RE_DQS <= 1'b1;
+				end
+				
+				else begin
+					RE_DQS <= 1'b1;
+					#1 RE_DQS <= 1'b0;
+				end
+				
+			end
+			
+		end
 		
 		else if (re_count == BURST_LENGTH + CAS_LAT*2) re_count <= 5'b0;
 		
+		/*
 		case (re_count - CAS_LAT*2) // store data in data read buffer
 		
 			4'h0: DATA_BUF_RE[0][15:0] <= DATA_RAM;
@@ -541,8 +585,9 @@ always @ (posedge re_strobe) begin // read data
 			4'hD: if (BURST_LENGTH > 8) DATA_BUF_RE[6][31:16] <= DATA_RAM;
 			4'hE: if (BURST_LENGTH > 8) DATA_BUF_RE[7][15:0] <= DATA_RAM;
 			4'hF: if (BURST_LENGTH > 8) DATA_BUF_RE[7][31:16] <= DATA_RAM;
-			
+		
 		endcase
+		*/
 		
 	end
 	

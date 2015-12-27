@@ -2,7 +2,7 @@
 Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
 -n 3 -fastpaths -xml ddr_sdram.twx ddr_sdram.ncd -o ddr_sdram.twr ddr_sdram.pcf
 -ucf ddr_sdram.ucf
 
@@ -68,19 +68,19 @@ Timing constraint: PERIOD analysis for net "ddr_clocks/clkout1" derived from
 NET "ddr_clocks/clkin1" PERIOD = 10 ns HIGH 50%;  divided by 3.33 to 3 nS   
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 2886 paths analyzed, 525 endpoints analyzed, 222 failing endpoints
- 222 timing errors detected. (222 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   5.133ns.
+ 2210 paths analyzed, 373 endpoints analyzed, 81 failing endpoints
+ 81 timing errors detected. (81 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.368ns.
 --------------------------------------------------------------------------------
 
-Paths for end point STATUS_2_2 (SLICE_X12Y40.BX), 75 paths
+Paths for end point STATUS_0_1 (SLICE_X10Y47.C5), 84 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -2.133ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB3_10 (FF)
-  Destination:          STATUS_2_2 (FF)
+Slack (setup path):     -1.368ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_0_1 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.933ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.121ns (0.505 - 0.626)
+  Data Path Delay:      4.282ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -90,167 +90,39 @@ Slack (setup path):     -2.133ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB3_10 to STATUS_2_2
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_0_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y50.DQ      Tcko                  0.408   openRowB3<10>
-                                                       openRowB3_10
-    SLICE_X10Y46.D4      net (fanout=2)        0.851   openRowB3<10>
-    SLICE_X10Y46.COUT    Topcyd                0.260   Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>
-                                                       Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o_lut<3>
-                                                       Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>
-    SLICE_X10Y47.CIN     net (fanout=1)        0.003   Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>
-    SLICE_X10Y47.AMUX    Tcina                 0.194   openRowB3<7>
-                                                       Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<4>
-    SLICE_X11Y42.D4      net (fanout=1)        0.824   openRowB3[12]_ADDR_ROW_IN[12]_not_equal_24_o
-    SLICE_X11Y42.D       Tilo                  0.259   STATUS_1_2
-                                                       BA<1>41
-    SLICE_X10Y42.D1      net (fanout=3)        0.835   BA<1>41
-    SLICE_X10Y42.D       Tilo                  0.205   BANK_STATUS<3>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT3
-    SLICE_X12Y40.BX      net (fanout=3)        1.008   STATUS[2]_STATUS[2]_mux_80_OUT<2>
-    SLICE_X12Y40.CLK     Tdick                 0.086   STATUS_2_2
-                                                       STATUS_2_2
-    -------------------------------------------------  ---------------------------
-    Total                                      4.933ns (1.412ns logic, 3.521ns route)
-                                                       (28.6% logic, 71.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -2.120ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_4 (FF)
-  Destination:          STATUS_2_2 (FF)
-  Requirement:          3.000ns
-  Data Path Delay:      4.921ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.120ns (0.505 - 0.625)
-  Source Clock:         WR_CLK_333M rising at 0.000ns
-  Destination Clock:    WR_CLK_333M rising at 3.000ns
-  Clock Uncertainty:    0.079ns
-
-  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.140ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: openRowB2_4 to STATUS_2_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X7Y54.BQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_4
-    SLICE_X8Y49.B5       net (fanout=2)        0.808   openRowB2<4>
-    SLICE_X8Y49.COUT     Topcyb                0.380   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<1>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
-                                                       BA<1>42
-    SLICE_X10Y42.D4      net (fanout=3)        0.718   BA<1>42
-    SLICE_X10Y42.D       Tilo                  0.205   BANK_STATUS<3>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT3
-    SLICE_X12Y40.BX      net (fanout=3)        1.008   STATUS[2]_STATUS[2]_mux_80_OUT<2>
-    SLICE_X12Y40.CLK     Tdick                 0.086   STATUS_2_2
-                                                       STATUS_2_2
-    -------------------------------------------------  ---------------------------
-    Total                                      4.921ns (1.533ns logic, 3.388ns route)
-                                                       (31.2% logic, 68.8% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -2.117ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_10 (FF)
-  Destination:          STATUS_2_2 (FF)
-  Requirement:          3.000ns
-  Data Path Delay:      4.918ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.120ns (0.505 - 0.625)
-  Source Clock:         WR_CLK_333M rising at 0.000ns
-  Destination Clock:    WR_CLK_333M rising at 3.000ns
-  Clock Uncertainty:    0.079ns
-
-  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.140ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: openRowB2_10 to STATUS_2_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X7Y54.CQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_10
-    SLICE_X8Y49.D6       net (fanout=2)        0.924   openRowB2<10>
-    SLICE_X8Y49.COUT     Topcyd                0.261   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
-                                                       BA<1>42
-    SLICE_X10Y42.D4      net (fanout=3)        0.718   BA<1>42
-    SLICE_X10Y42.D       Tilo                  0.205   BANK_STATUS<3>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT3
-    SLICE_X12Y40.BX      net (fanout=3)        1.008   STATUS[2]_STATUS[2]_mux_80_OUT<2>
-    SLICE_X12Y40.CLK     Tdick                 0.086   STATUS_2_2
-                                                       STATUS_2_2
-    -------------------------------------------------  ---------------------------
-    Total                                      4.918ns (1.414ns logic, 3.504ns route)
-                                                       (28.8% logic, 71.2% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point STATUS_0 (SLICE_X12Y41.CX), 84 paths
---------------------------------------------------------------------------------
-Slack (setup path):     -2.059ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               STATUS_0_1 (FF)
-  Destination:          STATUS_0 (FF)
-  Requirement:          3.000ns
-  Data Path Delay:      4.932ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.048ns (0.507 - 0.555)
-  Source Clock:         WR_CLK_333M rising at 0.000ns
-  Destination Clock:    WR_CLK_333M rising at 3.000ns
-  Clock Uncertainty:    0.079ns
-
-  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.140ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: STATUS_0_1 to STATUS_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y41.AQ      Tcko                  0.408   STATUS_0_1
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X11Y46.A5      net (fanout=5)        0.197   BA<1>3
+    SLICE_X11Y46.A       Tilo                  0.259   STATUS_1_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.D3       net (fanout=1)        0.526   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11
+    SLICE_X9Y45.D        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13
+    SLICE_X9Y45.C6       net (fanout=1)        0.118   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y47.C5      net (fanout=3)        0.570   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y47.CLK     Tas                   0.320   STATUS_0_1
+                                                       STATUS[2]_STATUS[2]_mux_72_OUT<0>_rt
                                                        STATUS_0_1
-    SLICE_X9Y38.C4       net (fanout=8)        0.764   STATUS_0_1
-    SLICE_X9Y38.C        Tilo                  0.259   BUSY_2
-                                                       STATUS[2]_BUSY_AND_9_o1_2
-    SLICE_X9Y43.A4       net (fanout=2)        0.985   STATUS[2]_BUSY_AND_9_o11
-    SLICE_X9Y43.A        Tilo                  0.259   COMMAND<3>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT11
-    SLICE_X10Y43.B5      net (fanout=1)        0.377   Mmux_STATUS[2]_STATUS[2]_mux_80_OUT1
-    SLICE_X10Y43.B       Tilo                  0.205   BANK_STATUS<1>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT13
-    SLICE_X10Y43.A6      net (fanout=1)        0.452   Mmux_STATUS[2]_STATUS[2]_mux_80_OUT12
-    SLICE_X10Y43.A       Tilo                  0.205   BANK_STATUS<1>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT14
-    SLICE_X12Y41.CX      net (fanout=2)        0.932   STATUS[2]_STATUS[2]_mux_80_OUT<0>
-    SLICE_X12Y41.CLK     Tdick                 0.086   STATUS<0>
-                                                       STATUS_0
     -------------------------------------------------  ---------------------------
-    Total                                      4.932ns (1.422ns logic, 3.510ns route)
-                                                       (28.8% logic, 71.2% route)
+    Total                                      4.282ns (1.811ns logic, 2.471ns route)
+                                                       (42.3% logic, 57.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -2.032ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_4 (FF)
-  Destination:          STATUS_0 (FF)
+Slack (setup path):     -1.320ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               openRowB2_2 (FF)
+  Destination:          STATUS_0_1 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.835ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.118ns (0.507 - 0.625)
+  Data Path Delay:      4.210ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.031ns (0.271 - 0.302)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -260,39 +132,40 @@ Slack (setup path):     -2.032ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB2_4 to STATUS_0
+  Maximum Data Path at Slow Process Corner: openRowB2_2 to STATUS_0_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X7Y54.BQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_4
-    SLICE_X8Y49.B5       net (fanout=2)        0.808   openRowB2<4>
-    SLICE_X8Y49.COUT     Topcyb                0.380   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<1>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
+    SLICE_X3Y47.CQ       Tcko                  0.391   openRowB2<2>
+                                                       openRowB2_2
+    SLICE_X2Y45.A4       net (fanout=2)        0.665   openRowB2<2>
+    SLICE_X2Y45.COUT     Topcya                0.395   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_lut<0>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.AMUX     Tcina                 0.194   openRowB2<1>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<4>
+    SLICE_X8Y45.D5       net (fanout=1)        0.777   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o
+    SLICE_X8Y45.D        Tilo                  0.203   BA<1>42
                                                        BA<1>42
-    SLICE_X10Y43.A4      net (fanout=3)        0.708   BA<1>42
-    SLICE_X10Y43.A       Tilo                  0.205   BANK_STATUS<1>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT14
-    SLICE_X12Y41.CX      net (fanout=2)        0.932   STATUS[2]_STATUS[2]_mux_80_OUT<0>
-    SLICE_X12Y41.CLK     Tdick                 0.086   STATUS<0>
-                                                       STATUS_0
+    SLICE_X9Y45.C1       net (fanout=3)        0.433   BA<1>42
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y47.C5      net (fanout=3)        0.570   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y47.CLK     Tas                   0.320   STATUS_0_1
+                                                       STATUS[2]_STATUS[2]_mux_72_OUT<0>_rt
+                                                       STATUS_0_1
     -------------------------------------------------  ---------------------------
-    Total                                      4.835ns (1.533ns logic, 3.302ns route)
-                                                       (31.7% logic, 68.3% route)
+    Total                                      4.210ns (1.762ns logic, 2.448ns route)
+                                                       (41.9% logic, 58.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -2.029ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_10 (FF)
-  Destination:          STATUS_0 (FF)
+Slack (setup path):     -1.284ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_0_1 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.832ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.118ns (0.507 - 0.625)
+  Data Path Delay:      4.198ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -302,42 +175,42 @@ Slack (setup path):     -2.029ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB2_10 to STATUS_0
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_0_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X7Y54.CQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_10
-    SLICE_X8Y49.D6       net (fanout=2)        0.924   openRowB2<10>
-    SLICE_X8Y49.COUT     Topcyd                0.261   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
-                                                       BA<1>42
-    SLICE_X10Y43.A4      net (fanout=3)        0.708   BA<1>42
-    SLICE_X10Y43.A       Tilo                  0.205   BANK_STATUS<1>
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT14
-    SLICE_X12Y41.CX      net (fanout=2)        0.932   STATUS[2]_STATUS[2]_mux_80_OUT<0>
-    SLICE_X12Y41.CLK     Tdick                 0.086   STATUS<0>
-                                                       STATUS_0
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X9Y46.C5       net (fanout=5)        0.360   BA<1>3
+    SLICE_X9Y46.C        Tilo                  0.259   BUSY_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11
+    SLICE_X9Y45.D6       net (fanout=1)        0.279   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT1
+    SLICE_X9Y45.D        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13
+    SLICE_X9Y45.C6       net (fanout=1)        0.118   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y47.C5      net (fanout=3)        0.570   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y47.CLK     Tas                   0.320   STATUS_0_1
+                                                       STATUS[2]_STATUS[2]_mux_72_OUT<0>_rt
+                                                       STATUS_0_1
     -------------------------------------------------  ---------------------------
-    Total                                      4.832ns (1.414ns logic, 3.418ns route)
-                                                       (29.3% logic, 70.7% route)
+    Total                                      4.198ns (1.811ns logic, 2.387ns route)
+                                                       (43.1% logic, 56.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point STATUS_1_1 (SLICE_X8Y38.AX), 84 paths
+Paths for end point STATUS_0_2 (SLICE_X10Y46.DX), 84 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -1.953ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_4 (FF)
-  Destination:          STATUS_1_1 (FF)
+Slack (setup path):     -1.264ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_0_2 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.785ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.089ns (0.536 - 0.625)
+  Data Path Delay:      4.178ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -347,39 +220,38 @@ Slack (setup path):     -1.953ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB2_4 to STATUS_1_1
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_0_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X7Y54.BQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_4
-    SLICE_X8Y49.B5       net (fanout=2)        0.808   openRowB2<4>
-    SLICE_X8Y49.COUT     Topcyb                0.380   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<1>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
-                                                       BA<1>42
-    SLICE_X10Y41.D6      net (fanout=3)        0.768   BA<1>42
-    SLICE_X10Y41.D       Tilo                  0.205   STATUS_0_1
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT2
-    SLICE_X8Y38.AX       net (fanout=3)        0.822   STATUS[2]_STATUS[2]_mux_80_OUT<1>
-    SLICE_X8Y38.CLK      Tdick                 0.086   STATUS_2_1
-                                                       STATUS_1_1
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X11Y46.A5      net (fanout=5)        0.197   BA<1>3
+    SLICE_X11Y46.A       Tilo                  0.259   STATUS_1_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.D3       net (fanout=1)        0.526   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11
+    SLICE_X9Y45.D        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13
+    SLICE_X9Y45.C6       net (fanout=1)        0.118   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y46.DX      net (fanout=3)        0.650   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_0_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.785ns (1.533ns logic, 3.252ns route)
-                                                       (32.0% logic, 68.0% route)
+    Total                                      4.178ns (1.627ns logic, 2.551ns route)
+                                                       (38.9% logic, 61.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -1.950ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB2_10 (FF)
-  Destination:          STATUS_1_1 (FF)
+Slack (setup path):     -1.216ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               openRowB2_2 (FF)
+  Destination:          STATUS_0_2 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.782ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.089ns (0.536 - 0.625)
+  Data Path Delay:      4.106ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.031ns (0.271 - 0.302)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -389,39 +261,39 @@ Slack (setup path):     -1.950ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB2_10 to STATUS_1_1
+  Maximum Data Path at Slow Process Corner: openRowB2_2 to STATUS_0_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X7Y54.CQ       Tcko                  0.391   openRowB2<10>
-                                                       openRowB2_10
-    SLICE_X8Y49.D6       net (fanout=2)        0.924   openRowB2<10>
-    SLICE_X8Y49.COUT     Topcyd                0.261   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_lut<3>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>
-    SLICE_X8Y50.AMUX     Tcina                 0.212   openRowB2<12>
-                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<4>
-    SLICE_X7Y45.B5       net (fanout=1)        0.851   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_19_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
+    SLICE_X3Y47.CQ       Tcko                  0.391   openRowB2<2>
+                                                       openRowB2_2
+    SLICE_X2Y45.A4       net (fanout=2)        0.665   openRowB2<2>
+    SLICE_X2Y45.COUT     Topcya                0.395   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_lut<0>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.AMUX     Tcina                 0.194   openRowB2<1>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<4>
+    SLICE_X8Y45.D5       net (fanout=1)        0.777   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o
+    SLICE_X8Y45.D        Tilo                  0.203   BA<1>42
                                                        BA<1>42
-    SLICE_X10Y41.D6      net (fanout=3)        0.768   BA<1>42
-    SLICE_X10Y41.D       Tilo                  0.205   STATUS_0_1
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT2
-    SLICE_X8Y38.AX       net (fanout=3)        0.822   STATUS[2]_STATUS[2]_mux_80_OUT<1>
-    SLICE_X8Y38.CLK      Tdick                 0.086   STATUS_2_1
-                                                       STATUS_1_1
+    SLICE_X9Y45.C1       net (fanout=3)        0.433   BA<1>42
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y46.DX      net (fanout=3)        0.650   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_0_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.782ns (1.414ns logic, 3.368ns route)
-                                                       (29.6% logic, 70.4% route)
+    Total                                      4.106ns (1.578ns logic, 2.528ns route)
+                                                       (38.4% logic, 61.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -1.910ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               openRowB0_2 (FF)
-  Destination:          STATUS_1_1 (FF)
+Slack (setup path):     -1.180ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_0_2 (FF)
   Requirement:          3.000ns
-  Data Path Delay:      4.725ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.106ns (0.536 - 0.642)
+  Data Path Delay:      4.094ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
   Source Clock:         WR_CLK_333M rising at 0.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.079ns
@@ -431,31 +303,153 @@ Slack (setup path):     -1.910ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.140ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: openRowB0_2 to STATUS_1_1
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_0_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X0Y50.DQ       Tcko                  0.447   openRowB0<2>
-                                                       openRowB0_2
-    SLICE_X0Y49.A3       net (fanout=2)        0.472   openRowB0<2>
-    SLICE_X0Y49.COUT     Topcya                0.379   Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o_cy<3>
-                                                       Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o_lut<0>
-                                                       Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o_cy<3>
-    SLICE_X0Y50.CIN      net (fanout=1)        0.003   Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o_cy<3>
-    SLICE_X0Y50.AMUX     Tcina                 0.212   openRowB0<2>
-                                                       Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o_cy<4>
-    SLICE_X7Y45.B4       net (fanout=1)        1.072   openRowB0[12]_ADDR_ROW_IN[12]_not_equal_9_o
-    SLICE_X7Y45.B        Tilo                  0.259   BA<1>42
-                                                       BA<1>42
-    SLICE_X10Y41.D6      net (fanout=3)        0.768   BA<1>42
-    SLICE_X10Y41.D       Tilo                  0.205   STATUS_0_1
-                                                       Mmux_STATUS[2]_STATUS[2]_mux_80_OUT2
-    SLICE_X8Y38.AX       net (fanout=3)        0.822   STATUS[2]_STATUS[2]_mux_80_OUT<1>
-    SLICE_X8Y38.CLK      Tdick                 0.086   STATUS_2_1
-                                                       STATUS_1_1
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X9Y46.C5       net (fanout=5)        0.360   BA<1>3
+    SLICE_X9Y46.C        Tilo                  0.259   BUSY_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT11
+    SLICE_X9Y45.D6       net (fanout=1)        0.279   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT1
+    SLICE_X9Y45.D        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT13
+    SLICE_X9Y45.C6       net (fanout=1)        0.118   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+    SLICE_X9Y45.C        Tilo                  0.259   Mmux_STATUS[2]_STATUS[2]_mux_72_OUT12
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT14
+    SLICE_X10Y46.DX      net (fanout=3)        0.650   STATUS[2]_STATUS[2]_mux_72_OUT<0>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_0_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.725ns (1.588ns logic, 3.137ns route)
-                                                       (33.6% logic, 66.4% route)
+    Total                                      4.094ns (1.627ns logic, 2.467ns route)
+                                                       (39.7% logic, 60.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point STATUS_1_3 (SLICE_X10Y46.CX), 84 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -1.219ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_1_3 (FF)
+  Requirement:          3.000ns
+  Data Path Delay:      4.133ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
+  Source Clock:         WR_CLK_333M rising at 0.000ns
+  Destination Clock:    WR_CLK_333M rising at 3.000ns
+  Clock Uncertainty:    0.079ns
+
+  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.140ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_1_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X10Y47.C4      net (fanout=5)        0.529   BA<1>3
+    SLICE_X10Y47.CMUX    Tilo                  0.343   STATUS_0_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2_SW0_SW0_G
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2_SW0_SW0
+    SLICE_X11Y45.D3      net (fanout=1)        0.534   N80
+    SLICE_X11Y45.D       Tilo                  0.259   BANK_STATUS<3>
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2
+    SLICE_X10Y46.CX      net (fanout=4)        0.558   STATUS[2]_STATUS[2]_mux_72_OUT<1>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_1_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.133ns (1.452ns logic, 2.681ns route)
+                                                       (35.1% logic, 64.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -1.100ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               openRowB2_2 (FF)
+  Destination:          STATUS_1_3 (FF)
+  Requirement:          3.000ns
+  Data Path Delay:      3.990ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.031ns (0.271 - 0.302)
+  Source Clock:         WR_CLK_333M rising at 0.000ns
+  Destination Clock:    WR_CLK_333M rising at 3.000ns
+  Clock Uncertainty:    0.079ns
+
+  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.140ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: openRowB2_2 to STATUS_1_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X3Y47.CQ       Tcko                  0.391   openRowB2<2>
+                                                       openRowB2_2
+    SLICE_X2Y45.A4       net (fanout=2)        0.665   openRowB2<2>
+    SLICE_X2Y45.COUT     Topcya                0.395   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_lut<0>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.CIN      net (fanout=1)        0.003   Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<3>
+    SLICE_X2Y46.AMUX     Tcina                 0.194   openRowB2<1>
+                                                       Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o_cy<4>
+    SLICE_X8Y45.D5       net (fanout=1)        0.777   openRowB2[12]_ADDR_ROW_IN[12]_not_equal_16_o
+    SLICE_X8Y45.D        Tilo                  0.203   BA<1>42
+                                                       BA<1>42
+    SLICE_X11Y45.D5      net (fanout=3)        0.409   BA<1>42
+    SLICE_X11Y45.D       Tilo                  0.259   BANK_STATUS<3>
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2
+    SLICE_X10Y46.CX      net (fanout=4)        0.558   STATUS[2]_STATUS[2]_mux_72_OUT<1>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_1_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.990ns (1.578ns logic, 2.412ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -1.097ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               BANK_STATUS_0 (FF)
+  Destination:          STATUS_1_3 (FF)
+  Requirement:          3.000ns
+  Data Path Delay:      4.011ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.007ns (0.155 - 0.162)
+  Source Clock:         WR_CLK_333M rising at 0.000ns
+  Destination Clock:    WR_CLK_333M rising at 3.000ns
+  Clock Uncertainty:    0.079ns
+
+  Clock Uncertainty:          0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.140ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: BANK_STATUS_0 to STATUS_1_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y45.BMUX    Tshcko                0.455   BANK_STATUS<1>
+                                                       BANK_STATUS_0
+    SLICE_X11Y46.B3      net (fanout=3)        1.060   BANK_STATUS<0>
+    SLICE_X11Y46.B       Tilo                  0.259   STATUS_1_1
+                                                       BA<1>31
+    SLICE_X10Y47.D4      net (fanout=5)        0.412   BA<1>3
+    SLICE_X10Y47.CMUX    Topdc                 0.338   STATUS_0_1
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2_SW0_SW0_F
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2_SW0_SW0
+    SLICE_X11Y45.D3      net (fanout=1)        0.534   N80
+    SLICE_X11Y45.D       Tilo                  0.259   BANK_STATUS<3>
+                                                       Mmux_STATUS[2]_STATUS[2]_mux_72_OUT2
+    SLICE_X10Y46.CX      net (fanout=4)        0.558   STATUS[2]_STATUS[2]_mux_72_OUT<1>
+    SLICE_X10Y46.CLK     Tdick                 0.136   STATUS_0_2
+                                                       STATUS_1_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.011ns (1.447ns logic, 2.564ns route)
+                                                       (36.1% logic, 63.9% route)
 
 --------------------------------------------------------------------------------
 
@@ -465,11 +459,11 @@ Hold Paths: PERIOD analysis for net "ddr_clocks/clkout1" derived from
 
 --------------------------------------------------------------------------------
 
-Paths for end point openRowB1_7 (SLICE_X6Y47.D6), 1 path
+Paths for end point openRowB2_1 (SLICE_X2Y46.D6), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.412ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               openRowB1_7 (FF)
-  Destination:          openRowB1_7 (FF)
+  Source:               openRowB2_1 (FF)
+  Destination:          openRowB2_1 (FF)
   Requirement:          0.000ns
   Data Path Delay:      0.412ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
@@ -477,75 +471,75 @@ Slack (hold path):      0.412ns (requirement - (clock path skew + uncertainty - 
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: openRowB1_7 to openRowB1_7
+  Minimum Data Path at Fast Process Corner: openRowB2_1 to openRowB2_1
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X6Y47.DQ       Tcko                  0.200   openRowB1<7>
-                                                       openRowB1_7
-    SLICE_X6Y47.D6       net (fanout=2)        0.022   openRowB1<7>
-    SLICE_X6Y47.CLK      Tah         (-Th)    -0.190   openRowB1<7>
-                                                       openRowB1_7_dpot
-                                                       openRowB1_7
+    SLICE_X2Y46.DQ       Tcko                  0.200   openRowB2<1>
+                                                       openRowB2_1
+    SLICE_X2Y46.D6       net (fanout=2)        0.022   openRowB2<1>
+    SLICE_X2Y46.CLK      Tah         (-Th)    -0.190   openRowB2<1>
+                                                       openRowB2_1_rstpot
+                                                       openRowB2_1
     -------------------------------------------------  ---------------------------
     Total                                      0.412ns (0.390ns logic, 0.022ns route)
                                                        (94.7% logic, 5.3% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point openRowB1_3 (SLICE_X6Y48.A6), 1 path
+Paths for end point openRowB0_11 (SLICE_X5Y48.D6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.412ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               openRowB1_3 (FF)
-  Destination:          openRowB1_3 (FF)
+Slack (hold path):      0.436ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               openRowB0_11 (FF)
+  Destination:          openRowB0_11 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.412ns (Levels of Logic = 1)
+  Data Path Delay:      0.436ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         WR_CLK_333M rising at 3.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: openRowB1_3 to openRowB1_3
+  Minimum Data Path at Fast Process Corner: openRowB0_11 to openRowB0_11
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X6Y48.AQ       Tcko                  0.200   openRowB1<2>
-                                                       openRowB1_3
-    SLICE_X6Y48.A6       net (fanout=2)        0.022   openRowB1<3>
-    SLICE_X6Y48.CLK      Tah         (-Th)    -0.190   openRowB1<2>
-                                                       openRowB1_3_dpot
-                                                       openRowB1_3
+    SLICE_X5Y48.DQ       Tcko                  0.198   openRowB0<11>
+                                                       openRowB0_11
+    SLICE_X5Y48.D6       net (fanout=2)        0.023   openRowB0<11>
+    SLICE_X5Y48.CLK      Tah         (-Th)    -0.215   openRowB0<11>
+                                                       openRowB0_11_rstpot
+                                                       openRowB0_11
     -------------------------------------------------  ---------------------------
-    Total                                      0.412ns (0.390ns logic, 0.022ns route)
+    Total                                      0.436ns (0.413ns logic, 0.023ns route)
                                                        (94.7% logic, 5.3% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point openRowB0_9 (SLICE_X2Y49.D6), 1 path
+Paths for end point openRowB3_12 (SLICE_X9Y41.D6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.413ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               openRowB0_9 (FF)
-  Destination:          openRowB0_9 (FF)
+Slack (hold path):      0.436ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               openRowB3_12 (FF)
+  Destination:          openRowB3_12 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.413ns (Levels of Logic = 1)
+  Data Path Delay:      0.436ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         WR_CLK_333M rising at 3.000ns
   Destination Clock:    WR_CLK_333M rising at 3.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: openRowB0_9 to openRowB0_9
+  Minimum Data Path at Fast Process Corner: openRowB3_12 to openRowB3_12
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X2Y49.DQ       Tcko                  0.200   openRowB0<9>
-                                                       openRowB0_9
-    SLICE_X2Y49.D6       net (fanout=2)        0.023   openRowB0<9>
-    SLICE_X2Y49.CLK      Tah         (-Th)    -0.190   openRowB0<9>
-                                                       openRowB0_9_dpot
-                                                       openRowB0_9
+    SLICE_X9Y41.DQ       Tcko                  0.198   openRowB3<12>
+                                                       openRowB3_12
+    SLICE_X9Y41.D6       net (fanout=2)        0.023   openRowB3<12>
+    SLICE_X9Y41.CLK      Tah         (-Th)    -0.215   openRowB3<12>
+                                                       openRowB3_12_dpot
+                                                       openRowB3_12
     -------------------------------------------------  ---------------------------
-    Total                                      0.413ns (0.390ns logic, 0.023ns route)
-                                                       (94.4% logic, 5.6% route)
+    Total                                      0.436ns (0.413ns logic, 0.023ns route)
+                                                       (94.7% logic, 5.3% route)
 
 --------------------------------------------------------------------------------
 
@@ -573,9 +567,9 @@ Slack: 2.075ns (period - min period limit)
 Slack: 2.570ns (period - min period limit)
   Period: 3.000ns
   Min period limit: 0.430ns (2325.581MHz) (Tcp)
-  Physical resource: openRowB0<9>/CLK
-  Logical resource: openRowB0_11/CK
-  Location pin: SLICE_X2Y49.CLK
+  Physical resource: openRowB2<1>/CLK
+  Logical resource: openRowB2_11/CK
+  Location pin: SLICE_X2Y46.CLK
   Clock network: WR_CLK_333M
 --------------------------------------------------------------------------------
 
@@ -587,8 +581,8 @@ Derived Constraints for ddr_clocks/clkin1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|ddr_clocks/clkin1              |     10.000ns|      3.334ns|     17.110ns|            0|          222|            0|         2886|
-| ddr_clocks/clkout1            |      3.000ns|      5.133ns|          N/A|          222|            0|         2886|            0|
+|ddr_clocks/clkin1              |     10.000ns|      3.334ns|     14.560ns|            0|           81|            0|         2210|
+| ddr_clocks/clkout1            |      3.000ns|      4.368ns|          N/A|           81|            0|         2210|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 1 constraint not met.
@@ -603,32 +597,32 @@ Clock to Setup on destination clock SYS_CLK_100M
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-SYS_CLK_100M   |    5.133|         |         |         |
+SYS_CLK_100M   |    4.368|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
 Timing summary:
 ---------------
 
-Timing errors: 222  Score: 137994  (Setup/Max: 137994, Hold: 0)
+Timing errors: 81  Score: 23464  (Setup/Max: 23464, Hold: 0)
 
-Constraints cover 2886 paths, 0 nets, and 730 connections
+Constraints cover 2210 paths, 0 nets, and 647 connections
 
 Design statistics:
-   Minimum period:   5.133ns{1}   (Maximum frequency: 194.818MHz)
+   Minimum period:   4.368ns{1}   (Maximum frequency: 228.938MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Thu Aug 27 17:58:11 2015 
+Analysis completed Sat Dec 26 17:09:38 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 239 MB
+Peak Memory Usage: 244 MB
 
 
 

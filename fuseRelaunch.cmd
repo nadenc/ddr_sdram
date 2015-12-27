@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/Projects/FPGA/ddr_sdram/DDR_TB_isim_beh.exe" -prj "D:/Projects/FPGA/ddr_sdram/DDR_TB_beh.prj" "work.DDR_TB" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/Google Drive/Projects/FPGA/ddr_sdram/DDR_TB_isim_beh.exe" -prj "D:/Google Drive/Projects/FPGA/ddr_sdram/DDR_TB_beh.prj" "work.DDR_TB" "work.glbl" 

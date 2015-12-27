@@ -7,8 +7,8 @@ module DDR_TB;
 	reg [1:0] BA_IN;
 	reg [12:0] ADDR_ROW_IN;
 	reg [9:0] ADDR_COL_IN;
-	reg WRITE;
-	reg READ;
+	wire WRITE;
+	wire READ;
 	reg [3:0] WRITE_LENGTH;
 
 	// Outputs
@@ -21,15 +21,29 @@ module DDR_TB;
 	wire [1:0] BA;
 	wire [1:0] DM;
 	wire BUSY;
+	wire EXT_DQS;
 
 	// Bidirs
 	wire [1:0] DQS; // wire
 	wire [15:0] DATA_RAM; // wire
 	wire [12:0] ADDR_RAM;
-	wire [(16*BURST_LENGTH-1):0] DATA_IN;
+	wire [15:0] DATA_IN;
+	
+	// Read/Write status
+	reg wr_req;
+	reg writing;
+	assign WRITE = (wr_req ^ writing);
+
+	reg re_req;
+	reg reading;
+	assign READ = (re_req ^ reading);
+
+	reg RW; // read = 0, write = 1
+
+	reg [3:0] count;
 	
 	// Parameters
-	parameter BURST_LENGTH = 5'd4;
+	parameter BURST_LENGTH = 5'd8;
 
 	// Instantiate the Unit Under Test (UUT)
 	ddr_sdram #(
@@ -54,6 +68,7 @@ module DDR_TB;
 		.DATA_IN(DATA_IN), 
 		.ADDR_ROW_IN(ADDR_ROW_IN), 
 		.ADDR_COL_IN(ADDR_COL_IN), 
+		.EXT_DQS(EXT_DQS),
 
 		.WRITE(WRITE),
 		.READ(READ),
@@ -62,46 +77,35 @@ module DDR_TB;
 		.BUSY(BUSY)
 	);
 	
-	reg [31:0] DATA0;
-	reg [31:0] DATA1;
-	reg [31:0] DATA2;
-	reg [31:0] DATA3;
-	reg [31:0] DATA4;
-	reg [31:0] DATA5;
-	reg [31:0] DATA6;
-	reg [31:0] DATA7;
-	
-	assign DATA_IN[31:0] = DATA0;
-	if (BURST_LENGTH > 2) assign DATA_IN[63:32] = DATA1;
-	if (BURST_LENGTH > 4) assign DATA_IN[95:64] = DATA2;
-	if (BURST_LENGTH > 4) assign DATA_IN[127:96] = DATA3;
-	if (BURST_LENGTH > 8) assign DATA_IN[159:128] = DATA4;
-	if (BURST_LENGTH > 8) assign DATA_IN[191:160] = DATA5;
-	if (BURST_LENGTH > 8) assign DATA_IN[223:192] = DATA6;
-	if (BURST_LENGTH > 8) assign DATA_IN[255:224] = DATA7;
-	
-	reg READY_FLAG;
+	reg [15:0] DATA [7:0];
 
 	initial begin
 		// Initialize Inputs
 		SYS_CLK_100M <= 1'b0;
-		WRITE <= 1'b0;
-		READ <= 1'b0;
+		//WRITE <= 1'b0;
+		//READ <= 1'b0;
 		
 		BA_IN <= 2'b00;
 		ADDR_COL_IN <= 10'b0;
 		ADDR_ROW_IN <= 13'b0;
 		
+		wr_req <= 1'b0;
+		writing <= 1'b0;
+		re_req <= 1'b0;
+		reading <= 1'b0;
+		RW <= 1'b0;
+		count <= 4'b0;
+		
 		//DQS <= 2'b0; // comment out for write tests
 		
-		DATA0 <= 32'h76543210;
-		DATA1 <= 32'hFEDCBA98;
-		DATA2 <= 32'h98765432;
-		DATA3 <= 32'h10FEDCBA;
-		DATA4 <= 32'hBA987654;
-		DATA5 <= 32'h3210FEDC;
-		DATA6 <= 32'hDCBA9876;
-		DATA7 <= 32'h543210FE;
+		DATA[0] <= 32'h7654;//3210;
+		DATA[1] <= 32'hFEDC;//BA98;
+		DATA[2] <= 32'h9876;//5432;
+		DATA[3] <= 32'h10FE;//DCBA;
+		DATA[4] <= 32'hBA98;//7654;
+		DATA[5] <= 32'h3210;//FEDC;
+		DATA[6] <= 32'hDCBA;//9876;
+		DATA[7] <= 32'h5432;//10FE;
 	
 	end
 	
@@ -111,56 +115,58 @@ module DDR_TB;
 
 	parameter TEST_MODE = 2; // 1 = Read, 2 = Write
 
-always @ (posedge SYS_CLK_100M) begin
-	if (TEST_MODE == 1) begin // Read tests
-		if (!BUSY) begin
-			if (!READ) begin
-				READ <= 1'b1;
-				BA_IN <= BA_IN + 2'b1;
-				//DATA_RAM <= 16'hFFFF; // comment out for write tests
-			end
 
-			if (BA_IN == 2'b11 && !READ) begin
-				BA_IN <= 2'b00;
-				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
-					ADDR_COL_IN <= 10'b0;
-					if (ADDR_ROW_IN == 13'b1111111111111) ADDR_ROW_IN <= 13'b0;
-					else ADDR_ROW_IN <= ADDR_ROW_IN + 13'b1;
-				end
-				else ADDR_COL_IN <= ADDR_COL_IN + BURST_LENGTH;
+always @ (negedge BUSY) begin
+	if (TEST_MODE == 2) begin // write test
+		if (writing) wr_req <= 1'b0;
+		else wr_req <= 1'b1;
+		
+		WRITE_LENGTH <= BURST_LENGTH - 4'd2;		// test data masks
+		
+		if (BA_IN == 2'b11) begin
+			BA_IN <= 2'b00;
+			if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
+				ADDR_COL_IN <= 10'b0;
+				if (ADDR_ROW_IN == 13'b1111111111111) ADDR_ROW_IN <= 13'b0;
+				else ADDR_ROW_IN <= ADDR_ROW_IN + 13'b1;
 			end
-			//else BA_IN <= BA_IN + 2'b1;
+			else ADDR_COL_IN <= ADDR_COL_IN + BURST_LENGTH;
 		end
-		if (BUSY) begin 
-			READ <= 1'b0;
-			//DATA_RAM <= DATA_RAM - 1'h1; // comment out for write tests
-			//DQS <= ~DQS; // comment out for write tests
-		end
+		//else BA_IN <= BA_IN + 2'b1;
+	end
+end 
+
+always @ (posedge BUSY) begin // clear write/read after command starts
+
+	if (WRITE) begin
+		writing <= !writing;
+		RW <= 1'b1;
 	end
 	
-	if (TEST_MODE == 2) begin // Write tests
-		if (!BUSY) begin
-			if (!WRITE) begin
-				WRITE <= 1'b1;
-				BA_IN <= BA_IN + 2'b1;
-			end
-				
-			WRITE_LENGTH <= BURST_LENGTH - 4'd2;		// test data masks
-			
-			if (BA_IN == 2'b11 && !WRITE) begin
-				BA_IN <= 2'b00;
-				if (ADDR_COL_IN == (10'd1024 - BURST_LENGTH)) begin
-					ADDR_COL_IN <= 10'b0;
-					if (ADDR_ROW_IN == 13'b1111111111111) ADDR_ROW_IN <= 13'b0;
-					else ADDR_ROW_IN <= ADDR_ROW_IN + 13'b1;
-				end
-				else ADDR_COL_IN <= ADDR_COL_IN + BURST_LENGTH;
-			end
-			//else BA_IN <= BA_IN + 2'b1;
-		end
-		if (BUSY) WRITE <= 1'b0;
+	if (READ) begin
+		reading <= !reading;
+		RW <= 1'b0;
 	end
+	
+end
 
+reg [15:0] DATA_BUFF;
+assign DATA_IN = RW ? DATA_BUFF : 16'bZ;
+
+always @ (posedge EXT_DQS) begin // data strobe
+	
+	if (RW) begin // write
+	
+		DATA_BUFF <= DATA[count];
+		if (count == BURST_LENGTH - 1) count <= 4'b0;
+		else count <= count + 4'b1;
+		
+	end
+	
+	else begin // read
+		
+	end
+	
 end
 	
 endmodule
