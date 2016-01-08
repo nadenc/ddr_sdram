@@ -9,9 +9,25 @@ sw5 show lower
 */
 
 module ddr_hw_test (
-//input				CLK_100M		,
+// DDR Pins
+input					SYS_CLK_100M		,
+output CLK_P,
+output CLK_N,
+
+// Output Pins
+output CKE,
+output WE,
+output CAS,
+output RAS,
+output [1:0] BA,
+output [1:0] DM,
+inout [1:0] DQS,
+inout [15:0] DATA_RAM,
+output [12:0] ADDR_RAM,
+	
+// HW Interface
 input [7:0] 		DPSwitch    	,
-input [7:0] 		Switch    		,
+input [5:0] 		Switch    		,
 output reg [7:0]	LED
 );
 
@@ -21,92 +37,94 @@ reg [15:0] write_data;
 reg [15:0] read_data;
 
 reg [1:0] BA_IN;
-wire [(16*BURST_LENGTH-1):0] DATA_IN;
-assign DATA_IN = WRITE ? write_data : 256'bZ;
+wire [15:0] DATA_IN;
+assign DATA_IN = RW ? write_data : 16'bZ;
 reg [12:0] ADDR_ROW_IN;
 reg [9:0] ADDR_COL_IN;
 reg WRITE;
 reg READ;
 
-reg [3:0] WRITE_LENGTH;
+reg re;
+reg wr;
+wire RW; // read = 0, write = 1
+assign RW = (re ^ wr);
 
-// Pins
-//wire CLK_P;
-//wire CLK_N;
-//wire CKE;
-//wire WE;
-//wire CAS;
-//wire RAS;
-//wire [1:0] BA;
-//wire [1:0] DM;
-//wire [1:0] DQS;
-//wire [15:0] DATA_RAM;
-//wire [12:0] ADDR_RAM;
-//wire BUSY;
+reg [3:0] WRITE_LENGTH;
+wire EXT_DQS;
+wire BUSY;
 
 // Instantiate the ddr driver
-	ddr_sdram #(
-		.BURST_LENGTH(BURST_LENGTH)
-	) ddr_sdram (
-		//.SYS_CLK_100M(CLK_100M), // in
-		//.CLK_P(CLK_P), // out
-		//.CLK_N(CLK_N), // out
-		
-		//.CKE(CKE), // out
-		//.WE(WE), // out
-		//.CAS(CAS), // out
-		//.RAS(RAS), // out
-		//.BA(BA), // out
-		//.DM(DM), // out
-		//.DQS(DQS), // out
-		//.DATA_RAM(DATA_RAM), // out
-		//.ADDR_RAM(ADDR_RAM), // out
-		
-		.BA_IN(BA_IN), // in
-		.DATA_IN(DATA_IN), // inout
-		.ADDR_ROW_IN(ADDR_ROW_IN), // in
-		.ADDR_COL_IN(ADDR_COL_IN), // in
+ddr_sdram #(
+	.BURST_LENGTH(BURST_LENGTH)
+) ddr_sdram (
+	.SYS_CLK_100M(SYS_CLK_100M), // in
+	
+	// DDR Interface
+	.CLK_P(CLK_P), // out
+	.CLK_N(CLK_N), // out
+	
+	.CKE(CKE), // out
+	.WE(WE), // out
+	.CAS(CAS), // out
+	.RAS(RAS), // out
+	.BA(BA), // out
+	.DM(DM), // out
+	.DQS(DQS), // inout
+	.DATA_RAM(DATA_RAM), // inout
+	.ADDR_RAM(ADDR_RAM), // out
+	
+	.BA_IN(BA_IN), // in
+	.DATA_IN(DATA_IN), // inout
+	.ADDR_ROW_IN(ADDR_ROW_IN), // in
+	.ADDR_COL_IN(ADDR_COL_IN), // in
+	.EXT_DQS(EXT_DQS), // in
 
-		.WRITE(WRITE), // in
-		.READ(READ), // in
-		
-		.WRITE_LENGTH(WRITE_LENGTH), // in
-		.BUSY(BUSY) // out
-	);
+	.WRITE(WRITE), // in
+	.READ(READ), // in
+	
+	.WRITE_LENGTH(WRITE_LENGTH), // in
+	.BUSY(BUSY) // out
+);
 
 initial begin
 	WRITE <= 1'b0;
 	READ <= 1'b0;
+	re <= 1'b0;
+	wr <= 1'b0;
+	BA_IN <= 2'b0;
+	ADDR_ROW_IN <= 13'b0;
+	ADDR_COL_IN <= 10'b0;
 	WRITE_LENGTH <= 4'd1;
 end
 
-always @ (posedge Switch[0]) begin
-	write_data[15:8] <= DPSwitch;
-end
-
-always @ (posedge Switch[1]) begin
-	write_data[7:0] <= DPSwitch;
+always @ (posedge Switch[0] or posedge Switch[1]) begin
+	if (Switch[0]) write_data[15:8] <= DPSwitch;
+	if (Switch[1]) write_data[7:0] <= DPSwitch;
+	
+	if (Switch[0]) wr <= !re;
+	if (Switch[1]) wr <= !re;
 end
 
 always @ (posedge Switch[2]) begin
-	WRITE <= 1'b1;
-	#20 WRITE <= 1'b0;
+	if (!BUSY) begin
+		WRITE <= 1'b1;
+		#20 WRITE <= 1'b0;
+	end
 end
 
 always @ (posedge Switch[3]) begin
-	READ <= 1'b1;
-	#20 READ <= 1'b0;
+	if (!BUSY) begin
+		READ <= 1'b1;
+		#20 READ <= 1'b0;
+	end
 end
 
-always @ (posedge Switch[4]) begin
-	LED <= read_data[15:8];
-end
-
-always @ (posedge Switch[5]) begin
-	//LED <= read_data[7:0];
+always @ (posedge Switch[4] or posedge Switch[5]) begin
+	if (Switch[4]) LED <= read_data[15:8];
+	if (Switch[5]) LED <= read_data[7:0];
 end
 	
-always @ (negedge BUSY) begin
+always @ (posedge EXT_DQS) begin
 	read_data <= DATA_IN[15:0];
 end
 

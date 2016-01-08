@@ -5,7 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Google Drive/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 128: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.v" Line 84: Redeclaration of ansi port <arg fmt="%s" index="1">PWR_ON</arg> is not allowed
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Google Drive/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 144: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"D:/Google Drive/Projects/FPGA/ddr_sdram/DDR_TB.v" Line 162: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">10</arg>&gt; bits.
 </msg>
 
 </messages>

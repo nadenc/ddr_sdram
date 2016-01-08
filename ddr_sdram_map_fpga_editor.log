@@ -1,0 +1,2608 @@
+#:C1257  
+#Xilinx FPGA Editor Command Log File
+#Editor Version:
+#:V   NT M2.1 P.20131013
+#Current Working Directory:
+#:D   D:\Google Drive\Projects\FPGA\ddr_sdram
+#Date/Time:
+#:T   Tue Dec 29 12:28:21 2015
+#------------------------------
+	#Reading ddr_sdram_map.ncd...
+	#Loading device for application Rf_Device from file '6slx9.nph' in environment D:\Xilinx\14.7\ISE_DS\ISE\.
+	#   "ddr_sdram" is an NCD, version 3.2, device xc6slx9, package csg324, speed -3
+	#Design creation date: 2015.12.29.17.28.05
+	#Building chip graphics...
+	#Loading speed info...
+	#1
+setattr main edit-mode no-logic-changes
+	#2
+unselect -all
+	#3
+select site 'SLICE_X16Y50'
+	#site "SLICE_X16Y50",  type = SLICEM  (RPM grid X57Y200)
+	#4
+unselect -all
+	#5
+select site 'SLICE_X18Y46'
+	#site "SLICE_X18Y46",  type = SLICEL  (RPM grid X61Y184)
+	#6
+select site BUFG*
+	#7
+setattr main  disable_draw true
+	#8
+setattr layer * view OFF
+	#9
+setattr layer sites view ON
+	#10
+setattr layer components view ON
+	#11
+setattr layer ratsnests view ON
+	#12
+setattr layer select view ON
+	#13
+setattr layer hilite view ON
+	#14
+setattr main disable_draw false
+	#15
+setattr main  disable_draw true
+	#16
+setattr layer * view OFF
+	#17
+setattr layer sites view ON
+	#18
+setattr layer components view ON
+	#19
+setattr layer ratsnests view ON
+	#20
+setattr layer select view ON
+	#21
+setattr layer hilite view ON
+	#22
+setattr main disable_draw false
+	#23
+setattr main  disable_draw true
+	#24
+setattr layer * view OFF
+	#25
+setattr layer sites view ON
+	#26
+setattr layer components view ON
+	#27
+setattr layer ratsnests view ON
+	#28
+setattr layer select view ON
+	#29
+setattr layer hilite view ON
+	#30
+setattr main disable_draw false
+	#31
+setattr main  disable_draw true
+	#32
+setattr layer * view OFF
+	#33
+setattr layer sites view ON
+	#34
+setattr layer components view ON
+	#35
+setattr layer ratsnests view ON
+	#36
+setattr layer select view ON
+	#37
+setattr layer hilite view ON
+	#38
+setattr main disable_draw false
+	#ERROR:Portability:90 - Command line error: Argument[1] "zelection" needs to match one of these keywords: "in".
+	#
+	#Usage: zoom  ( in [far] [@cursor]) | ( in [far] [<xpos:-32000,32000> <ypos:-32000,32000>]) | ( out [far] [@cursor]) | ( out [far] [<xpos:-32000,32000> <ypos:-32000,32000>]) | ( toggle [@cursor]) | ( toggle [<xpos:-32000,32000> <ypos:-32000,32000>]) | ( selection) | ( undo) 
+	#
+	#Options:  @cursor    Zooms display centered around mouse click (default is center of window)
+	#          in, out    Specifies which direction to zoom
+	#          far        Zooms all the way in or out
+	#          toggle     Zoom in opposite direction as previous zoom
+	#          selection  Zooms to nearest setting that surrounds selected object(s)
+	#          undo       Restores previous window display
+	#
+	#Adjusts magnification level of display in the Array or Block window.
+	#39
+select site BUFG*
+	#40
+unselect -all
+	#41
+select site 'SLICE_X18Y46'
+	#site "SLICE_X18Y46",  type = SLICEL  (RPM grid X61Y184)
+	#42
+unselect -all
+	#43
+setattr main disable_draw on
+	#44
+setattr layer ratsnests view off
+	#45
+setattr main disable_draw off
+	#Hint: change the visibility of more than one layer at a time by clicking on the apply button, clicking two or more layer buttons, and then clicking on the apply button again.
+	#46
+setattr main disable_draw on
+	#47
+setattr layer switch_boxes view on
+	#48
+setattr main disable_draw off
+	#49
+setattr main disable_draw on
+	#50
+setattr layer switch_boxes view off
+	#51
+setattr main disable_draw off
+	#52
+setattr main disable_draw on
+	#53
+setattr layer switch_boxes view on
+	#54
+setattr main disable_draw off
+	#55
+setattr main disable_draw on
+	#56
+setattr layer switch_boxes view off
+	#57
+setattr main disable_draw off
+	#58
+setattr main disable_draw on
+	#59
+setattr layer switch_boxes view on
+	#60
+setattr main disable_draw off
+	#61
+setattr main disable_draw on
+	#62
+setattr layer long_lines view on
+	#63
+setattr main disable_draw off
+	#64
+setattr main disable_draw on
+	#65
+setattr layer local_lines view on
+	#66
+setattr main disable_draw off
+	#67
+setattr main disable_draw on
+	#68
+setattr layer local_lines view off
+	#69
+setattr main disable_draw off
+	#70
+setattr main disable_draw on
+	#71
+setattr layer long_lines view on
+	#72
+setattr main disable_draw off
+	#73
+setattr main disable_draw on
+	#74
+setattr layer switch_boxes view on
+	#75
+setattr main disable_draw off
+	#76
+setattr main disable_draw on
+	#77
+setattr layer local_lines view on
+	#78
+setattr main disable_draw off
+	#79
+setattr main disable_draw on
+	#80
+setattr layer local_lines view off
+	#81
+setattr main disable_draw off
+	#82
+setattr main disable_draw on
+	#83
+setattr layer routes view on
+	#84
+setattr main disable_draw off
+	#85
+setattr main disable_draw on
+	#86
+setattr layer ratsnests view on
+	#87
+setattr main disable_draw off
+	#88
+setattr main disable_draw on
+	#89
+setattr layer routes view off
+	#90
+setattr main disable_draw off
+	#91
+setattr main disable_draw on
+	#92
+setattr layer clock_regions view on
+	#93
+setattr main disable_draw off
+	#94
+setattr main disable_draw on
+	#95
+setattr layer ratsnests view off
+	#96
+setattr main disable_draw off
+	#97
+setattr main disable_draw on
+	#98
+setattr layer components view off
+	#99
+setattr main disable_draw off
+	#100
+setattr main disable_draw on
+	#101
+setattr layer components view on
+	#102
+setattr main disable_draw off
+	#103
+setattr main disable_draw on
+	#104
+setattr layer switch_boxes view off
+	#105
+setattr main disable_draw off
+	#106
+setattr main disable_draw on
+	#107
+setattr layer long_lines view off
+	#108
+setattr main disable_draw off
+	#109
+setattr main disable_draw on
+	#110
+setattr layer clock_regions view off
+	#111
+setattr main disable_draw off
+	#112
+setattr main disable_draw on
+	#113
+setattr layer clock_regions view on
+	#114
+setattr main disable_draw off
+	#115
+unselect -all
+	#116
+unselect -all
+	#117
+refresh
+	#118
+select -k comp 'ddr_clocks/clkf_buf'
+	#119
+hilite -c tan
+	#120
+unselect comp 'ddr_clocks/clkf_buf'
+	#121
+select -k comp 'ddr_clocks/clkout1_buf'
+	#122
+hilite -c teal
+	#123
+unselect comp 'ddr_clocks/clkout1_buf'
+	#124
+select -k comp 'ddr_clocks/clkout2_buf'
+	#125
+hilite -c thistle
+	#126
+unselect comp 'ddr_clocks/clkout2_buf'
+	#127
+select -k comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#128
+hilite -c tomato
+	#129
+refresh
+	#130
+refresh
+	#131
+setattr main disable_draw on
+	#132
+setattr layer ratsnests view on
+	#133
+setattr main disable_draw off
+	#134
+setattr main disable_draw on
+	#135
+setattr layer long_lines view on
+	#136
+setattr main disable_draw off
+	#137
+refresh
+	#138
+refresh
+	#139
+unselect comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#140
+select -k comp 'ddr_clocks/clkout2_buf'
+	#141
+unselect comp 'ddr_clocks/clkout2_buf'
+	#142
+select -k comp 'ddr_clocks/clkout1_buf'
+	#143
+unselect comp 'ddr_clocks/clkout1_buf'
+	#144
+select -k comp 'ddr_clocks/clkf_buf'
+	#145
+unselect comp 'ddr_clocks/clkf_buf'
+	#146
+select -k comp 'ddr_clocks/clkout2_buf'
+	#147
+unselect -all
+	#148
+unselect -all
+	#149
+select wire 'GLOBAL(27454,330)'
+	#node = GLOBAL(27454,330)
+	#150
+unselect -all
+	#151
+select site 'BUFGMUX_X2Y12'
+	#site "BUFGMUX_X2Y12",  type = BUFGMUX  (RPM grid X45Y124)
+	#152
+unselect -all
+	#153
+select -k comp 'ddr_clocks/clkf_buf'
+	#154
+unselect -all
+	#155
+select -k comp 'ddr_clocks/clkout2_buf'
+	#156
+unselect comp 'ddr_clocks/clkout2_buf'
+	#157
+select -k comp 'ddr_clocks/clkout1_buf'
+	#158
+unselect comp 'ddr_clocks/clkout1_buf'
+	#159
+select -k comp 'ddr_clocks/clkout2_buf'
+	#160
+unselect comp 'ddr_clocks/clkout2_buf'
+	#161
+select -k comp 'ddr_clocks/clkf_buf'
+	#162
+unselect -all
+	#163
+unselect -all
+	#164
+unselect -all
+	#165
+select -k comp 'ddr_clocks/clkf_buf'
+	#166
+unselect comp 'ddr_clocks/clkf_buf'
+	#167
+select -k comp 'ddr_clocks/clkout1_buf'
+	#168
+unselect comp 'ddr_clocks/clkout1_buf'
+	#169
+select -k comp 'ddr_clocks/clkout2_buf'
+	#170
+unselect comp 'ddr_clocks/clkout2_buf'
+	#171
+select -k comp 'ddr_clocks/clkf_buf'
+	#172
+unselect comp 'ddr_clocks/clkf_buf'
+	#173
+select -k comp 'ddr_clocks/clkout1_buf'
+	#174
+unselect comp 'ddr_clocks/clkout1_buf'
+	#175
+select -k comp 'ddr_clocks/clkout2_buf'
+	#176
+setattr main disable_draw on
+	#177
+setattr layer ratsnests view off
+	#178
+setattr main disable_draw off
+	#179
+setattr main disable_draw on
+	#180
+setattr layer long_lines view off
+	#181
+setattr main disable_draw off
+	#182
+unselect comp 'ddr_clocks/clkout2_buf'
+	#183
+select -k comp 'ddr_clocks/clkout1_buf'
+	#184
+unselect comp 'ddr_clocks/clkout1_buf'
+	#185
+select -k comp 'ddr_clocks/clkf_buf'
+	#186
+unselect comp 'ddr_clocks/clkf_buf'
+	#187
+select -k comp 'ddr_clocks/clkout1_buf'
+	#188
+hilite -c yellow
+	#189
+setattr main disable_draw on
+	#190
+setattr layer clock_regions view off
+	#191
+setattr main disable_draw off
+	#192
+unselect comp 'ddr_clocks/clkout1_buf'
+	#193
+select -k comp 'ddr_clocks/clkout2_buf'
+	#194
+unselect comp 'ddr_clocks/clkout2_buf'
+	#195
+select -k comp 'ddr_clocks/clkout1_buf'
+	#196
+unselect comp 'ddr_clocks/clkout1_buf'
+	#197
+select -k comp 'ddr_clocks/clkf_buf'
+	#198
+setattr main disable_draw on
+	#199
+setattr layer clock_regions view on
+	#200
+setattr main disable_draw off
+	#201
+setattr main disable_draw on
+	#202
+setattr layer clock_regions view off
+	#203
+setattr main disable_draw off
+	#204
+setattr main disable_draw on
+	#205
+setattr layer ratsnests view on
+	#206
+setattr main disable_draw off
+	#207
+setattr main disable_draw on
+	#208
+setattr layer ratsnests view off
+	#209
+setattr main disable_draw off
+	#210
+setattr main disable_draw on
+	#211
+setattr layer ratsnests view on
+	#212
+setattr main disable_draw off
+	#213
+setattr main disable_draw on
+	#214
+setattr layer ratsnests view off
+	#215
+setattr main disable_draw off
+	#216
+setattr main disable_draw on
+	#217
+setattr layer ratsnests view off
+	#218
+setattr main disable_draw off
+	#219
+setattr main disable_draw on
+	#220
+setattr layer routes view off
+	#221
+setattr main disable_draw off
+	#222
+setattr main disable_draw on
+	#223
+setattr layer local_lines view off
+	#224
+setattr main disable_draw off
+	#225
+setattr main disable_draw on
+	#226
+setattr layer long_lines view off
+	#227
+setattr main disable_draw off
+	#228
+unselect comp 'ddr_clocks/clkf_buf'
+	#229
+select -k comp 'ddr_clocks/clkout1_buf'
+	#230
+unselect -all
+	#231
+select site 'BUFH_X0Y84'
+	#site "BUFH_X0Y84",  type = BUFH  (RPM grid X45Y161)
+	#232
+unselect -all
+	#233
+select site 'BUFH_X0Y84'
+	#site "BUFH_X0Y84",  type = BUFH  (RPM grid X45Y161)
+	#234
+post block
+	#235
+unselect -all
+	#236
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#237
+post block
+	#ERROR:FPGAEditor:79 - The "post block" command without any other arguments cannot
+	#be performed unless the selection contains only a single site
+	#or single component.  Change the selection and try again.
+	#238
+unselect -all
+	#239
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#240
+unselect -all
+	#241
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#242
+post block
+	#ERROR:FPGAEditor:79 - The "post block" command without any other arguments cannot
+	#be performed unless the selection contains only a single site
+	#or single component.  Change the selection and try again.
+	#243
+unselect -all
+	#244
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#245
+unselect -all
+	#246
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#247
+post block
+	#ERROR:FPGAEditor:79 - The "post block" command without any other arguments cannot
+	#be performed unless the selection contains only a single site
+	#or single component.  Change the selection and try again.
+	#248
+unselect -all
+	#249
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#250
+unselect -all
+	#251
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#252
+post block
+	#ERROR:FPGAEditor:79 - The "post block" command without any other arguments cannot
+	#be performed unless the selection contains only a single site
+	#or single component.  Change the selection and try again.
+	#253
+unselect -all
+	#254
+select pin 'BUFH_X0Y83.I'
+	#site.pin = BUFH_X0Y83.I
+	#255
+unselect -all
+	#256
+select pin 'BUFH_X0Y84.O'
+	#site.pin = BUFH_X0Y84.O
+	#257
+unselect -all
+	#258
+select site 'BUFH_X0Y85'
+	#site "BUFH_X0Y85",  type = BUFH  (RPM grid X45Y162)
+	#259
+unselect -all
+	#260
+select pin 'BUFH_X0Y88.I'
+	#site.pin = BUFH_X0Y88.I
+	#261
+unselect -all
+	#262
+select site 'BUFH_X0Y88'
+	#site "BUFH_X0Y88",  type = BUFH  (RPM grid X45Y165)
+	#263
+unselect -all
+	#264
+select site 'BUFH_X3Y64'
+	#site "BUFH_X3Y64",  type = BUFH  (RPM grid X47Y149)
+	#265
+unselect -all
+	#266
+select site 'BUFH_X3Y64'
+	#site "BUFH_X3Y64",  type = BUFH  (RPM grid X47Y149)
+	#267
+unselect -all
+	#268
+select site 'BUFH_X3Y64'
+	#site "BUFH_X3Y64",  type = BUFH  (RPM grid X47Y149)
+	#269
+post block
+	#270
+select site BUFG*
+	#271
+setattr main disable_draw on
+	#272
+setattr layer routes view on
+	#273
+setattr main disable_draw off
+	#274
+setattr main disable_draw on
+	#275
+setattr layer routes view off
+	#276
+setattr main disable_draw off
+	#277
+setattr main disable_draw on
+	#278
+setattr layer ratsnests view on
+	#279
+setattr main disable_draw off
+	#280
+setattr main disable_draw on
+	#281
+setattr layer ratsnests view off
+	#282
+setattr main disable_draw off
+	#283
+setattr main disable_draw on
+	#284
+setattr layer routes view on
+	#285
+setattr main disable_draw off
+	#286
+setattr main disable_draw on
+	#287
+setattr layer routes view off
+	#288
+setattr main disable_draw off
+	#289
+setattr main disable_draw on
+	#290
+setattr layer components view off
+	#291
+setattr main disable_draw off
+	#292
+setattr main disable_draw on
+	#293
+setattr layer components view on
+	#294
+setattr main disable_draw off
+	#295
+setattr main disable_draw on
+	#296
+setattr layer components view off
+	#297
+setattr main disable_draw off
+	#298
+setattr main disable_draw on
+	#299
+setattr layer components view on
+	#300
+setattr main disable_draw off
+	#301
+setattr main disable_draw on
+	#302
+setattr layer components view off
+	#303
+setattr main disable_draw off
+	#304
+setattr main disable_draw on
+	#305
+setattr layer components view on
+	#306
+setattr main disable_draw off
+	#307
+setattr main disable_draw on
+	#308
+setattr layer routes view on
+	#309
+setattr main disable_draw off
+	#310
+setattr main disable_draw on
+	#311
+setattr layer routes view off
+	#312
+setattr main disable_draw off
+	#313
+setattr main disable_draw on
+	#314
+setattr layer long_lines view on
+	#315
+setattr main disable_draw off
+	#316
+setattr main disable_draw on
+	#317
+setattr layer long_lines view off
+	#318
+setattr main disable_draw off
+	#319
+setattr main disable_draw on
+	#320
+setattr layer pinwires view on
+	#321
+setattr main disable_draw off
+	#322
+setattr main disable_draw on
+	#323
+setattr layer pinwires view off
+	#324
+setattr main disable_draw off
+	#325
+setattr main disable_draw on
+	#326
+setattr layer pinwires view on
+	#327
+setattr main disable_draw off
+	#328
+setattr main disable_draw on
+	#329
+setattr layer pinwires view off
+	#330
+setattr main disable_draw off
+	#331
+setattr main disable_draw on
+	#332
+setattr layer pips view on
+	#333
+setattr main disable_draw off
+	#334
+setattr main disable_draw on
+	#335
+setattr layer pips view off
+	#336
+setattr main disable_draw off
+	#337
+setattr main disable_draw on
+	#338
+setattr layer routes view on
+	#339
+setattr main disable_draw off
+	#340
+setattr main disable_draw on
+	#341
+setattr layer ratsnests view on
+	#342
+setattr main disable_draw off
+	#343
+setattr main disable_draw on
+	#344
+setattr layer pips view on
+	#345
+setattr main disable_draw off
+	#346
+setattr main disable_draw on
+	#347
+setattr layer pips view off
+	#348
+setattr main disable_draw off
+	#349
+setattr main disable_draw on
+	#350
+setattr layer switch_boxes view on
+	#351
+setattr main disable_draw off
+	#352
+setattr main disable_draw on
+	#353
+setattr layer switch_boxes view off
+	#354
+setattr main disable_draw off
+	#355
+unselect site 'BUFH_X3Y64'
+	#356
+unselect site 'BUFGMUX_X2Y3'
+	#357
+unselect site 'BUFGMUX_X2Y2'
+	#358
+unselect site 'BUFGMUX_X2Y1'
+	#359
+unselect site 'BUFGMUX_X2Y10'
+	#360
+unselect site 'BUFGMUX_X2Y9'
+	#361
+unselect site 'BUFGMUX_X3Y8'
+	#362
+unselect site 'BUFGMUX_X2Y11'
+	#363
+unselect site 'BUFGMUX_X3Y7'
+	#364
+unselect site 'BUFGMUX_X3Y6'
+	#365
+unselect site 'BUFGMUX_X3Y5'
+	#366
+unselect site 'BUFGMUX_X3Y16'
+	#367
+unselect site 'BUFGMUX_X3Y15'
+	#368
+unselect site 'BUFGMUX_X3Y14'
+	#369
+unselect site 'BUFGMUX_X2Y12'
+	#370
+unselect site 'BUFGMUX_X2Y4'
+	#371
+unselect site 'BUFGMUX_X3Y13'
+	#372
+select -k comp 'DATA_RAM<7>'
+	#373
+unselect comp 'DATA_RAM<7>'
+	#374
+select -k comp 'DATA_RAM<8>'
+	#375
+unselect comp 'DATA_RAM<8>'
+	#376
+select -k comp 'DATA_RAM<9>'
+	#377
+unselect comp 'DATA_RAM<9>'
+	#378
+select -k comp 'DATA_RAM<10>'
+	#379
+unselect comp 'DATA_RAM<10>'
+	#380
+select -k comp 'DATA_RAM<11>'
+	#381
+unselect comp 'DATA_RAM<11>'
+	#382
+select -k comp 'DATA_RAM<12>'
+	#383
+unselect comp 'DATA_RAM<12>'
+	#384
+select -k comp 'DATA_RAM<13>'
+	#385
+unselect comp 'DATA_RAM<13>'
+	#386
+select -k comp 'DATA_RAM<14>'
+	#387
+unselect comp 'DATA_RAM<14>'
+	#388
+select -k comp 'DATA_RAM<15>'
+	#389
+unselect comp 'DATA_RAM<15>'
+	#390
+select -k comp 'ddr_clocks/clkf_buf'
+	#391
+unselect comp 'ddr_clocks/clkf_buf'
+	#392
+select -k comp 'ddr_clocks/clkout1_buf'
+	#393
+unselect comp 'ddr_clocks/clkout1_buf'
+	#394
+select -k comp 'ddr_clocks/clkout2_buf'
+	#395
+unselect comp 'ddr_clocks/clkout2_buf'
+	#396
+select -k comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#397
+unselect comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#398
+select -k comp 'DM<0>'
+	#399
+unselect comp 'DM<0>'
+	#400
+select -k comp 'DM<1>'
+	#401
+unselect comp 'DM<1>'
+	#402
+select -k comp 'DM_0'
+	#403
+unselect comp 'DM_0'
+	#404
+select -k comp 'DQS<0>'
+	#405
+unselect comp 'DQS<0>'
+	#406
+select -k comp 'DQS<1>'
+	#407
+unselect comp 'DQS<1>'
+	#408
+select -k comp 'init_cnt<3>'
+	#409
+unselect comp 'init_cnt<3>'
+	#410
+select -k comp 'init_cnt<7>'
+	#411
+unselect comp 'init_cnt<7>'
+	#412
+select -k comp 'init_cnt<11>'
+	#413
+unselect comp 'init_cnt<11>'
+	#414
+select -k comp 'init_cnt<15>'
+	#415
+unselect comp 'init_cnt<15>'
+	#416
+select -k comp 'init_cnt<16>'
+	#417
+unselect comp 'init_cnt<16>'
+	#418
+select -k comp 'init_cnt[16]_PWR_1_o_LessThan_10_o2'
+	#419
+unselect comp 'init_cnt[16]_PWR_1_o_LessThan_10_o2'
+	#420
+select -k comp 'init_cnt[16]_PWR_1_o_LessThan_10_o21'
+	#421
+unselect comp 'init_cnt[16]_PWR_1_o_LessThan_10_o21'
+	#422
+select -k comp 'Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o_cy<3>'
+	#423
+unselect comp 'Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o_cy<3>'
+	#424
+select -k comp 'Mcompar_openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>'
+	#425
+unselect comp 'Mcompar_openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>'
+	#426
+select -k comp 'Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>'
+	#427
+unselect comp 'Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>'
+	#428
+select -k comp 'Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o_cy<3>'
+	#429
+unselect comp 'Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o_cy<3>'
+	#430
+select -k comp 'ML_diff_clk_buff/BUF/P'
+	#431
+unselect comp 'ML_diff_clk_buff/BUF/P'
+	#432
+select -k comp 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT16'
+	#433
+unselect comp 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT16'
+	#434
+select -k comp 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT3'
+	#435
+unselect comp 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT3'
+	#436
+select -k comp 'N131'
+	#437
+unselect comp 'N131'
+	#438
+select -k comp 'openRowB0<3>'
+	#439
+unselect comp 'openRowB0<3>'
+	#440
+select -k comp 'openRowB0<4>'
+	#441
+unselect comp 'openRowB0<4>'
+	#442
+select -k comp 'openRowB0<11>'
+	#443
+unselect comp 'openRowB0<11>'
+	#444
+select -k comp 'openRowB1<7>'
+	#445
+unselect comp 'openRowB1<7>'
+	#446
+select -k comp 'openRowB1<11>'
+	#447
+unselect comp 'openRowB1<11>'
+	#448
+select -k comp 'openRowB1<12>'
+	#449
+unselect comp 'openRowB1<12>'
+	#450
+select -k comp 'openRowB2<3>'
+	#451
+unselect comp 'openRowB2<3>'
+	#452
+select -k comp 'openRowB2<7>'
+	#453
+unselect comp 'openRowB2<7>'
+	#454
+select -k comp 'openRowB2<12>'
+	#455
+unselect comp 'openRowB2<12>'
+	#456
+select -k comp 'openRowB3<7>'
+	#457
+unselect comp 'openRowB3<7>'
+	#458
+select -k comp 'openRowB3<11>'
+	#459
+unselect comp 'openRowB3<11>'
+	#460
+select -k comp 'openRowB3<12>'
+	#461
+unselect comp 'openRowB3<12>'
+	#462
+select -k comp 'RAS'
+	#463
+unselect comp 'RAS'
+	#464
+select -k comp 'READ'
+	#465
+unselect comp 'READ'
+	#466
+select -k comp 're_count<3>'
+	#467
+unselect comp 're_count<3>'
+	#468
+select -k comp 'RE_DQS'
+	#469
+unselect comp 'RE_DQS'
+	#470
+select -k comp 'RE_DQS_OBUF'
+	#471
+unselect comp 'RE_DQS_OBUF'
+	#472
+select -k comp 'SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0'
+	#473
+unselect comp 'SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0'
+	#474
+select -k comp 'SP6_INS_BUFIO2FB_PLL_ML_BUFIO2FB_1'
+	#475
+unselect comp 'SP6_INS_BUFIO2FB_PLL_ML_BUFIO2FB_1'
+	#476
+select -k comp 'STATUS<2>'
+	#477
+unselect comp 'STATUS<2>'
+	#478
+select -k comp 'STATUS[2]_STATUS[2]_mux_78_OUT<2>'
+	#479
+unselect comp 'STATUS[2]_STATUS[2]_mux_78_OUT<2>'
+	#480
+select -k comp 'STATUS_2_1'
+	#481
+unselect comp 'STATUS_2_1'
+	#482
+select -k comp 'SYS_CLK_100M'
+	#483
+unselect comp 'SYS_CLK_100M'
+	#484
+select -k comp 'WE'
+	#485
+unselect comp 'WE'
+	#486
+select -k comp 'WRITE'
+	#487
+unselect comp 'WRITE'
+	#488
+select -k comp 'WRITE_LENGTH<0>'
+	#489
+unselect comp 'WRITE_LENGTH<0>'
+	#490
+select -k comp 'WRITE_LENGTH<1>'
+	#491
+unselect comp 'WRITE_LENGTH<1>'
+	#492
+select -k comp 'WRITE_LENGTH<2>'
+	#493
+unselect comp 'WRITE_LENGTH<2>'
+	#494
+select -k comp 'WRITE_LENGTH<3>'
+	#495
+unselect comp 'WRITE_LENGTH<3>'
+	#496
+select -k comp 'wr_count<0>'
+	#497
+unselect comp 'wr_count<0>'
+	#498
+select -k comp 'wr_count<3>'
+	#499
+unselect comp 'wr_count<3>'
+	#500
+select -k comp 'wr_count<4>'
+	#501
+unselect comp 'wr_count<4>'
+	#502
+select -k comp 'WR_DQS'
+	#503
+unselect comp 'WR_DQS'
+	#504
+select -k comp 'WR_DQS_OBUF'
+	#505
+unselect comp 'WR_DQS_OBUF'
+	#506
+select -k comp '_n0502_inv'
+	#507
+unselect comp '_n0502_inv'
+	#508
+select -k comp '_n04122'
+	#509
+unselect comp '_n04122'
+	#510
+select -k comp '_n0502_inv'
+	#511
+unselect comp '_n0502_inv'
+	#512
+select -k comp 'WR_DQS_OBUF'
+	#513
+unselect comp 'WR_DQS_OBUF'
+	#514
+select -k comp 'WR_DQS'
+	#515
+unselect comp 'WR_DQS'
+	#516
+select -k comp 'wr_count<4>'
+	#517
+unselect comp 'wr_count<4>'
+	#518
+select -k comp 'wr_count<3>'
+	#519
+unselect comp 'wr_count<3>'
+	#520
+select -k comp 'wr_count<0>'
+	#521
+unselect comp 'wr_count<0>'
+	#522
+select -k comp 'WRITE_LENGTH<3>'
+	#523
+unselect comp 'WRITE_LENGTH<3>'
+	#524
+select -k comp 'WRITE_LENGTH<2>'
+	#525
+unselect comp 'WRITE_LENGTH<2>'
+	#526
+select -k comp 'WRITE_LENGTH<1>'
+	#527
+unselect comp 'WRITE_LENGTH<1>'
+	#528
+select -k comp 'WRITE_LENGTH<0>'
+	#529
+unselect comp 'WRITE_LENGTH<0>'
+	#530
+select -k comp 'WRITE'
+	#531
+unselect comp 'WRITE'
+	#532
+select -k comp 'WE'
+	#533
+unselect comp 'WE'
+	#534
+select -k comp 'SYS_CLK_100M'
+	#535
+unselect comp 'SYS_CLK_100M'
+	#536
+select -k comp 'WE'
+	#537
+unselect comp 'WE'
+	#538
+select -k comp 'SYS_CLK_100M'
+	#539
+setattr main disable_draw on
+	#540
+setattr layer sites view off
+	#541
+setattr main disable_draw off
+	#542
+setattr main disable_draw on
+	#543
+setattr layer sites view on
+	#544
+setattr main disable_draw off
+	#545
+setattr main disable_draw on
+	#546
+setattr layer ratsnests view off
+	#547
+setattr main disable_draw off
+	#548
+setattr main disable_draw on
+	#549
+setattr layer components view off
+	#550
+setattr main disable_draw off
+	#551
+unselect comp 'SYS_CLK_100M'
+	#552
+select -k comp 'SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0'
+	#553
+unselect comp 'SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0'
+	#554
+select -k comp 'ddr_clocks/clkf_buf'
+	#555
+unselect comp 'ddr_clocks/clkf_buf'
+	#556
+select -k comp 'ddr_clocks/clkout2_buf'
+	#557
+unselect comp 'ddr_clocks/clkout2_buf'
+	#558
+select -k comp 'ddr_clocks/clkout1_buf'
+	#559
+unselect comp 'ddr_clocks/clkout1_buf'
+	#560
+select -k comp 'ddr_clocks/clkout2_buf'
+	#561
+unselect comp 'ddr_clocks/clkout2_buf'
+	#562
+select -k comp 'ddr_clocks/clkf_buf'
+	#563
+unselect comp 'ddr_clocks/clkf_buf'
+	#564
+select -k comp 'ddr_clocks/clkout2_buf'
+	#565
+unselect comp 'ddr_clocks/clkout2_buf'
+	#566
+select -k comp 'ddr_clocks/clkout1_buf'
+	#567
+unselect comp 'ddr_clocks/clkout1_buf'
+	#568
+select -k net '_n0478_inv'
+	#569
+unselect net '_n0478_inv'
+	#570
+select -k net 'DDR_CLK_166M'
+	#571
+unselect net 'DDR_CLK_166M'
+	#572
+select -k net 'DDR_CLK_166M_inv'
+	#573
+unselect net 'DDR_CLK_166M_inv'
+	#574
+select -k net 'DDR_CLK_166M'
+	#575
+unselect net 'DDR_CLK_166M'
+	#576
+select -k net 'ddr_clocks/clkfbout'
+	#577
+unselect net 'ddr_clocks/clkfbout'
+	#578
+select -k net 'ddr_clocks/clkfbout_buf'
+	#579
+unselect net 'ddr_clocks/clkfbout_buf'
+	#580
+select -k net 'ddr_clocks/clkin1'
+	#581
+unselect net 'ddr_clocks/clkin1'
+	#582
+select -k net 'ddr_clocks/clkfbout_buf'
+	#583
+unselect net 'ddr_clocks/clkfbout_buf'
+	#584
+select -k net 'ddr_clocks/clkin1'
+	#585
+unselect net 'ddr_clocks/clkin1'
+	#586
+select -k net 'ddr_clocks/clkout0'
+	#587
+unselect net 'ddr_clocks/clkout0'
+	#588
+select -k net 'ddr_clocks/clkout1'
+	#589
+unselect net 'ddr_clocks/clkout1'
+	#590
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#591
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#592
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#593
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#594
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#595
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#596
+select -k net 'ddr_clocks/clkout1'
+	#597
+unselect net 'ddr_clocks/clkout1'
+	#598
+select -k net 'ddr_clocks/clkout0'
+	#599
+unselect net 'ddr_clocks/clkout0'
+	#600
+select -k net 'ddr_clocks/clkin1'
+	#601
+unselect net 'ddr_clocks/clkin1'
+	#602
+select -k net 'ddr_clocks/clkfbout_buf'
+	#603
+unselect net 'ddr_clocks/clkfbout_buf'
+	#604
+select -k net 'ddr_clocks/clkfbout'
+	#605
+unselect net 'ddr_clocks/clkfbout'
+	#606
+select -k net 'ddr_clocks/clkfbout_buf'
+	#607
+unselect net 'ddr_clocks/clkfbout_buf'
+	#608
+select -k net 'ddr_clocks/clkfbout'
+	#609
+unselect -all
+	#610
+select comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#comp "ddr_clocks/pll_base_inst/PLL_ADV",  site "PLL_ADV_X0Y0",  type = PLL_ADV  (RPM grid X37Y97)
+	#611
+unselect comp 'ddr_clocks/pll_base_inst/PLL_ADV'
+	#612
+select -k net 'ddr_clocks/clkfbout'
+	#613
+unselect net 'ddr_clocks/clkfbout'
+	#614
+select -k net 'DDR_CLK_166M'
+	#615
+unselect net 'DDR_CLK_166M'
+	#616
+select -k net 'DDR_CLK_166M_inv'
+	#617
+unselect net 'DDR_CLK_166M_inv'
+	#618
+select -k net 'ddr_clocks/clkout0'
+	#619
+unselect net 'ddr_clocks/clkout0'
+	#620
+select -k net 'ddr_clocks/clkout1'
+	#621
+unselect net 'ddr_clocks/clkout1'
+	#622
+select -k net 'ddr_clocks/clkin1'
+	#623
+unselect net 'ddr_clocks/clkin1'
+	#624
+select -k net 'ddr_clocks/clkout0'
+	#625
+unselect net 'ddr_clocks/clkout0'
+	#626
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#627
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#628
+select -k net 'DM_0'
+	#629
+unselect net 'DM_0'
+	#630
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#631
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#632
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#633
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#634
+select -k net 'ddr_clocks/clkout1'
+	#635
+unselect net 'ddr_clocks/clkout1'
+	#636
+select -k net 'ddr_clocks/clkout0'
+	#637
+unselect net 'ddr_clocks/clkout0'
+	#638
+select -k net 'ddr_clocks/clkin1'
+	#639
+unselect net 'ddr_clocks/clkin1'
+	#640
+select -k net 'ddr_clocks/clkfbout_buf'
+	#641
+unselect net 'ddr_clocks/clkfbout_buf'
+	#642
+select -k net 'ddr_clocks/clkin1'
+	#643
+unselect net 'ddr_clocks/clkin1'
+	#644
+select -k net 'ddr_clocks/clkfbout_buf'
+	#645
+unselect net 'ddr_clocks/clkfbout_buf'
+	#646
+select -k net 'DDR_CLK_166M'
+	#647
+unselect -all
+	#648
+select comp 'COMMAND<3>'
+	#comp "COMMAND<3>",  site "SLICE_X11Y41",  type = SLICEX  (RPM grid X35Y164)
+	#649
+unselect -all
+	#650
+select -k net 'DDR_CLK_166M'
+	#651
+setattr main disable_draw on
+	#652
+setattr layer switch_boxes view off
+	#653
+setattr main disable_draw off
+	#654
+setattr main disable_draw on
+	#655
+setattr layer switch_boxes view on
+	#656
+setattr main disable_draw off
+	#657
+setattr main disable_draw on
+	#658
+setattr layer sites view off
+	#659
+setattr main disable_draw off
+	#660
+setattr main disable_draw on
+	#661
+setattr layer pips view off
+	#662
+setattr main disable_draw off
+	#663
+setattr main disable_draw on
+	#664
+setattr layer pinwires view off
+	#665
+setattr main disable_draw off
+	#666
+setattr main disable_draw on
+	#667
+setattr layer long_lines view off
+	#668
+setattr main disable_draw off
+	#669
+setattr main disable_draw on
+	#670
+setattr layer ratsnests view off
+	#671
+setattr main disable_draw off
+	#672
+unselect -all
+	#673
+select comp 'ML_diff_clk_buff/BUF/P'
+	#comp "ML_diff_clk_buff/BUF/P",  site "SLICE_X0Y37",  type = SLICEX  (RPM grid X5Y148)
+	#674
+unselect -all
+	#675
+select comp 'ML_diff_clk_buff/BUF/P'
+	#comp "ML_diff_clk_buff/BUF/P",  site "SLICE_X0Y37",  type = SLICEX  (RPM grid X5Y148)
+	#676
+post block
+	#677
+unselect comp 'ML_diff_clk_buff/BUF/P'
+	#678
+select -k net 'DDR_CLK_166M'
+	#679
+unselect net 'DDR_CLK_166M'
+	#680
+select -k net 'DDR_CLK_166M_inv'
+	#681
+unselect net 'DDR_CLK_166M_inv'
+	#682
+select -k net 'ddr_clocks/clkfbout'
+	#683
+unselect net 'ddr_clocks/clkfbout'
+	#684
+select -k net 'ddr_clocks/clkfbout_buf'
+	#685
+unselect net 'ddr_clocks/clkfbout_buf'
+	#686
+select -k net 'ddr_clocks/clkin1'
+	#687
+unselect net 'ddr_clocks/clkin1'
+	#688
+select -k net 'ddr_clocks/clkout0'
+	#689
+unselect net 'ddr_clocks/clkout0'
+	#690
+select -k net 'ddr_clocks/clkout1'
+	#691
+unselect net 'ddr_clocks/clkout1'
+	#692
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#693
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_DIVCLK'
+	#694
+select -k net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#695
+unselect net 'ddr_clocks/pll_base_inst/PLL_ADV_ML_NEW_O'
+	#696
+select -k net 'DM_0'
+	#697
+unselect net 'DM_0'
+	#698
+select -k net 'GLOBAL_LOGIC1'
+	#699
+unselect net 'GLOBAL_LOGIC1'
+	#700
+select -k net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#701
+unselect net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#702
+select -k net 'INITIALIZED'
+	#703
+unselect net 'INITIALIZED'
+	#704
+select -k net 'init_cnt<0>'
+	#705
+unselect net 'init_cnt<0>'
+	#706
+select -k net 'init_cnt<1>'
+	#707
+unselect net 'init_cnt<1>'
+	#708
+select -k net 'init_cnt<0>'
+	#709
+unselect net 'init_cnt<0>'
+	#710
+select -k net 'INITIALIZED'
+	#711
+unselect net 'INITIALIZED'
+	#712
+select -k net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#713
+unselect net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#714
+select -k net 'GLOBAL_LOGIC1'
+	#715
+unselect net 'GLOBAL_LOGIC1'
+	#716
+select -k net 'DM_0'
+	#717
+unselect net 'DM_0'
+	#718
+select -k net 'GLOBAL_LOGIC1'
+	#719
+unselect net 'GLOBAL_LOGIC1'
+	#720
+select -k net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#721
+unselect net 'GND_1_o_PWR_1_o_mux_60_OUT<1>'
+	#722
+select -k net 'INITIALIZED'
+	#723
+unselect net 'INITIALIZED'
+	#724
+select -k net 'init_cnt<0>'
+	#725
+unselect net 'init_cnt<0>'
+	#726
+select -k net 'init_cnt<1>'
+	#727
+unselect net 'init_cnt<1>'
+	#728
+select -k net 'init_cnt<2>'
+	#729
+unselect net 'init_cnt<2>'
+	#730
+select -k net 'init_cnt<3>'
+	#731
+unselect net 'init_cnt<3>'
+	#732
+select -k net 'init_cnt<4>'
+	#733
+unselect net 'init_cnt<4>'
+	#734
+select -k net 'init_cnt<5>'
+	#735
+unselect net 'init_cnt<5>'
+	#736
+select -k net 'init_cnt<6>'
+	#737
+unselect net 'init_cnt<6>'
+	#738
+select -k net 'init_cnt<7>'
+	#739
+unselect net 'init_cnt<7>'
+	#740
+select -k net 'init_cnt<8>'
+	#741
+unselect net 'init_cnt<8>'
+	#742
+select -k net 'init_cnt<9>'
+	#743
+unselect net 'init_cnt<9>'
+	#744
+select -k net 'init_cnt<10>'
+	#745
+unselect net 'init_cnt<10>'
+	#746
+select -k net 'init_cnt<11>'
+	#747
+unselect net 'init_cnt<11>'
+	#748
+select -k net 'init_cnt<12>'
+	#749
+unselect net 'init_cnt<12>'
+	#750
+select -k net 'init_cnt<13>'
+	#751
+unselect net 'init_cnt<13>'
+	#752
+select -k net 'init_cnt<14>'
+	#753
+unselect net 'init_cnt<14>'
+	#754
+select -k net 'init_cnt<15>'
+	#755
+unselect net 'init_cnt<15>'
+	#756
+select -k net 'init_cnt<16>'
+	#757
+unselect net 'init_cnt<16>'
+	#758
+select -k net 'init_cnt[16]_PWR_1_o_LessThan_10_o'
+	#759
+unselect net 'init_cnt[16]_PWR_1_o_LessThan_10_o'
+	#760
+select -k net 'init_cnt[16]_PWR_1_o_LessThan_10_o2'
+	#761
+unselect net 'init_cnt[16]_PWR_1_o_LessThan_10_o2'
+	#762
+select -k net 'init_cnt[16]_PWR_1_o_LessThan_10_o21'
+	#763
+unselect net 'init_cnt[16]_PWR_1_o_LessThan_10_o21'
+	#764
+select -k net 'Madd_n0316_cy<1>'
+	#765
+unselect net 'Madd_n0316_cy<1>'
+	#766
+select -k net 'Madd_n0316_lut<3>'
+	#767
+unselect net 'Madd_n0316_lut<3>'
+	#768
+select -k net 'Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o_cy<3>'
+	#769
+unselect net 'Mcompar_openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o_cy<3>'
+	#770
+select -k net 'Mcompar_openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>'
+	#771
+unselect net 'Mcompar_openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o_cy<3>'
+	#772
+select -k net 'Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>'
+	#773
+unselect net 'Mcompar_openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o_cy<3>'
+	#774
+select -k net 'Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o_cy<3>'
+	#775
+unselect net 'Mcompar_openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o_cy<3>'
+	#776
+select -k net 'Mcount_init_cnt_cy<3>'
+	#777
+unselect net 'Mcount_init_cnt_cy<3>'
+	#778
+select -k net 'Mcount_init_cnt_cy<7>'
+	#779
+unselect net 'Mcount_init_cnt_cy<7>'
+	#780
+select -k net 'Mcount_init_cnt_cy<11>'
+	#781
+unselect net 'Mcount_init_cnt_cy<11>'
+	#782
+select -k net 'Mcount_init_cnt_cy<15>'
+	#783
+unselect net 'Mcount_init_cnt_cy<15>'
+	#784
+select -k net 'ML_diff_clk_buff/BUF/P'
+	#785
+unselect net 'ML_diff_clk_buff/BUF/P'
+	#786
+select -k net 'ML_diff_clk_buff/INV/N'
+	#787
+unselect net 'ML_diff_clk_buff/INV/N'
+	#788
+select -k net 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT14'
+	#789
+unselect net 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT14'
+	#790
+select -k net 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT16'
+	#791
+unselect net 'Mmux_ADDR[12]_ADDR[12]_mux_61_OUT16'
+	#792
+select -k net 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT3'
+	#793
+unselect net 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT3'
+	#794
+select -k net 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT11'
+	#795
+unselect net 'Mmux_STATUS[2]_STATUS[2]_mux_78_OUT11'
+	#796
+select -k net 'N30'
+	#797
+unselect net 'N30'
+	#798
+select -k net 'N99'
+	#799
+unselect net 'N99'
+	#800
+select -k net 'N101'
+	#801
+unselect net 'N101'
+	#802
+select -k net 'N103'
+	#803
+unselect net 'N103'
+	#804
+select -k net 'N105'
+	#805
+unselect net 'N105'
+	#806
+select -k net 'N107'
+	#807
+unselect net 'N107'
+	#808
+select -k net 'N108'
+	#809
+unselect net 'N108'
+	#810
+select -k net 'N114'
+	#811
+unselect net 'N114'
+	#812
+select -k net 'N116'
+	#813
+unselect net 'N116'
+	#814
+select -k net 'N118'
+	#815
+unselect net 'N118'
+	#816
+select -k net 'N120'
+	#817
+unselect net 'N120'
+	#818
+select -k net 'N122'
+	#819
+unselect net 'N122'
+	#820
+select -k net 'N123'
+	#821
+unselect net 'N123'
+	#822
+select -k net 'N125'
+	#823
+unselect net 'N125'
+	#824
+select -k net 'N127'
+	#825
+unselect net 'N127'
+	#826
+select -k net 'N129'
+	#827
+unselect net 'N129'
+	#828
+select -k net 'N131'
+	#829
+unselect net 'N131'
+	#830
+select -k net 'N133'
+	#831
+unselect net 'N133'
+	#832
+select -k net 'N135'
+	#833
+unselect net 'N135'
+	#834
+select -k net 'N137'
+	#835
+unselect net 'N137'
+	#836
+select -k net 'N139'
+	#837
+unselect net 'N139'
+	#838
+select -k net 'N141'
+	#839
+unselect net 'N141'
+	#840
+select -k net 'N143'
+	#841
+unselect net 'N143'
+	#842
+select -k net 'N145'
+	#843
+unselect net 'N145'
+	#844
+select -k net 'openRowB0<0>'
+	#845
+unselect net 'openRowB0<0>'
+	#846
+select -k net 'openRowB0<1>'
+	#847
+unselect net 'openRowB0<1>'
+	#848
+select -k net 'openRowB0<2>'
+	#849
+unselect net 'openRowB0<2>'
+	#850
+select -k net 'openRowB0<3>'
+	#851
+unselect net 'openRowB0<3>'
+	#852
+select -k net 'openRowB0<4>'
+	#853
+unselect net 'openRowB0<4>'
+	#854
+select -k net 'openRowB0<5>'
+	#855
+unselect net 'openRowB0<5>'
+	#856
+select -k net 'openRowB0<6>'
+	#857
+unselect net 'openRowB0<6>'
+	#858
+select -k net 'openRowB0<7>'
+	#859
+unselect net 'openRowB0<7>'
+	#860
+select -k net 'openRowB0<8>'
+	#861
+unselect net 'openRowB0<8>'
+	#862
+select -k net 'openRowB0<9>'
+	#863
+unselect net 'openRowB0<9>'
+	#864
+select -k net 'openRowB0<10>'
+	#865
+unselect net 'openRowB0<10>'
+	#866
+select -k net 'openRowB0<11>'
+	#867
+unselect net 'openRowB0<11>'
+	#868
+select -k net 'openRowB0<12>'
+	#869
+unselect net 'openRowB0<12>'
+	#870
+select -k net 'openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o'
+	#871
+unselect net 'openRowB0[12]_ADDR_ROW_IN[12]_not_equal_14_o'
+	#872
+select -k net 'openRowB1<0>'
+	#873
+unselect net 'openRowB1<0>'
+	#874
+select -k net 'openRowB1<1>'
+	#875
+unselect net 'openRowB1<1>'
+	#876
+select -k net 'openRowB1<2>'
+	#877
+unselect net 'openRowB1<2>'
+	#878
+select -k net 'openRowB1<3>'
+	#879
+unselect net 'openRowB1<3>'
+	#880
+select -k net 'openRowB1<4>'
+	#881
+unselect net 'openRowB1<4>'
+	#882
+select -k net 'openRowB1<5>'
+	#883
+unselect net 'openRowB1<5>'
+	#884
+select -k net 'openRowB1<6>'
+	#885
+unselect net 'openRowB1<6>'
+	#886
+select -k net 'openRowB1<7>'
+	#887
+unselect net 'openRowB1<7>'
+	#888
+select -k net 'openRowB1<8>'
+	#889
+unselect net 'openRowB1<8>'
+	#890
+select -k net 'openRowB1<9>'
+	#891
+unselect net 'openRowB1<9>'
+	#892
+select -k net 'openRowB1<10>'
+	#893
+unselect net 'openRowB1<10>'
+	#894
+select -k net 'openRowB1<11>'
+	#895
+unselect net 'openRowB1<11>'
+	#896
+select -k net 'openRowB1<12>'
+	#897
+unselect net 'openRowB1<12>'
+	#898
+select -k net 'openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o'
+	#899
+unselect net 'openRowB1[12]_ADDR_ROW_IN[12]_not_equal_19_o'
+	#900
+select -k net 'openRowB2<0>'
+	#901
+unselect net 'openRowB2<0>'
+	#902
+select -k net 'openRowB2<1>'
+	#903
+unselect net 'openRowB2<1>'
+	#904
+select -k net 'openRowB2<2>'
+	#905
+unselect net 'openRowB2<2>'
+	#906
+select -k net 'openRowB2<3>'
+	#907
+unselect net 'openRowB2<3>'
+	#908
+select -k net 'openRowB2<4>'
+	#909
+unselect net 'openRowB2<4>'
+	#910
+select -k net 'openRowB2<5>'
+	#911
+unselect net 'openRowB2<5>'
+	#912
+select -k net 'openRowB2<6>'
+	#913
+unselect net 'openRowB2<6>'
+	#914
+select -k net 'openRowB2<7>'
+	#915
+unselect net 'openRowB2<7>'
+	#916
+select -k net 'openRowB2<8>'
+	#917
+unselect net 'openRowB2<8>'
+	#918
+select -k net 'openRowB2<9>'
+	#919
+unselect net 'openRowB2<9>'
+	#920
+select -k net 'openRowB2<10>'
+	#921
+unselect net 'openRowB2<10>'
+	#922
+select -k net 'openRowB2<11>'
+	#923
+unselect net 'openRowB2<11>'
+	#924
+select -k net 'openRowB2<12>'
+	#925
+unselect net 'openRowB2<12>'
+	#926
+select -k net 'openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o'
+	#927
+unselect net 'openRowB2[12]_ADDR_ROW_IN[12]_not_equal_24_o'
+	#928
+select -k net 'openRowB3<0>'
+	#929
+unselect net 'openRowB3<0>'
+	#930
+select -k net 'openRowB3<1>'
+	#931
+unselect net 'openRowB3<1>'
+	#932
+select -k net 'openRowB3<2>'
+	#933
+unselect net 'openRowB3<2>'
+	#934
+select -k net 'openRowB3<3>'
+	#935
+unselect net 'openRowB3<3>'
+	#936
+select -k net 'openRowB3<4>'
+	#937
+unselect net 'openRowB3<4>'
+	#938
+select -k net 'openRowB3<5>'
+	#939
+unselect net 'openRowB3<5>'
+	#940
+select -k net 'openRowB3<6>'
+	#941
+unselect net 'openRowB3<6>'
+	#942
+select -k net 'openRowB3<7>'
+	#943
+unselect net 'openRowB3<7>'
+	#944
+select -k net 'openRowB3<8>'
+	#945
+unselect net 'openRowB3<8>'
+	#946
+select -k net 'openRowB3<9>'
+	#947
+unselect net 'openRowB3<9>'
+	#948
+select -k net 'openRowB3<10>'
+	#949
+unselect net 'openRowB3<10>'
+	#950
+select -k net 'openRowB3<11>'
+	#951
+unselect net 'openRowB3<11>'
+	#952
+select -k net 'openRowB3<12>'
+	#953
+unselect net 'openRowB3<12>'
+	#954
+select -k net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#955
+unselect net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#956
+select -k net 'PWR_ON'
+	#957
+unselect net 'PWR_ON'
+	#958
+select -k net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#959
+unselect net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#960
+select -k net 'READ_IBUF'
+	#961
+unselect net 'READ_IBUF'
+	#962
+select -k net 'Reset_OR_DriverANDClockEnable'
+	#963
+unselect net 'Reset_OR_DriverANDClockEnable'
+	#964
+select -k net 'Result<4>1'
+	#965
+unselect net 'Result<4>1'
+	#966
+select -k net 're_count<0>'
+	#967
+unselect net 're_count<0>'
+	#968
+select -k net 're_count<1>'
+	#969
+unselect net 're_count<1>'
+	#970
+select -k net 're_count<2>'
+	#971
+unselect net 're_count<2>'
+	#972
+select -k net 're_count<3>'
+	#973
+unselect net 're_count<3>'
+	#974
+select -k net 'RE_DQS_OBUF'
+	#975
+unselect net 'RE_DQS_OBUF'
+	#976
+select -k net 'STATUS<0>'
+	#977
+unselect net 'STATUS<0>'
+	#978
+select -k net 'STATUS<1>'
+	#979
+unselect net 'STATUS<1>'
+	#980
+select -k net 'STATUS<2>'
+	#981
+unselect net 'STATUS<2>'
+	#982
+select -k net 'STATUS[2]_BUSY_AND_11_o'
+	#983
+unselect net 'STATUS[2]_BUSY_AND_11_o'
+	#984
+select -k net 'STATUS<2>'
+	#985
+unselect net 'STATUS<2>'
+	#986
+select -k net 'STATUS<1>'
+	#987
+unselect net 'STATUS<1>'
+	#988
+select -k net 'STATUS<0>'
+	#989
+unselect net 'STATUS<0>'
+	#990
+select -k net 'RE_DQS_OBUF'
+	#991
+unselect net 'RE_DQS_OBUF'
+	#992
+select -k net 're_count<3>'
+	#993
+unselect net 're_count<3>'
+	#994
+select -k net 're_count<2>'
+	#995
+unselect net 're_count<2>'
+	#996
+select -k net 're_count<1>'
+	#997
+unselect net 're_count<1>'
+	#998
+select -k net 're_count<0>'
+	#999
+unselect net 're_count<0>'
+	#1000
+select -k net 'Result<4>1'
+	#1001
+unselect net 'Result<4>1'
+	#1002
+select -k net 'Reset_OR_DriverANDClockEnable'
+	#1003
+unselect net 'Reset_OR_DriverANDClockEnable'
+	#1004
+select -k net 'READ_IBUF'
+	#1005
+unselect net 'READ_IBUF'
+	#1006
+select -k net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#1007
+unselect net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#1008
+select -k net 'PWR_ON'
+	#1009
+unselect net 'PWR_ON'
+	#1010
+select -k net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#1011
+unselect net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#1012
+select -k net 'openRowB3<12>'
+	#1013
+unselect net 'openRowB3<12>'
+	#1014
+select -k net 'openRowB3<11>'
+	#1015
+unselect net 'openRowB3<11>'
+	#1016
+select -k net 'openRowB3<12>'
+	#1017
+unselect net 'openRowB3<12>'
+	#1018
+select -k net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#1019
+unselect net 'openRowB3[12]_ADDR_ROW_IN[12]_not_equal_29_o'
+	#1020
+select -k net 'PWR_ON'
+	#1021
+unselect net 'PWR_ON'
+	#1022
+select -k net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#1023
+unselect net 'PWR_ON_CLK_LOCKED_AND_10_o'
+	#1024
+select -k net 'READ_IBUF'
+	#1025
+unselect net 'READ_IBUF'
+	#1026
+select -k net 'Reset_OR_DriverANDClockEnable'
+	#1027
+unselect net 'Reset_OR_DriverANDClockEnable'
+	#1028
+select -k net 'Result<4>1'
+	#1029
+unselect net 'Result<4>1'
+	#1030
+select -k net 're_count<0>'
+	#1031
+unselect net 're_count<0>'
+	#1032
+select -k net 're_count<1>'
+	#1033
+unselect net 're_count<1>'
+	#1034
+select -k net 're_count<2>'
+	#1035
+unselect net 're_count<2>'
+	#1036
+select -k net 're_count<3>'
+	#1037
+unselect net 're_count<3>'
+	#1038
+select -k net 'RE_DQS_OBUF'
+	#1039
+unselect net 'RE_DQS_OBUF'
+	#1040
+select -k net 'STATUS<0>'
+	#1041
+unselect net 'STATUS<0>'
+	#1042
+select -k net 'STATUS<1>'
+	#1043
+unselect net 'STATUS<1>'
+	#1044
+select -k net 'STATUS<2>'
+	#1045
+unselect net 'STATUS<2>'
+	#1046
+select -k net 'STATUS[2]_BUSY_AND_11_o'
+	#1047
+unselect net 'STATUS[2]_BUSY_AND_11_o'
+	#1048
+select -k net 'STATUS[2]_BUSY_AND_12_o'
+	#1049
+unselect net 'STATUS[2]_BUSY_AND_12_o'
+	#1050
+select -k net 'STATUS[2]_GND_1_o_equal_4_o'
+	#1051
+unselect net 'STATUS[2]_GND_1_o_equal_4_o'
+	#1052
+select -k net 'STATUS[2]_GND_1_o_equal_4_o_inv'
+	#1053
+unselect net 'STATUS[2]_GND_1_o_equal_4_o_inv'
+	#1054
+select -k net 'STATUS[2]_GND_1_o_equal_119_o'
+	#1055
+unselect net 'STATUS[2]_GND_1_o_equal_119_o'
+	#1056
+select -k net 'STATUS[2]_STATUS[2]_mux_78_OUT<0>'
+	#1057
+unselect net 'STATUS[2]_STATUS[2]_mux_78_OUT<0>'
+	#1058
+select -k net 'STATUS_0_1'
+	#1059
+unselect net 'STATUS_0_1'
+	#1060
+select -k net 'STATUS_0_2'
+	#1061
+unselect net 'STATUS_0_2'
+	#1062
+select -k net 'STATUS_1_1'
+	#1063
+unselect net 'STATUS_1_1'
+	#1064
+select -k net 'STATUS_2_1'
+	#1065
+unselect net 'STATUS_2_1'
+	#1066
+select -k net 'WRITE_IBUF'
+	#1067
+unselect net 'WRITE_IBUF'
+	#1068
+select -k net 'WRITE_LENGTH_0_IBUF'
+	#1069
+unselect net 'WRITE_LENGTH_0_IBUF'
+	#1070
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1071
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1072
+select -k net 'WR_CLK_333M'
+	#1073
+unselect net 'WR_CLK_333M'
+	#1074
+select -k net 'wr_count<0>'
+	#1075
+unselect net 'wr_count<0>'
+	#1076
+select -k net 'wr_count<1>'
+	#1077
+unselect net 'wr_count<1>'
+	#1078
+select -k net 'wr_count<2>'
+	#1079
+unselect net 'wr_count<2>'
+	#1080
+select -k net 'wr_count<3>'
+	#1081
+unselect net 'wr_count<3>'
+	#1082
+select -k net 'wr_count<2>'
+	#1083
+unselect net 'wr_count<2>'
+	#1084
+select -k net 'wr_count<1>'
+	#1085
+unselect net 'wr_count<1>'
+	#1086
+select -k net 'wr_count<0>'
+	#1087
+unselect net 'wr_count<0>'
+	#1088
+select -k net 'WR_CLK_333M'
+	#1089
+unselect net 'WR_CLK_333M'
+	#1090
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1091
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1092
+select -k net 'WR_CLK_333M'
+	#1093
+setattr main disable_draw on
+	#1094
+setattr layer sites view on
+	#1095
+setattr main disable_draw off
+	#1096
+setattr main disable_draw on
+	#1097
+setattr layer sites view off
+	#1098
+setattr main disable_draw off
+	#1099
+setattr main disable_draw on
+	#1100
+setattr layer switch_boxes view on
+	#1101
+setattr main disable_draw off
+	#1102
+setattr main disable_draw on
+	#1103
+setattr layer components view on
+	#1104
+setattr main disable_draw off
+	#1105
+setattr main disable_draw on
+	#1106
+setattr layer switch_boxes view off
+	#1107
+setattr main disable_draw off
+	#1108
+setattr main disable_draw on
+	#1109
+setattr layer switch_boxes view on
+	#1110
+setattr main disable_draw off
+	#1111
+unselect net 'WR_CLK_333M'
+	#1112
+select -k net 'wr_count<0>'
+	#1113
+unselect net 'wr_count<0>'
+	#1114
+select -k net 'wr_count<1>'
+	#1115
+unselect net 'wr_count<1>'
+	#1116
+select -k net 'wr_count<2>'
+	#1117
+unselect net 'wr_count<2>'
+	#1118
+select -k net 'wr_count<3>'
+	#1119
+unselect net 'wr_count<3>'
+	#1120
+select -k net 'wr_count<4>'
+	#1121
+unselect net 'wr_count<4>'
+	#1122
+select -k net 'WR_DQS_OBUF'
+	#1123
+unselect net 'WR_DQS_OBUF'
+	#1124
+select -k net '_n0362'
+	#1125
+unselect net '_n0362'
+	#1126
+select -k net '_n0375'
+	#1127
+unselect net '_n0375'
+	#1128
+select -k net '_n0380'
+	#1129
+unselect net '_n0380'
+	#1130
+select -k net '_n0387'
+	#1131
+unselect net '_n0387'
+	#1132
+select -k net '_n0394'
+	#1133
+unselect net '_n0394'
+	#1134
+select -k net '_n0401'
+	#1135
+unselect net '_n0401'
+	#1136
+select -k net '_n0408'
+	#1137
+unselect net '_n0408'
+	#1138
+select -k net '_n0429_inv'
+	#1139
+unselect net '_n0429_inv'
+	#1140
+select -k net '_n0450_inv'
+	#1141
+unselect net '_n0450_inv'
+	#1142
+select -k net '_n0450_inv2'
+	#1143
+unselect net '_n0450_inv2'
+	#1144
+select -k net '_n0466_inv'
+	#1145
+unselect net '_n0466_inv'
+	#1146
+select -k net '_n0478_inv'
+	#1147
+unselect net '_n0478_inv'
+	#1148
+select -k net '_n0490_inv'
+	#1149
+unselect net '_n0490_inv'
+	#1150
+select -k net '_n0502_inv'
+	#1151
+unselect net '_n0502_inv'
+	#1152
+select -k net '_n04121'
+	#1153
+unselect net '_n04121'
+	#1154
+select -k net '_n04122'
+	#1155
+unselect net '_n04122'
+	#1156
+select -k net '_n04123'
+	#1157
+unselect net '_n04123'
+	#1158
+select -k net '_n04124'
+	#1159
+unselect net '_n04124'
+	#1160
+select -k net '_n04125'
+	#1161
+unselect net '_n04125'
+	#1162
+select -k net '_n04126'
+	#1163
+unselect net '_n04126'
+	#1164
+select -k net '_n04127'
+	#1165
+unselect net '_n04127'
+	#1166
+select -k net '_n04126'
+	#1167
+unselect net '_n04126'
+	#1168
+select -k net '_n04125'
+	#1169
+unselect net '_n04125'
+	#1170
+select -k net '_n04124'
+	#1171
+unselect net '_n04124'
+	#1172
+select -k net '_n04123'
+	#1173
+unselect net '_n04123'
+	#1174
+select -k net '_n04122'
+	#1175
+unselect net '_n04122'
+	#1176
+select -k net '_n04121'
+	#1177
+unselect net '_n04121'
+	#1178
+select -k net '_n0502_inv'
+	#1179
+unselect net '_n0502_inv'
+	#1180
+select -k net '_n0490_inv'
+	#1181
+unselect net '_n0490_inv'
+	#1182
+select -k net '_n0478_inv'
+	#1183
+unselect net '_n0478_inv'
+	#1184
+select -k net '_n0466_inv'
+	#1185
+unselect net '_n0466_inv'
+	#1186
+select -k net '_n0450_inv2'
+	#1187
+unselect net '_n0450_inv2'
+	#1188
+select -k net '_n0450_inv'
+	#1189
+unselect net '_n0450_inv'
+	#1190
+select -k net '_n0429_inv'
+	#1191
+unselect net '_n0429_inv'
+	#1192
+select -k net '_n0408'
+	#1193
+unselect net '_n0408'
+	#1194
+select -k net '_n0401'
+	#1195
+unselect net '_n0401'
+	#1196
+select -k net '_n0394'
+	#1197
+unselect net '_n0394'
+	#1198
+select -k net '_n0387'
+	#1199
+unselect net '_n0387'
+	#1200
+select -k net '_n0380'
+	#1201
+unselect net '_n0380'
+	#1202
+select -k net '_n0375'
+	#1203
+unselect net '_n0375'
+	#1204
+select -k net '_n0362'
+	#1205
+unselect net '_n0362'
+	#1206
+select -k net 'WR_DQS_OBUF'
+	#1207
+unselect net 'WR_DQS_OBUF'
+	#1208
+select -k net 'wr_count<4>'
+	#1209
+unselect net 'wr_count<4>'
+	#1210
+select -k net 'wr_count<3>'
+	#1211
+unselect net 'wr_count<3>'
+	#1212
+select -k net 'wr_count<2>'
+	#1213
+unselect net 'wr_count<2>'
+	#1214
+select -k net 'wr_count<1>'
+	#1215
+unselect net 'wr_count<1>'
+	#1216
+select -k net 'wr_count<0>'
+	#1217
+unselect net 'wr_count<0>'
+	#1218
+select -k net 'WR_CLK_333M'
+	#1219
+unselect net 'WR_CLK_333M'
+	#1220
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1221
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1222
+select -k net 'WRITE_LENGTH_0_IBUF'
+	#1223
+unselect net 'WRITE_LENGTH_0_IBUF'
+	#1224
+select -k net 'WRITE_IBUF'
+	#1225
+unselect net 'WRITE_IBUF'
+	#1226
+select -k net 'STATUS_2_1'
+	#1227
+unselect net 'STATUS_2_1'
+	#1228
+select -k net 'STATUS_1_1'
+	#1229
+unselect net 'STATUS_1_1'
+	#1230
+select -k net 'STATUS_2_1'
+	#1231
+unselect net 'STATUS_2_1'
+	#1232
+select -k net 'WRITE_IBUF'
+	#1233
+unselect net 'WRITE_IBUF'
+	#1234
+select -k net 'WRITE_LENGTH_0_IBUF'
+	#1235
+unselect net 'WRITE_LENGTH_0_IBUF'
+	#1236
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1237
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1238
+select -k net 'WR_CLK_333M'
+	#1239
+unselect net 'WR_CLK_333M'
+	#1240
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1241
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1242
+select -k net 'WR_CLK_333M'
+	#1243
+unselect net 'WR_CLK_333M'
+	#1244
+select -k net 'WRITE_LENGTH_2_IBUF'
+	#1245
+unselect net 'WRITE_LENGTH_2_IBUF'
+	#1246
+select -k net 'WR_CLK_333M'
+	#1247
+setattr main disable_draw on
+	#1248
+setattr layer ratsnests view off
+	#1249
+setattr main disable_draw off
+	#1250
+setattr main disable_draw on
+	#1251
+setattr layer routes view off
+	#1252
+setattr main disable_draw off
+	#1253
+unselect -all
+	#1254
+select net 'ddr_clocks/clkfbout_buf'
+	#net "ddr_clocks/clkfbout_buf"
+	#1255
+unselect -all
+	#1256
+select net 'ddr_clocks/clkfbout_buf'
+	#net "ddr_clocks/clkfbout_buf"
+	#1257
+post block
+	#ERROR:FPGAEditor:79 - The "post block" command without any other arguments cannot
+	#be performed unless the selection contains only a single site
+	#or single component.  Change the selection and try again.
+	#1258
+unselect -all
+	#1259
+select comp 'ddr_clocks/clkout2_buf'
+	#comp "ddr_clocks/clkout2_buf",  site "BUFGMUX_X3Y13",  type = BUFG  (RPM grid X45Y123)
+	#1260
+unselect -all
+	#1261
+select comp 'ddr_clocks/clkout1_buf'
+	#comp "ddr_clocks/clkout1_buf",  site "BUFGMUX_X3Y8",  type = BUFG  (RPM grid X45Y128)
+	#1262
+unselect -all
+	#1263
+select wire 'GLOBAL(5363,529)'
+	#node = GLOBAL(5363,529)
+	#1264
+unselect -all
+	#1265
+select -k net 'wr_count<0>'
+	#1266
+unselect net 'wr_count<0>'
+	#1267
+select -k net 'WR_CLK_333M'

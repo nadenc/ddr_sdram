@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+ddr_hw_test instance_name (
+    .SYS_CLK_100M(SYS_CLK_100M), 
+    .DPSwitch(DPSwitch), 
+    .Switch(Switch), 
+    .LED(LED)
+    );
+
+

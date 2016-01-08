@@ -12,10 +12,10 @@
 
 CONFIG VCCAUX = "3.3" ;
 
-   #NET "CLK_100M"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 100MHz ;
+   NET "SYS_CLK_100M"                  LOC = V10     | IOSTANDARD = LVCMOS33 | PERIOD = 100MHz ;
    #NET "CLK_12MHz"                   LOC = D9      | IOSTANDARD = LVCMOS33 | PERIOD = 12MHz ;
 	
-	#PIN "ddr_clocks/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+	PIN "ddr_clocks/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
    
 ###################################################################################################################################################
 #                                                 UART Interface                                                                                  #
@@ -171,6 +171,54 @@ CONFIG VCCAUX = "3.3" ;
     #NET "IO_P9[2]"                 LOC = K16      | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #Pin 6
     #NET "IO_P9[1]"                 LOC = L15      | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #Pin 7
     #NET "IO_P9[0]"                 LOC = L16      | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST ; #Pin 8
-     
-
-                 
+ 
+ 
+###################################################################################################################################################
+#                                                 LPDDR MT46H32M16XXXX-5                                                                          #
+################################################################################################################################################### 
+    #NET  "calib_done"                LOC = P15     | IOSTANDARD = LVCMOS33;
+    #NET  "error"                     LOC = P16     | IOSTANDARD = LVCMOS33;
+    #NET  "c3_sys_rst_n"              LOC = L15     | IOSTANDARD = LVCMOS33 | PULLDOWN;    # Pin 7 of Header P9
+   
+    NET  "ADDR_RAM[0]"            LOC = J7      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[10]"           LOC = F4      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[11]"           LOC = D3      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[12]"           LOC = G6      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[1]"            LOC = J6      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[2]"            LOC = H5      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[3]"            LOC = L7      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[4]"            LOC = F3      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[5]"            LOC = H4      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[6]"            LOC = H3      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[7]"            LOC = H6      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[8]"            LOC = D2      | IOSTANDARD = MOBILE_DDR;
+    NET  "ADDR_RAM[9]"            LOC = D1      | IOSTANDARD = MOBILE_DDR;
+    NET  "BA[0]"      	     	LOC = F2      | IOSTANDARD = MOBILE_DDR;
+    NET  "BA[1]"        	   LOC = F1      | IOSTANDARD = MOBILE_DDR;
+    NET  "CAS"           		LOC = K5      | IOSTANDARD = MOBILE_DDR;
+    NET  "CLK_P"              LOC = G3      | IOSTANDARD = DIFF_MOBILE_DDR;
+    NET  "CLK_N"            	LOC = G1      | IOSTANDARD = DIFF_MOBILE_DDR;
+    NET  "CKE"             	LOC = H7      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[0]"           	LOC = L2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[10]"        	LOC = N2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[11]"          	LOC = N1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[12]"          	LOC = T2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[13]"          	LOC = T1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[14]"          	LOC = U2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[15]"          	LOC = U1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[1]"           	LOC = L1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[2]"           	LOC = K2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[3]"           	LOC = K1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[4]"           	LOC = H2      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[5]"           	LOC = H1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[6]"           	LOC = J3      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[7]"           	LOC = J1      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[8]"           	LOC = M3      | IOSTANDARD = MOBILE_DDR;
+    NET  "DATA_RAM[9]"           	LOC = M1      | IOSTANDARD = MOBILE_DDR;
+    NET  "RAS"           		LOC = L5      | IOSTANDARD = MOBILE_DDR;
+    NET  "DM[1]"             	LOC = K4      | IOSTANDARD = MOBILE_DDR; // UDM
+    NET  "DM[0]"       			LOC = K3      | IOSTANDARD = MOBILE_DDR; // LDP
+    NET  "DQS[1]"            	LOC = P2      | IOSTANDARD = MOBILE_DDR; // UDQS
+    NET  "DQS[0]"             	LOC = L4      | IOSTANDARD = MOBILE_DDR; // LDQS
+    NET  "CAS"            		LOC = E3      | IOSTANDARD = MOBILE_DDR;
+    #NET  "mcb3_rzq"                  LOC = N4      | IOSTANDARD = MOBILE_DDR;

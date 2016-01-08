@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-CPN::  Sat Dec 26 17:09:20 2015
+CPN::  Tue Dec 29 12:49:38 2015
 
 par -w -intstyle ise -ol high -mt off ddr_sdram_map.ncd ddr_sdram.ncd
 ddr_sdram.pcf 
@@ -22,26 +22,30 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    94 out of  11,440    1%
-    Number used as Flip Flops:                  94
+  Number of Slice Registers:                   113 out of  11,440    1%
+    Number used as Flip Flops:                 113
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        162 out of   5,720    2%
-    Number used as logic:                      162 out of   5,720    2%
-      Number using O6 output only:             146
-      Number using O5 output only:               0
-      Number using O5 and O6:                   16
+  Number of Slice LUTs:                        132 out of   5,720    2%
+    Number used as logic:                      124 out of   5,720    2%
+      Number using O6 output only:              79
+      Number using O5 output only:              15
+      Number using O5 and O6:                   30
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
+    Number used exclusively as route-thrus:      8
+      Number with same-slice register load:      7
+      Number with same-slice carry load:         1
+      Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    60 out of   1,430    4%
-  Number of MUXCYs used:                        32 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:          164
-    Number with an unused Flip Flop:            75 out of     164   45%
-    Number with an unused LUT:                   2 out of     164    1%
-    Number of fully used LUT-FF pairs:          87 out of     164   53%
+  Number of occupied Slices:                    65 out of   1,430    4%
+  Number of MUXCYs used:                        52 out of   2,860    1%
+  Number of LUT Flip Flop pairs used:          165
+    Number with an unused Flip Flop:            64 out of     165   38%
+    Number with an unused LUT:                  33 out of     165   20%
+    Number of fully used LUT-FF pairs:          68 out of     165   41%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -52,8 +56,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        91 out of     200   45%
-    Number of LOCed IOBs:                       41 out of      91   45%
+  Number of bonded IOBs:                        92 out of     200   46%
+    Number of LOCed IOBs:                       41 out of      92   44%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -94,31 +98,29 @@ Finished initial Timing Analysis.  REAL time: 4 secs
 Starting Router
 
 
-Phase  1  : 958 unrouted;      REAL time: 4 secs 
+Phase  1  : 872 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 870 unrouted;      REAL time: 4 secs 
+Phase  2  : 768 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 307 unrouted;      REAL time: 5 secs 
+Phase  3  : 238 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 339 unrouted; (Setup:72516, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
-
-Updating file: ddr_sdram.ncd with current fully routed design.
-
-Phase  5  : 0 unrouted; (Setup:98517, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
-
-Phase  6  : 0 unrouted; (Setup:90256, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+Phase  4  : 237 unrouted; (Setup:51, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: ddr_sdram.ncd with current fully routed design.
 
-Phase  7  : 0 unrouted; (Setup:90256, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
+Phase  5  : 0 unrouted; (Setup:51, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Setup:90256, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
+Phase  6  : 0 unrouted; (Setup:51, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Setup:90256, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase 10  : 0 unrouted; (Setup:23464, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
-Total REAL time to Router completion: 11 secs 
-Total CPU time to Router completion: 11 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Total REAL time to Router completion: 7 secs 
+Total CPU time to Router completion: 7 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -136,7 +138,9 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|         WR_CLK_333M | BUFGMUX_X3Y13| No   |   41 |  0.100     |  1.179      |
+|         WR_CLK_333M | BUFGMUX_X3Y13| No   |   41 |  0.073     |  1.141      |
++---------------------+--------------+------+------+------------+-------------+
+|                 N30 |         Local|      |    2 |  0.163     |  3.189      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -147,23 +151,7 @@ the minimum and maximum path delays which includes logic delays.
 * The fanout is the number of component pins not the individual BEL loads,
 for example SLICE loads not FF loads.
 
-Timing Score: 23464 (Setup: 23464, Hold: 0, Component Switching Limit: 0)
-
-WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
-
-   Review the timing report using Timing Analyzer (In ISE select "Post-Place &
-   Route Static Timing Report"). Go to the failing constraint(s) and evaluate the failing paths for each constraint.
-
-   Try the Design Goal and Strategies for Timing Performance(In ISE select Project -> Design Goals & Strategies) to ensure the best options
-   are set in the tools for timing closure.
-
-   Use the Xilinx "SmartXplorer" script to try special combinations of
-   options known to produce very good results.
-
-   Visit the Xilinx technical support web at http://support.xilinx.com and go to
-   either "Troubleshoot->Tech Tips->Timing & Constraints" or "
-   TechXclusives->Timing Closure" for tips and suggestions for meeting timing
-   in your design.
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
 
 Number of Timing Constraints that were not applied: 1
 
@@ -174,8 +162,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* PERIOD analysis for net "ddr_clocks/clkou | SETUP       |    -1.368ns|     4.368ns|      81|       23464
-  t1" derived from  NET "ddr_clocks/clkin1" | HOLD        |     0.412ns|            |       0|           0
+  PERIOD analysis for net "ddr_clocks/clkou | SETUP       |     0.450ns|     6.197ns|       0|           0
+  t1" derived from  NET "ddr_clocks/clkin1" | HOLD        |     0.438ns|            |       0|           0
    PERIOD = 10 ns HIGH 50%                  |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
   NET "ddr_clocks/clkin1" PERIOD = 10 ns HI | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
@@ -193,28 +181,28 @@ Derived Constraints for ddr_clocks/clkin1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|ddr_clocks/clkin1              |     10.000ns|      3.334ns|     14.560ns|            0|           81|            0|         2210|
-| ddr_clocks/clkout1            |      3.000ns|      4.368ns|          N/A|           81|            0|         2210|            0|
+|ddr_clocks/clkin1              |     10.000ns|      3.334ns|      9.296ns|            0|            0|            0|         2393|
+| ddr_clocks/clkout1            |      6.667ns|      6.197ns|          N/A|            0|            0|         2393|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
-1 constraint not met.
+All constraints were met.
 
 
 Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 11 secs 
-Total CPU time to PAR completion: 11 secs 
+Total REAL time to PAR completion: 8 secs 
+Total CPU time to PAR completion: 8 secs 
 
 Peak Memory Usage:  416 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
-Timing: Completed - 81 errors found.
+Timing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 1
+Number of warning messages: 0
 Number of info messages: 0
 
 Writing design to file ddr_sdram.ncd

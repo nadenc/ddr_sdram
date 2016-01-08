@@ -1,0 +1,29 @@
+
+
+
+// Instantiate the module
+ddr_sdram instance_name (
+    .SYS_CLK_100M(SYS_CLK_100M), 
+    .CLK_P(CLK_P), 
+    .CLK_N(CLK_N), 
+    .CKE(CKE), 
+    .WE(WE), 
+    .CAS(CAS), 
+    .RAS(RAS), 
+    .BA(BA), 
+    .DM(DM), 
+    .DQS(DQS), 
+    .DATA_RAM(DATA_RAM), 
+    .ADDR_RAM(ADDR_RAM), 
+    .BA_IN(BA_IN), 
+    .DATA_IN(DATA_IN), 
+    .ADDR_ROW_IN(ADDR_ROW_IN), 
+    .ADDR_COL_IN(ADDR_COL_IN), 
+    .EXT_DQS(EXT_DQS), 
+    .WRITE(WRITE), 
+    .READ(READ), 
+    .WRITE_LENGTH(WRITE_LENGTH), 
+    .BUSY(BUSY)
+    );
+
+

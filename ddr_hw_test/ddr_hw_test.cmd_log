@@ -56,3 +56,121 @@ xst -intstyle ise -ifn "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/P
 ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc D:/Projects/FPGA/ddr_sdram/ddr_sdram.ucf -p xc6slx9-csg324-3 ddr_hw_test.ngc ddr_hw_test.ngd  
 xst -intstyle ise -ifn "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.syr" 
 xst -intstyle ise -ifn "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Projects/FPGA/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -uc "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_sdram.ucf" -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+vhdtdtfi -lang verilog -prj ddr_hw_test -o "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.tfi" -lib work "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test//ddr_hw_test.v" -module ddr_hw_test -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  
+xst -intstyle ise -ifn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.xst" -ofn "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_hw_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ddr_hw_test.ucf -p xc6slx9-csg324-3 "ddr_hw_test.ngc" ddr_hw_test.ngd  

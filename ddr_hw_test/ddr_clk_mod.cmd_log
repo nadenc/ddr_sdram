@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj ddr_hw_test -o "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_clk_mod.tfi" -lib work "D:/Google Drive/Projects/FPGA/ddr_sdram/ipcore_dir//ddr_clk_mod.v" -module ddr_clk_mod -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

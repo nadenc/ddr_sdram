@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+ddr_clk_mod instance_name (
+    .SYS_CLK_100M(SYS_CLK_100M), 
+    .DDR_CLK_166M(DDR_CLK_166M), 
+    .WR_CLK_333M(WR_CLK_333M), 
+    .RESET(RESET), 
+    .LOCKED(LOCKED)
+    );
+
+

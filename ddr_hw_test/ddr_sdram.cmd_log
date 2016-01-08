@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj ddr_hw_test -o "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_sdram.tfi" -lib work "D:/Google Drive/Projects/FPGA/ddr_sdram//ddr_sdram.v" -module ddr_sdram -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj ddr_hw_test -o "D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/ddr_sdram.tfi" -lib work "D:/Google Drive/Projects/FPGA/ddr_sdram//ddr_sdram.v" -module ddr_sdram -template D:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-12-26T19:58:50</DateModified>
+  <DateModified>2015-12-28T20:30:27</DateModified>
   <ModuleName>ddr_hw_test</ModuleName>
-  <SummaryTimeStamp>2015-08-25T09:42:23</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-12-27T13:41:35</SummaryTimeStamp>
   <SavedFilePath>D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test/iseconfig/ddr_hw_test.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/Google Drive/Projects/FPGA/ddr_sdram/ddr_hw_test\</ImplementationReportsDirectory>
   <DateInitialized>2015-08-20T23:24:10</DateInitialized>

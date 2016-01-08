@@ -2,9 +2,9 @@ Command line:
    DDR_TB_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  61068
+     -socket  49751
 
-Sun Dec 27 00:36:43 2015
+Tue Dec 29 19:42:22 2015
 
 
- Elaboration Time: 0.15625 sec
+ Elaboration Time: 0.203125 sec

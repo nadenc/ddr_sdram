@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Tue Dec 29 12:10:24 2015
+# Process ID: 8720
+# Log file: D:/Google Drive/Projects/FPGA/ddr_sdram/planAhead_run_3/planAhead.log
+# Journal file: D:/Google Drive/Projects/FPGA/ddr_sdram/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {D:/Google Drive/Projects/FPGA/ddr_sdram/pa.fromNcd.tcl}
